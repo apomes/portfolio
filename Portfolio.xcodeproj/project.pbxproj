@@ -15,6 +15,7 @@
 		EAE42E781C93AD580027DB84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAE42E761C93AD580027DB84 /* LaunchScreen.storyboard */; };
 		EAE42E831C93AD580027DB84 /* PortfolioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE42E821C93AD580027DB84 /* PortfolioTests.swift */; };
 		EAE42E8E1C93AD580027DB84 /* PortfolioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE42E8D1C93AD580027DB84 /* PortfolioUITests.swift */; };
+		EAE42E9C1C93B6F70027DB84 /* Poloniex.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE42E9B1C93B6F70027DB84 /* Poloniex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		EAE42E891C93AD580027DB84 /* PortfolioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PortfolioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE42E8D1C93AD580027DB84 /* PortfolioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioUITests.swift; sourceTree = "<group>"; };
 		EAE42E8F1C93AD580027DB84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAE42E9B1C93B6F70027DB84 /* Poloniex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Poloniex.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			children = (
 				EAE42E6B1C93AD580027DB84 /* AppDelegate.swift */,
 				EAE42E6D1C93AD580027DB84 /* FirstViewController.swift */,
+				EAE42E9D1C93B70D0027DB84 /* Wrappers */,
 				EAE42E6F1C93AD580027DB84 /* SecondViewController.swift */,
 				EAE42E711C93AD580027DB84 /* Main.storyboard */,
 				EAE42E741C93AD580027DB84 /* Assets.xcassets */,
@@ -126,6 +129,14 @@
 				EAE42E8F1C93AD580027DB84 /* Info.plist */,
 			);
 			path = PortfolioUITests;
+			sourceTree = "<group>";
+		};
+		EAE42E9D1C93B70D0027DB84 /* Wrappers */ = {
+			isa = PBXGroup;
+			children = (
+				EAE42E9B1C93B6F70027DB84 /* Poloniex.swift */,
+			);
+			name = Wrappers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,6 +273,7 @@
 				EAE42E701C93AD580027DB84 /* SecondViewController.swift in Sources */,
 				EAE42E6C1C93AD580027DB84 /* AppDelegate.swift in Sources */,
 				EAE42E6E1C93AD580027DB84 /* FirstViewController.swift in Sources */,
+				EAE42E9C1C93B6F70027DB84 /* Poloniex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
