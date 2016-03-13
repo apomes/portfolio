@@ -23,7 +23,9 @@ class FirstViewController: UIViewController {
             updateTickerModel()
         }
     }
-
+    
+    
+    @IBOutlet weak var LastValue: UILabel!
     
     
     override func viewDidLoad() {
@@ -56,6 +58,12 @@ class FirstViewController: UIViewController {
     func updateTickerModel() {
         let factom = poloniexTicker["BTC_FCT"]!
         print("Last value is \((factom["last"]!)!)")
+        
+        
+        dispatch_async(dispatch_get_main_queue(), {
+            self.LastValue.text = "\((factom["last"]!)!)"
+        })
+        
         //print(poloniexTicker)
     }
 

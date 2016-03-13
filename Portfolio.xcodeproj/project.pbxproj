@@ -16,6 +16,7 @@
 		EAE42E831C93AD580027DB84 /* PortfolioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE42E821C93AD580027DB84 /* PortfolioTests.swift */; };
 		EAE42E8E1C93AD580027DB84 /* PortfolioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE42E8D1C93AD580027DB84 /* PortfolioUITests.swift */; };
 		EAE42E9C1C93B6F70027DB84 /* Poloniex.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE42E9B1C93B6F70027DB84 /* Poloniex.swift */; };
+		EAE42EA51C953D140027DB84 /* UIAssetsScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE42EA41C953D140027DB84 /* UIAssetsScrollView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		EAE42E8D1C93AD580027DB84 /* PortfolioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioUITests.swift; sourceTree = "<group>"; };
 		EAE42E8F1C93AD580027DB84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EAE42E9B1C93B6F70027DB84 /* Poloniex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Poloniex.swift; sourceTree = "<group>"; };
+		EAE42EA41C953D140027DB84 /* UIAssetsScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAssetsScrollView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			children = (
 				EAE42E6B1C93AD580027DB84 /* AppDelegate.swift */,
 				EAE42E6D1C93AD580027DB84 /* FirstViewController.swift */,
+				EAE42EA41C953D140027DB84 /* UIAssetsScrollView.swift */,
 				EAE42E6F1C93AD580027DB84 /* SecondViewController.swift */,
 				EAE42E9D1C93B70D0027DB84 /* Wrappers */,
 				EAE42E711C93AD580027DB84 /* Main.storyboard */,
@@ -207,6 +210,7 @@
 				TargetAttributes = {
 					EAE42E671C93AD580027DB84 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = BAB37UV7Q9;
 					};
 					EAE42E7D1C93AD580027DB84 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -271,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAE42E701C93AD580027DB84 /* SecondViewController.swift in Sources */,
+				EAE42EA51C953D140027DB84 /* UIAssetsScrollView.swift in Sources */,
 				EAE42E6C1C93AD580027DB84 /* AppDelegate.swift in Sources */,
 				EAE42E6E1C93AD580027DB84 /* FirstViewController.swift in Sources */,
 				EAE42E9C1C93B6F70027DB84 /* Poloniex.swift in Sources */,
@@ -413,10 +418,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Portfolio/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kobiuter.Portfolio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -424,10 +432,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Portfolio/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kobiuter.Portfolio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
