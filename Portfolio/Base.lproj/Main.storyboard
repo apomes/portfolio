@@ -62,6 +62,9 @@
                                     <constraint firstItem="Qx8-dR-UR7" firstAttribute="centerX" secondItem="488-I0-1OH" secondAttribute="centerX" id="mro-Vf-NRq"/>
                                     <constraint firstAttribute="bottom" secondItem="Qx8-dR-UR7" secondAttribute="bottom" id="nLB-fS-MVI"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="9pv-A4-QxB" id="fop-bC-QW7"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

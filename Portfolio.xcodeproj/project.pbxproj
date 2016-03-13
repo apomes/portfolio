@@ -509,6 +509,7 @@
 				EAE42E941C93AD580027DB84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EAE42E951C93AD580027DB84 /* Build configuration list for PBXNativeTarget "PortfolioTests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +518,7 @@
 				EAE42E971C93AD580027DB84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EAE42E981C93AD580027DB84 /* Build configuration list for PBXNativeTarget "PortfolioUITests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +527,7 @@
 				EAE42E9A1C93AD580027DB84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

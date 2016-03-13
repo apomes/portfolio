@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UIAssetsScrollView: UIScrollView, UIScrollViewDelegate {
+class UIAssetsScrollView: UIScrollView {
     
     /*
     // Only override drawRect: if you perform custom drawing.
@@ -18,13 +18,7 @@ class UIAssetsScrollView: UIScrollView, UIScrollViewDelegate {
     }
     */
     
-    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        print("did end dragging")
-    }
     
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        print("didScroll")
-    }
     
 }
 
