@@ -31,34 +31,56 @@ class Poloniex {
     
     
     
+    func returnTicker(callback: ([String: AnyObject], String?) -> Void) {
+        self.api_query("returnTicker", req: nil) {
+            (data, error) -> Void in
+            if error != nil {
+                callback([:], error)
+            } else {
+                // Convert string to json
+                let jsonData = self.convertStringToJSON(data)
+                
+                callback(jsonData, nil)
+            }
+        }
+    }
     
     
-    private func api_query(command: String, req: [String: String]?) {
+    
+    private func api_query(command: String, req: [String: String]?, callback: (String, String?) -> Void) {
         if command == "returnTicker" || command == "return24hVolume" {
-            executeHttpRequest("https://poloniex.com/public?command=" + command)
+            executeHttpRequest("https://poloniex.com/public?command=" + command) {
+                (data, error) -> Void in
+                if error != nil {
+                    callback("", error)
+                } else {
+                    callback(data, nil)
+                }
+            }
         }
         else if command == "returnOrderBook" {
             executeHttpRequest("http://poloniex.com/public?command=" + command +
-                "&currencyPair=" + req!["currencyPair"]!)
+                "&currencyPair=" + req!["currencyPair"]!) {
+                (data, error) -> Void in
+                    if error != nil {
+                        callback("", error)
+                    } else {
+                        callback(data, nil)
+                    }
+            }
         }
     }
     
     
     
-    func returnTicker() {
-        self.api_query("returnTicker", req: nil)
-    }
-    
-    
-    
-    private func executeHttpRequest(request: String) {
+    private func executeHttpRequest(request: String, callback: (String, String?) -> Void) {
         let request = NSMutableURLRequest(URL: NSURL(string: request)!)
-        httpGet(request){
+        httpGet(request) {
             (data, error) -> Void in
             if error != nil {
-                print(error)
+                callback("", error)
             } else {
-                print(data)
+                callback(data, nil)
             }
         }
     }
@@ -78,6 +100,19 @@ class Poloniex {
             }
         }
         task.resume()
+    }
+    
+    
+    
+    private func convertStringToJSON (jsonString: String) -> [String: AnyObject] {
+        let jsondata: NSData = jsonString.dataUsingEncoding(NSUTF8StringEncoding)!
+        var json: [String: AnyObject] = [:]
+        do {
+            json = try NSJSONSerialization.JSONObjectWithData(jsondata, options: NSJSONReadingOptions()) as! [String: AnyObject]
+        } catch {
+            print(error)
+        }
+        return json
     }
     
 }
