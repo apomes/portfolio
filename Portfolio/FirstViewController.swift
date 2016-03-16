@@ -27,7 +27,12 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
     }
     
     
-    @IBOutlet weak var LastValue: UILabel!
+    @IBOutlet weak var LastValueDASH: UILabel!
+    @IBOutlet weak var SavingsDASH: UILabel!
+    @IBOutlet weak var LastValueFCT: UILabel!
+    @IBOutlet weak var SavingsFCT: UILabel!
+    @IBOutlet weak var LastValueETH: UILabel!
+    @IBOutlet weak var SavingsETH: UILabel!
     
     
     override func viewDidLoad() {
@@ -64,12 +69,39 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
     
     
     func updateTickerModel() {
-        let factom = poloniexTicker["BTC_FCT"]!
-        print("Last value is \((factom["last"]!)!)")
+        // Set up number formatter with significant digits
+        let formatter: NSNumberFormatter = NSNumberFormatter()
+        formatter.locale = NSLocale.currentLocale()
+        formatter.allowsFloats = true
+        formatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        
+        // Makes formatter use maximumSignificantDigits
+        formatter.usesSignificantDigits = true
+        formatter.minimumSignificantDigits = 2
+        formatter.maximumSignificantDigits = 3
         
         
+        let factomTicker = poloniexTicker["BTC_FCT"]!
+        let dashTicker = poloniexTicker["BTC_DASH"]!
+        let ethTicker = poloniexTicker["BTC_ETH"]!
+        let btcPrice: Float = Float(poloniexTicker["USDT_BTC"]!["last"]! as! String)!
+        let ethPrice: Float = Float(poloniexTicker["USDT_ETH"]!["last"]! as! String)!
+        
+        print("1 BTC = $\(btcPrice)")
+        
+        // TODO: implement proper update of fields using SetNeedsDisplay and so on
         dispatch_async(dispatch_get_main_queue(), {
-            self.LastValue.text = "\((factom["last"]!)!)"
+            let lastFCT: Float = Float((factomTicker["last"]!)! as! String)!
+            self.LastValueFCT.text = formatter.stringFromNumber(lastFCT)
+            self.SavingsFCT.text = "\(lastFCT * 200.0 * btcPrice)"
+            
+            let lastDASH: Float = Float((dashTicker["last"]!)! as! String)!
+            self.LastValueDASH.text = formatter.stringFromNumber(lastDASH)
+            self.SavingsDASH.text = "\(lastDASH * 101 * btcPrice)"
+            
+            let lastETH: Float = Float((ethTicker["last"]!)! as! String)!
+            self.LastValueETH.text = formatter.stringFromNumber(lastETH)
+            self.SavingsETH.text = "$\(formatter.stringFromNumber(ethPrice)!)"
         })
         
         //print(poloniexTicker)

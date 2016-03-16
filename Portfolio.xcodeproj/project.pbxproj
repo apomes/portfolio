@@ -108,8 +108,8 @@
 				EAE42EA41C953D140027DB84 /* UIAssetsScrollView.swift */,
 				EAE42E6F1C93AD580027DB84 /* SecondViewController.swift */,
 				EAE42E9D1C93B70D0027DB84 /* Wrappers */,
-				EAE42E711C93AD580027DB84 /* Main.storyboard */,
 				EAE42E741C93AD580027DB84 /* Assets.xcassets */,
+				EAE42E711C93AD580027DB84 /* Main.storyboard */,
 				EAE42E761C93AD580027DB84 /* LaunchScreen.storyboard */,
 				EAE42E791C93AD580027DB84 /* Info.plist */,
 			);
