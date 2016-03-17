@@ -26,6 +26,9 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
+    @IBOutlet weak var dashView: UIView!
+    @IBOutlet weak var factomView: UIView!
+    @IBOutlet weak var ethereumView: UIView!
     
     @IBOutlet weak var LastValueDASH: UILabel!
     @IBOutlet weak var SavingsDASH: UILabel!
@@ -43,6 +46,11 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
         poloniexWrapper = Poloniex(withAPIKey: APIKey, withSecret: Secret)
         
         getTickerData()
+        
+        // Init background color for views to black
+        dashView.backgroundColor = UIColor.blackColor()
+        factomView.backgroundColor = UIColor.blackColor()
+        ethereumView.backgroundColor = UIColor.blackColor()
     }
 
     
@@ -91,17 +99,43 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
         
         // TODO: implement proper update of fields using SetNeedsDisplay and so on
         dispatch_async(dispatch_get_main_queue(), {
-            let lastFCT: Float = Float((factomTicker["last"]!)! as! String)!
-            self.LastValueFCT.text = formatter.stringFromNumber(lastFCT)
-            self.SavingsFCT.text = "\(lastFCT * 200.0 * btcPrice)"
-            
             let lastDASH: Float = Float((dashTicker["last"]!)! as! String)!
             self.LastValueDASH.text = formatter.stringFromNumber(lastDASH)
             self.SavingsDASH.text = "\(lastDASH * 101 * btcPrice)"
+            let dashPercentChange: Float = Float(dashTicker["percentChange"] as! String)! * 100
+            let dashColor: CGFloat = sqrt(CGFloat(abs(dashPercentChange/100.0)))
+            if dashPercentChange >= 0 {
+                self.dashView.backgroundColor = UIColor.init(red: 0, green: dashColor, blue: 0, alpha: 1)
+            }
+            else {
+                self.dashView.backgroundColor = UIColor.init(red: dashColor, green: 0, blue: 0, alpha: 1)
+            }
+            
+            
+            let lastFCT: Float = Float((factomTicker["last"]!)! as! String)!
+            self.LastValueFCT.text = formatter.stringFromNumber(lastFCT)
+            self.SavingsFCT.text = "\(lastFCT * 200.0 * btcPrice)"
+            let factomPercentChange: Float = Float(factomTicker["percentChange"] as! String)! * 100
+            let factomColor: CGFloat = sqrt(CGFloat(abs(factomPercentChange/100.0)))
+            if factomPercentChange >= 0 {
+                self.factomView.backgroundColor = UIColor.init(red: 0, green: factomColor, blue: 0, alpha: 1)
+            }
+            else {
+                self.factomView.backgroundColor = UIColor.init(red: factomColor, green: 0, blue: 0, alpha: 1)
+            }
+            
             
             let lastETH: Float = Float((ethTicker["last"]!)! as! String)!
             self.LastValueETH.text = formatter.stringFromNumber(lastETH)
             self.SavingsETH.text = "$\(formatter.stringFromNumber(ethPrice)!)"
+            let ethPercentChange: Float = Float(ethTicker["percentChange"] as! String)! * 100
+            let ethColor: CGFloat = sqrt(CGFloat(abs(ethPercentChange/100.0)))
+            if factomPercentChange >= 0 {
+                self.ethereumView.backgroundColor = UIColor.init(red: 0, green: ethColor, blue: 0, alpha: 1)
+            }
+            else {
+                self.ethereumView.backgroundColor = UIColor.init(red: ethColor, green: 0, blue: 0, alpha: 1)
+            }
         })
         
         //print(poloniexTicker)
