@@ -26,9 +26,13 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
+    
+    @IBOutlet weak var tickersScrollView: UIScrollView!
+    
     @IBOutlet weak var dashView: UIView!
     @IBOutlet weak var factomView: UIView!
     @IBOutlet weak var ethereumView: UIView!
+    @IBOutlet weak var counterpartyView: UIView!
     
     @IBOutlet weak var LastValueDASH: UILabel!
     @IBOutlet weak var SavingsDASH: UILabel!
@@ -92,6 +96,7 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
         let factomTicker = poloniexTicker["BTC_FCT"]!
         let dashTicker = poloniexTicker["BTC_DASH"]!
         let ethTicker = poloniexTicker["BTC_ETH"]!
+        let xcpTicker = poloniexTicker["BTC_XCP"]!
         let btcPrice: Float = Float(poloniexTicker["USDT_BTC"]!["last"]! as! String)!
         let ethPrice: Float = Float(poloniexTicker["USDT_ETH"]!["last"]! as! String)!
         
@@ -130,11 +135,24 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
             self.SavingsETH.text = "$\(formatter.stringFromNumber(ethPrice)!)"
             let ethPercentChange: Float = Float(ethTicker["percentChange"] as! String)! * 100
             let ethColor: CGFloat = sqrt(CGFloat(abs(ethPercentChange/100.0)))
-            if factomPercentChange >= 0 {
+            if ethPercentChange >= 0 {
                 self.ethereumView.backgroundColor = UIColor.init(red: 0, green: ethColor, blue: 0, alpha: 1)
             }
             else {
                 self.ethereumView.backgroundColor = UIColor.init(red: ethColor, green: 0, blue: 0, alpha: 1)
+            }
+            
+            
+            let lastXCP: Float = Float((xcpTicker["last"]!)! as! String)!
+            self.LastValueXCP.text = formatter.stringFromNumber(lastXCP)
+            self.SavingsXCP.text = "$\(lastXCP * 175 * btcPrice)"
+            let xcpPercentChange: Float = Float(xcpTicker["percentChange"] as! String)! * 100
+            let xcpColor: CGFloat = sqrt(CGFloat(abs(xcpPercentChange/100.0)))
+            if xcpPercentChange >= 0 {
+                self.counterpartyView.backgroundColor = UIColor.init(red: 0, green: xcpColor, blue: 0, alpha: 1)
+            }
+            else {
+                self.counterpartyView.backgroundColor = UIColor.init(red: xcpColor, green: 0, blue: 0, alpha: 1)
             }
         })
         
