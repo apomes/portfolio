@@ -40,6 +40,8 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var SavingsFCT: UILabel!
     @IBOutlet weak var LastValueETH: UILabel!
     @IBOutlet weak var SavingsETH: UILabel!
+    @IBOutlet weak var LastValueXCP: UILabel!
+    @IBOutlet weak var SavingsXCP: UILabel!
     
     
     override func viewDidLoad() {

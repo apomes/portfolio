@@ -17,6 +17,8 @@
 		EAE42E8E1C93AD580027DB84 /* PortfolioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE42E8D1C93AD580027DB84 /* PortfolioUITests.swift */; };
 		EAE42E9C1C93B6F70027DB84 /* Poloniex.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE42E9B1C93B6F70027DB84 /* Poloniex.swift */; };
 		EAE42EA51C953D140027DB84 /* UIAssetsScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE42EA41C953D140027DB84 /* UIAssetsScrollView.swift */; };
+		EAF2C2851CAB495D009D3D9E /* AssetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF2C2841CAB495C009D3D9E /* AssetTableViewCell.swift */; };
+		EAF2C2871CAB5246009D3D9E /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF2C2861CAB5246009D3D9E /* ThirdViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		EAE42E8F1C93AD580027DB84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EAE42E9B1C93B6F70027DB84 /* Poloniex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Poloniex.swift; sourceTree = "<group>"; };
 		EAE42EA41C953D140027DB84 /* UIAssetsScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAssetsScrollView.swift; sourceTree = "<group>"; };
+		EAF2C2841CAB495C009D3D9E /* AssetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetTableViewCell.swift; sourceTree = "<group>"; };
+		EAF2C2861CAB5246009D3D9E /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,8 @@
 				EAE42E6D1C93AD580027DB84 /* FirstViewController.swift */,
 				EAE42EA41C953D140027DB84 /* UIAssetsScrollView.swift */,
 				EAE42E6F1C93AD580027DB84 /* SecondViewController.swift */,
+				EAF2C2841CAB495C009D3D9E /* AssetTableViewCell.swift */,
+				EAF2C2861CAB5246009D3D9E /* ThirdViewController.swift */,
 				EAE42E9D1C93B70D0027DB84 /* Wrappers */,
 				EAE42E741C93AD580027DB84 /* Assets.xcassets */,
 				EAE42E711C93AD580027DB84 /* Main.storyboard */,
@@ -276,6 +282,8 @@
 			files = (
 				EAE42E701C93AD580027DB84 /* SecondViewController.swift in Sources */,
 				EAE42EA51C953D140027DB84 /* UIAssetsScrollView.swift in Sources */,
+				EAF2C2871CAB5246009D3D9E /* ThirdViewController.swift in Sources */,
+				EAF2C2851CAB495D009D3D9E /* AssetTableViewCell.swift in Sources */,
 				EAE42E6C1C93AD580027DB84 /* AppDelegate.swift in Sources */,
 				EAE42E6E1C93AD580027DB84 /* FirstViewController.swift in Sources */,
 				EAE42E9C1C93B6F70027DB84 /* Poloniex.swift in Sources */,
