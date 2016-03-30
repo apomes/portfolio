@@ -375,7 +375,7 @@
                             <outlet property="delegate" destination="CLy-f9-9kT" id="MNa-ad-iqt"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Heart" image="first" id="Soe-4W-2ng"/>
+                    <tabBarItem key="tabBarItem" title="Heart" image="heart" id="Soe-4W-2ng"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tdu-pN-ild" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -404,6 +404,7 @@
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
+        <image name="heart" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
 </document>
