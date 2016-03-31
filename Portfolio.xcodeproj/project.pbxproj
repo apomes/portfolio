@@ -19,6 +19,10 @@
 		EAE42EA51C953D140027DB84 /* UIAssetsScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE42EA41C953D140027DB84 /* UIAssetsScrollView.swift */; };
 		EAF2C2851CAB495D009D3D9E /* AssetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF2C2841CAB495C009D3D9E /* AssetTableViewCell.swift */; };
 		EAF2C2871CAB5246009D3D9E /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF2C2861CAB5246009D3D9E /* ThirdViewController.swift */; };
+		EAF2C2891CAC8E99009D3D9E /* PortfolioTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF2C2881CAC8E99009D3D9E /* PortfolioTabBarController.swift */; };
+		EAF2C28C1CADB9A3009D3D9E /* PortfolioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF2C28B1CADB9A3009D3D9E /* PortfolioModel.swift */; };
+		EAF2C28E1CADE0F0009D3D9E /* TreemapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF2C28D1CADE0F0009D3D9E /* TreemapViewController.swift */; };
+		EAF2C2941CADE464009D3D9E /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF2C2931CADE464009D3D9E /* MainNavigationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +61,10 @@
 		EAE42EA41C953D140027DB84 /* UIAssetsScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAssetsScrollView.swift; sourceTree = "<group>"; };
 		EAF2C2841CAB495C009D3D9E /* AssetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetTableViewCell.swift; sourceTree = "<group>"; };
 		EAF2C2861CAB5246009D3D9E /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		EAF2C2881CAC8E99009D3D9E /* PortfolioTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioTabBarController.swift; sourceTree = "<group>"; };
+		EAF2C28B1CADB9A3009D3D9E /* PortfolioModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioModel.swift; sourceTree = "<group>"; };
+		EAF2C28D1CADE0F0009D3D9E /* TreemapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreemapViewController.swift; sourceTree = "<group>"; };
+		EAF2C2931CADE464009D3D9E /* MainNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,11 +116,15 @@
 			isa = PBXGroup;
 			children = (
 				EAE42E6B1C93AD580027DB84 /* AppDelegate.swift */,
+				EAF2C2881CAC8E99009D3D9E /* PortfolioTabBarController.swift */,
 				EAE42E6D1C93AD580027DB84 /* FirstViewController.swift */,
 				EAE42EA41C953D140027DB84 /* UIAssetsScrollView.swift */,
 				EAE42E6F1C93AD580027DB84 /* SecondViewController.swift */,
-				EAF2C2841CAB495C009D3D9E /* AssetTableViewCell.swift */,
 				EAF2C2861CAB5246009D3D9E /* ThirdViewController.swift */,
+				EAF2C2841CAB495C009D3D9E /* AssetTableViewCell.swift */,
+				EAF2C28D1CADE0F0009D3D9E /* TreemapViewController.swift */,
+				EAF2C2931CADE464009D3D9E /* MainNavigationViewController.swift */,
+				EAF2C28A1CAC920C009D3D9E /* Model */,
 				EAE42E9D1C93B70D0027DB84 /* Wrappers */,
 				EAE42E741C93AD580027DB84 /* Assets.xcassets */,
 				EAE42E711C93AD580027DB84 /* Main.storyboard */,
@@ -146,6 +158,14 @@
 				EAE42E9B1C93B6F70027DB84 /* Poloniex.swift */,
 			);
 			name = Wrappers;
+			sourceTree = "<group>";
+		};
+		EAF2C28A1CAC920C009D3D9E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EAF2C28B1CADB9A3009D3D9E /* PortfolioModel.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,11 +300,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAF2C2891CAC8E99009D3D9E /* PortfolioTabBarController.swift in Sources */,
 				EAE42E701C93AD580027DB84 /* SecondViewController.swift in Sources */,
 				EAE42EA51C953D140027DB84 /* UIAssetsScrollView.swift in Sources */,
 				EAF2C2871CAB5246009D3D9E /* ThirdViewController.swift in Sources */,
 				EAF2C2851CAB495D009D3D9E /* AssetTableViewCell.swift in Sources */,
 				EAE42E6C1C93AD580027DB84 /* AppDelegate.swift in Sources */,
+				EAF2C28C1CADB9A3009D3D9E /* PortfolioModel.swift in Sources */,
+				EAF2C28E1CADE0F0009D3D9E /* TreemapViewController.swift in Sources */,
+				EAF2C2941CADE464009D3D9E /* MainNavigationViewController.swift in Sources */,
 				EAE42E6E1C93AD580027DB84 /* FirstViewController.swift in Sources */,
 				EAE42E9C1C93B6F70027DB84 /* Poloniex.swift in Sources */,
 			);

@@ -33,6 +33,7 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var factomView: UIView!
     @IBOutlet weak var ethereumView: UIView!
     @IBOutlet weak var counterpartyView: UIView!
+    @IBOutlet weak var dogeView: UIView!
     
     @IBOutlet weak var LastValueDASH: UILabel!
     @IBOutlet weak var SavingsDASH: UILabel!
@@ -42,11 +43,15 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var SavingsETH: UILabel!
     @IBOutlet weak var LastValueXCP: UILabel!
     @IBOutlet weak var SavingsXCP: UILabel!
+    @IBOutlet weak var LastValueDOGE: UILabel!
+    @IBOutlet weak var SavingsDOGE: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
 
         // Init poloniex wrapper
         poloniexWrapper = Poloniex(withAPIKey: APIKey, withSecret: Secret)
@@ -65,6 +70,7 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
     
     
@@ -101,6 +107,7 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
         let xcpTicker = poloniexTicker["BTC_XCP"]!
         let btcPrice: Float = Float(poloniexTicker["USDT_BTC"]!["last"]! as! String)!
         let ethPrice: Float = Float(poloniexTicker["USDT_ETH"]!["last"]! as! String)!
+        let dogeTicker = poloniexTicker["BTC_DOGE"]!
         
         print("1 BTC = $\(btcPrice)")
         
@@ -155,6 +162,19 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
             }
             else {
                 self.counterpartyView.backgroundColor = UIColor.init(red: xcpColor, green: 0, blue: 0, alpha: 1)
+            }
+            
+            
+            let lastDOGE: Float = Float((dogeTicker["last"]!)! as! String)!
+            self.LastValueDOGE.text = formatter.stringFromNumber(lastDOGE)
+            self.SavingsDOGE.text = "$\(lastDOGE * 473000 * btcPrice)"
+            let dogePercentChange: Float = Float(dogeTicker["percentChange"] as! String)! * 100
+            let dogeColor: CGFloat = sqrt(CGFloat(abs(dogePercentChange/100.0)))
+            if dogePercentChange >= 0 {
+                self.dogeView.backgroundColor = UIColor.init(red: 0, green: dogeColor, blue: 0, alpha: 1)
+            }
+            else {
+                self.dogeView.backgroundColor = UIColor.init(red: dogeColor, green: 0, blue: 0, alpha: 1)
             }
         })
         
