@@ -15,7 +15,7 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
     let Secret: String = "eb93db31bf5a5b531186154676a8e5b4939c13c13bd26666ef46717/b58d7e4e9bd12a5d11aba8db9d012f4417c3ff2a495504fc45dff61156f4ed3eb130a93db"
     
     // Init the poloniex wrapper
-    var poloniexWrapper: Poloniex!
+    var poloniexWrapper: PoloniexTicker!
     
     var poloniexTicker: [String: AnyObject] = [:] {
         didSet {
@@ -54,7 +54,9 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
         
 
         // Init poloniex wrapper
-        poloniexWrapper = Poloniex(withAPIKey: APIKey, withSecret: Secret)
+        
+        
+        poloniexWrapper = PoloniexTicker(withAPIKey: APIKey, withSecret: Secret)
         
         getTickerData()
         

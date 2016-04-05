@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Poloniex {
+class PoloniexTicker {
     
     var APIKey: String
     var Secret: String
