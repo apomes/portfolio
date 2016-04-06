@@ -21,16 +21,30 @@ class Portfolio {
         assetList = []
     }
     
-    /** Adds new asset to the portfolio. */
-    func addAssetWithName(name:String) {
-        
+    
+    
+    /**
+     Adds new asset to the portfolio. 
+     
+     - parameters:
+        - name: full name of the asset.
+        - value: quantity of the asset.
+     */
+    func addAsset(name:String, value:Float) {
+        let anAsset = Asset(name: name, value: value)
+        assetList.append(anAsset)
     }
     
     
     
     func numberOfAssets() -> Int {
-        return 3
-//        return assetList.count
+        return assetList.count
+    }
+    
+    
+    
+    func getNameForAsset(index: Int) -> String {
+        return assetList[index].name
     }
     
 }

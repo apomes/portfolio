@@ -41,6 +41,8 @@ class PortfolioViewController: UIViewController {
         
         /************ MODEL ****************/        
         // Instantiate tickers
+        // TODO: tickers should be only instantiated if needed for the current
+        // portfolio of the user
         let myTickers: TickerListController = TickerListController()
         myTickers.addTicker(TickerType.Poloniex)
     }

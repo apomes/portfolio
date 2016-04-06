@@ -9,7 +9,8 @@
 import UIKit
 
 class PortfolioTableViewController: UITableViewController {
-
+    
+    
     /** Model for the portfolio asset list. */
     var portfolio = Portfolio()
     
@@ -28,7 +29,9 @@ class PortfolioTableViewController: UITableViewController {
         
         // Add items to portfolio (just testing)
         // TODO: This should be added through UI (PLUS button in table)
-        
+        portfolio.addAsset("Counterparty", value: 174.0)
+        portfolio.addAsset("Bitcoin", value: 4.3)
+        portfolio.addAsset("Dogecoin", value: 2500)
         
         
         
@@ -55,10 +58,10 @@ class PortfolioTableViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("AssetCellID", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("AssetCellID", forIndexPath: indexPath) as! PortfolioTableViewCell
 
         // Configure the cell...
-        
+        cell.assetName.text = portfolio.getNameForAsset(indexPath.row)
 
         return cell
     }
