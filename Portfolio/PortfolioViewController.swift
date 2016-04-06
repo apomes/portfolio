@@ -27,6 +27,11 @@ class PortfolioViewController: UIViewController {
         
         // Position portfolio table within the main portfolio controller view
         portfolioTableViewController?.view.frame.origin = CGPointMake((portfolioTableViewController?.view.frame.origin.x)!, portfolioHeader)
+        
+        
+        // TEst factory method for tickers
+        let myTickers: TickerListController = TickerListController()
+        myTickers.addTicker(TickerType.Poloniex)
     }
 
     override func didReceiveMemoryWarning() {

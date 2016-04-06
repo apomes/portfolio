@@ -29,7 +29,8 @@
 		EAF5C4441CB0ABDC00D3412F /* PoloniexController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF5C4431CB0ABDC00D3412F /* PoloniexController.swift */; };
 		EAF5C4461CB0AD3D00D3412F /* TickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF5C4451CB0AD3D00D3412F /* TickerController.swift */; };
 		EAF5C4491CB16A7D00D3412F /* TickerListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF5C4481CB16A7D00D3412F /* TickerListController.swift */; };
-		EAF5C44B1CB170CB00D3412F /* TickerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF5C44A1CB170CB00D3412F /* TickerFactory.swift */; };
+		EAF5C44D1CB481EA00D3412F /* TickerCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF5C44C1CB481EA00D3412F /* TickerCreator.swift */; };
+		EAF5C4511CB4960300D3412F /* TickerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF5C4501CB4960300D3412F /* TickerProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,7 +79,8 @@
 		EAF5C4431CB0ABDC00D3412F /* PoloniexController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoloniexController.swift; sourceTree = "<group>"; };
 		EAF5C4451CB0AD3D00D3412F /* TickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TickerController.swift; sourceTree = "<group>"; };
 		EAF5C4481CB16A7D00D3412F /* TickerListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TickerListController.swift; sourceTree = "<group>"; };
-		EAF5C44A1CB170CB00D3412F /* TickerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TickerFactory.swift; sourceTree = "<group>"; };
+		EAF5C44C1CB481EA00D3412F /* TickerCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TickerCreator.swift; sourceTree = "<group>"; };
+		EAF5C4501CB4960300D3412F /* TickerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TickerProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,8 +208,9 @@
 			isa = PBXGroup;
 			children = (
 				EAF5C4481CB16A7D00D3412F /* TickerListController.swift */,
+				EAF5C44C1CB481EA00D3412F /* TickerCreator.swift */,
+				EAF5C4501CB4960300D3412F /* TickerProtocol.swift */,
 				EAF5C4451CB0AD3D00D3412F /* TickerController.swift */,
-				EAF5C44A1CB170CB00D3412F /* TickerFactory.swift */,
 				EAF5C4431CB0ABDC00D3412F /* PoloniexController.swift */,
 			);
 			name = TickerControllers;
@@ -349,17 +352,18 @@
 				EAF5C4441CB0ABDC00D3412F /* PoloniexController.swift in Sources */,
 				EAF2C2891CAC8E99009D3D9E /* PortfolioTabBarController.swift in Sources */,
 				EAE42E701C93AD580027DB84 /* SecondViewController.swift in Sources */,
+				EAF5C4511CB4960300D3412F /* TickerProtocol.swift in Sources */,
 				EAE42EA51C953D140027DB84 /* UIAssetsScrollView.swift in Sources */,
 				EAF2C2871CAB5246009D3D9E /* ThirdViewController.swift in Sources */,
 				EAF2C2981CAEDF22009D3D9E /* Asset.swift in Sources */,
 				EAF5C4461CB0AD3D00D3412F /* TickerController.swift in Sources */,
 				EAF2C2851CAB495D009D3D9E /* AssetTableViewCell.swift in Sources */,
 				EAF5C4491CB16A7D00D3412F /* TickerListController.swift in Sources */,
+				EAF5C44D1CB481EA00D3412F /* TickerCreator.swift in Sources */,
 				EAE42E6C1C93AD580027DB84 /* AppDelegate.swift in Sources */,
 				EAF2C29E1CAF66BA009D3D9E /* PortfolioTableViewController.swift in Sources */,
 				EAF2C28C1CADB9A3009D3D9E /* Portfolio.swift in Sources */,
 				EAF2C28E1CADE0F0009D3D9E /* TreemapViewController.swift in Sources */,
-				EAF5C44B1CB170CB00D3412F /* TickerFactory.swift in Sources */,
 				EAF2C2941CADE464009D3D9E /* MainNavigationViewController.swift in Sources */,
 				EAE42E6E1C93AD580027DB84 /* FirstViewController.swift in Sources */,
 				EAE42E9C1C93B6F70027DB84 /* PoloniexTicker.swift in Sources */,

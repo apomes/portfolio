@@ -64,6 +64,7 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
         dashView.backgroundColor = UIColor.blackColor()
         factomView.backgroundColor = UIColor.blackColor()
         ethereumView.backgroundColor = UIColor.blackColor()
+        
     }
 
     

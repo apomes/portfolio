@@ -15,15 +15,18 @@ import Foundation
  the list of available tickers.
 */
 class TickerListController  {
-    var tickerList: [TickerFactory]
+    var tickerList: [TickerController]
+    
+    
     
     init () {
         tickerList = []
-        
     }
     
+    
+    
     func addTicker(tickerType: TickerType) {
-        let myTicker: TickerFactory = TickerFactory.makeTickerController(tickerType)
+        let myTicker: TickerController = TickerCreator.makeTickerController(tickerType)
         tickerList.append(myTicker)
     }
     
