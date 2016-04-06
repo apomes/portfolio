@@ -29,7 +29,7 @@ class PortfolioViewController: UIViewController {
         portfolioTableViewController?.view.frame.origin = CGPointMake((portfolioTableViewController?.view.frame.origin.x)!, portfolioHeader)
         
         
-        // TEst factory method for tickers
+        // Instantiate tickers
         let myTickers: TickerListController = TickerListController()
         myTickers.addTicker(TickerType.Poloniex)
     }

@@ -19,7 +19,7 @@ class PoloniexTickerController: TickerController {
         
         super.init()
         
-        // Init poloniex ticker
+        // Init poloniex ticker (ticker model)
         self.ticker = PoloniexTicker(withAPIKey: APIKey, withSecret: Secret)
     }
     

@@ -12,9 +12,14 @@ import Foundation
 
 class TickerCreator {
     
-    
-    
-    
+    /**
+     Checks the argument and returns an instance of the appropriate ticker
+     Controller.
+     
+     - parameters:
+        - tickerType: Type of ticker to be instantiated. It's an ENUM.
+     - returns: A concrete instance of TickerController.
+     */
     class func makeTickerController(tickerType: TickerType) -> TickerController {
         switch tickerType {
         case TickerType.Poloniex:

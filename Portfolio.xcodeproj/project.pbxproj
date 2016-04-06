@@ -32,6 +32,7 @@
 		EAF5C44D1CB481EA00D3412F /* TickerCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF5C44C1CB481EA00D3412F /* TickerCreator.swift */; };
 		EAF5C4511CB4960300D3412F /* TickerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF5C4501CB4960300D3412F /* TickerProtocol.swift */; };
 		EAF5C4531CB599A300D3412F /* KrakenTickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF5C4521CB599A300D3412F /* KrakenTickerController.swift */; };
+		EAF5C4581CB59D9100D3412F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF5C4571CB59D9100D3412F /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		EAF5C44C1CB481EA00D3412F /* TickerCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TickerCreator.swift; sourceTree = "<group>"; };
 		EAF5C4501CB4960300D3412F /* TickerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TickerProtocol.swift; sourceTree = "<group>"; };
 		EAF5C4521CB599A300D3412F /* KrakenTickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KrakenTickerController.swift; sourceTree = "<group>"; };
+		EAF5C4571CB59D9100D3412F /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,12 +181,10 @@
 				EAF2C2931CADE464009D3D9E /* MainNavigationViewController.swift */,
 				EAF2C29B1CAF65FA009D3D9E /* PortfolioViewController.swift */,
 				EAF2C29D1CAF66BA009D3D9E /* PortfolioTableViewController.swift */,
-				EAF2C2881CAC8E99009D3D9E /* PortfolioTabBarController.swift */,
-				EAE42E6D1C93AD580027DB84 /* FirstViewController.swift */,
-				EAE42E6F1C93AD580027DB84 /* SecondViewController.swift */,
-				EAF2C2861CAB5246009D3D9E /* ThirdViewController.swift */,
 				EAF2C28D1CADE0F0009D3D9E /* TreemapViewController.swift */,
+				EAF5C4571CB59D9100D3412F /* SettingsViewController.swift */,
 				EAF5C4471CB1690700D3412F /* TickerControllers */,
+				EAF5C4541CB59BE100D3412F /* OldControllers */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -217,6 +217,17 @@
 				EAF5C4521CB599A300D3412F /* KrakenTickerController.swift */,
 			);
 			name = TickerControllers;
+			sourceTree = "<group>";
+		};
+		EAF5C4541CB59BE100D3412F /* OldControllers */ = {
+			isa = PBXGroup;
+			children = (
+				EAF2C2881CAC8E99009D3D9E /* PortfolioTabBarController.swift */,
+				EAE42E6D1C93AD580027DB84 /* FirstViewController.swift */,
+				EAE42E6F1C93AD580027DB84 /* SecondViewController.swift */,
+				EAF2C2861CAB5246009D3D9E /* ThirdViewController.swift */,
+			);
+			name = OldControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,6 +364,7 @@
 			files = (
 				EAF2C29C1CAF65FA009D3D9E /* PortfolioViewController.swift in Sources */,
 				EAF5C4441CB0ABDC00D3412F /* PoloniexTickerController.swift in Sources */,
+				EAF5C4581CB59D9100D3412F /* SettingsViewController.swift in Sources */,
 				EAF2C2891CAC8E99009D3D9E /* PortfolioTabBarController.swift in Sources */,
 				EAE42E701C93AD580027DB84 /* SecondViewController.swift in Sources */,
 				EAF5C4511CB4960300D3412F /* TickerProtocol.swift in Sources */,

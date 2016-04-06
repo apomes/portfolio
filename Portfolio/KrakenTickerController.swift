@@ -20,7 +20,7 @@ class KrakenTickerController: TickerController {
         
         super.init()
         
-        // Init kraken ticker
+        // Init kraken ticker (ticker model)
         //self.ticker = PoloniexTicker(withAPIKey: APIKey, withSecret: Secret)
     }
     
