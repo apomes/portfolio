@@ -18,9 +18,9 @@ class TickerCreator {
     class func makeTickerController(tickerType: TickerType) -> TickerController {
         switch tickerType {
         case TickerType.Poloniex:
-            return PoloniexController()
+            return PoloniexTickerController()
         case TickerType.Kraken:
-            return PoloniexController()
+            return KrakenTickerController()
         default:
             print("General ticker returned")
             return TickerController()
