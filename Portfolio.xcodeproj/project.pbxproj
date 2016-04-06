@@ -33,6 +33,7 @@
 		EAF5C4511CB4960300D3412F /* TickerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF5C4501CB4960300D3412F /* TickerProtocol.swift */; };
 		EAF5C4531CB599A300D3412F /* KrakenTickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF5C4521CB599A300D3412F /* KrakenTickerController.swift */; };
 		EAF5C4581CB59D9100D3412F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF5C4571CB59D9100D3412F /* SettingsViewController.swift */; };
+		EAF5C45A1CB5A2A600D3412F /* PortfolioHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF5C4591CB5A2A600D3412F /* PortfolioHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		EAF5C4501CB4960300D3412F /* TickerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TickerProtocol.swift; sourceTree = "<group>"; };
 		EAF5C4521CB599A300D3412F /* KrakenTickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KrakenTickerController.swift; sourceTree = "<group>"; };
 		EAF5C4571CB59D9100D3412F /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		EAF5C4591CB5A2A600D3412F /* PortfolioHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 		EAF2C28A1CAC920C009D3D9E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				EAF5C4591CB5A2A600D3412F /* PortfolioHeader.swift */,
 				EAF2C28B1CADB9A3009D3D9E /* Portfolio.swift */,
 				EAF2C2971CAEDF22009D3D9E /* Asset.swift */,
 				EAF5C4421CB0AB8D00D3412F /* Tickers */,
@@ -373,6 +376,7 @@
 				EAF2C2981CAEDF22009D3D9E /* Asset.swift in Sources */,
 				EAF5C4461CB0AD3D00D3412F /* TickerController.swift in Sources */,
 				EAF2C2851CAB495D009D3D9E /* AssetTableViewCell.swift in Sources */,
+				EAF5C45A1CB5A2A600D3412F /* PortfolioHeader.swift in Sources */,
 				EAF5C4491CB16A7D00D3412F /* TickerListController.swift in Sources */,
 				EAF5C44D1CB481EA00D3412F /* TickerCreator.swift in Sources */,
 				EAE42E6C1C93AD580027DB84 /* AppDelegate.swift in Sources */,

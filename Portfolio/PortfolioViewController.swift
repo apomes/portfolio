@@ -10,25 +10,36 @@ import UIKit
 
 class PortfolioViewController: UIViewController {
 
-    let portfolioHeader: CGFloat = 100.0
+    /** Height of the portfolio header. */
+    let portfolioHeaderHeight: CGFloat = 100.0
     
     var portfolioTableViewController: UITableViewController?
+    
+    /** Model for the portfolio header. */
+    var portfolioHeader = PortfolioHeader()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
+        
+        /************ VIEWS ****************/
         // Add portfolio table view controller as child
         let myStoryboard:UIStoryboard = self.storyboard!
         portfolioTableViewController = myStoryboard.instantiateViewControllerWithIdentifier("PortfolioTableControllerID") as? UITableViewController
+        
         // Present portfolio table view controller and handle view hierarchy
         addNewChildViewController(portfolioTableViewController!, parentView: self.view)
         
         // Position portfolio table within the main portfolio controller view
-        portfolioTableViewController?.view.frame.origin = CGPointMake((portfolioTableViewController?.view.frame.origin.x)!, portfolioHeader)
+        portfolioTableViewController?.view.frame.origin = CGPointMake((portfolioTableViewController?.view.frame.origin.x)!, portfolioHeaderHeight)
         
         
+        
+        /************ MODEL ****************/        
         // Instantiate tickers
         let myTickers: TickerListController = TickerListController()
         myTickers.addTicker(TickerType.Poloniex)

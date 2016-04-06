@@ -30,5 +30,11 @@ class TickerListController  {
         tickerList.append(myTicker)
     }
     
+    
+    
+    /** Returns data averaged across tickers. */
+//    func average(asset: String) -> Float {
+//        return 0.0
+//    }
 }
 

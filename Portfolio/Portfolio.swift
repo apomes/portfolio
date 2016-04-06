@@ -9,11 +9,11 @@
 import Foundation
 
 
-/** Portfolio model. */
+/** Portfolio table model. */
 class Portfolio {
     
     /** List of assets. */
-    var assetList:[Asset]?
+    var assetList:[Asset]
     
     
     init () {
@@ -24,6 +24,13 @@ class Portfolio {
     /** Adds new asset to the portfolio. */
     func addAssetWithName(name:String) {
         
+    }
+    
+    
+    
+    func numberOfAssets() -> Int {
+        return 3
+//        return assetList.count
     }
     
 }

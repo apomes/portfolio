@@ -10,6 +10,11 @@ import UIKit
 
 class PortfolioTableViewController: UITableViewController {
 
+    /** Model for the portfolio asset list. */
+    var portfolio = Portfolio()
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,6 +25,14 @@ class PortfolioTableViewController: UITableViewController {
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         print("Portfolio table initialized")
+        
+        // Add items to portfolio (just testing)
+        // TODO: This should be added through UI (PLUS button in table)
+        
+        
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,23 +45,24 @@ class PortfolioTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return portfolio.numberOfAssets()
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("AssetCellID", forIndexPath: indexPath)
 
         // Configure the cell...
+        
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
