@@ -14,7 +14,9 @@ class PortfolioTableViewController: UITableViewController {
     /** Model for the portfolio asset list. */
     var portfolio = Portfolio()
     
-    
+    @IBAction func UIAddNewAssetButton(sender: AnyObject) {
+        performSegueWithIdentifier("DisplayAssetView", sender: self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +29,12 @@ class PortfolioTableViewController: UITableViewController {
         
         print("Portfolio table initialized")
         
-        // Add items to portfolio (just testing)
+        // Add items to portfolio model (just testing)
         // TODO: This should be added through UI (PLUS button in table)
         portfolio.addAsset("Counterparty", value: 174.0)
         portfolio.addAsset("Bitcoin", value: 4.3)
         portfolio.addAsset("Dogecoin", value: 2500)
+        portfolio.addAsset("Dash", value: 101)
         
         
         
@@ -53,17 +56,26 @@ class PortfolioTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return portfolio.numberOfAssets()
+        return portfolio.numberOfAssets() + 1
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("AssetCellID", forIndexPath: indexPath) as! PortfolioTableViewCell
+        if indexPath.row < portfolio.numberOfAssets() {
+            let cell = tableView.dequeueReusableCellWithIdentifier("AssetCellID", forIndexPath: indexPath) as! PortfolioTableViewCell
 
-        // Configure the cell...
-        cell.assetName.text = portfolio.getNameForAsset(indexPath.row)
-
-        return cell
+            // Configure the cell...
+            cell.assetName.text = portfolio.getNameForAsset(indexPath.row)
+            
+            return cell
+        }
+        else {
+            // Last cell in the table, to add a new asset
+            let cell = tableView.dequeueReusableCellWithIdentifier("AddAssetCellID", forIndexPath: indexPath)
+            
+            return cell
+        }
+        
     }
     
 

@@ -35,6 +35,7 @@
 		EAF5C4581CB59D9100D3412F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF5C4571CB59D9100D3412F /* SettingsViewController.swift */; };
 		EAF5C45A1CB5A2A600D3412F /* PortfolioHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF5C4591CB5A2A600D3412F /* PortfolioHeader.swift */; };
 		EAF5C45C1CB5D18400D3412F /* PortfolioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF5C45B1CB5D18400D3412F /* PortfolioTableViewCell.swift */; };
+		EAF5C45E1CB5D73C00D3412F /* AssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF5C45D1CB5D73C00D3412F /* AssetViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		EAF5C4571CB59D9100D3412F /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		EAF5C4591CB5A2A600D3412F /* PortfolioHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioHeader.swift; sourceTree = "<group>"; };
 		EAF5C45B1CB5D18400D3412F /* PortfolioTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioTableViewCell.swift; sourceTree = "<group>"; };
+		EAF5C45D1CB5D73C00D3412F /* AssetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +190,7 @@
 				EAF2C29D1CAF66BA009D3D9E /* PortfolioTableViewController.swift */,
 				EAF2C28D1CADE0F0009D3D9E /* TreemapViewController.swift */,
 				EAF5C4571CB59D9100D3412F /* SettingsViewController.swift */,
+				EAF5C45D1CB5D73C00D3412F /* AssetViewController.swift */,
 				EAF5C4471CB1690700D3412F /* TickerControllers */,
 				EAF5C4541CB59BE100D3412F /* OldControllers */,
 			);
@@ -387,6 +390,7 @@
 				EAF5C4531CB599A300D3412F /* KrakenTickerController.swift in Sources */,
 				EAF2C29E1CAF66BA009D3D9E /* PortfolioTableViewController.swift in Sources */,
 				EAF2C28C1CADB9A3009D3D9E /* Portfolio.swift in Sources */,
+				EAF5C45E1CB5D73C00D3412F /* AssetViewController.swift in Sources */,
 				EAF2C28E1CADE0F0009D3D9E /* TreemapViewController.swift in Sources */,
 				EAF2C2941CADE464009D3D9E /* MainNavigationViewController.swift in Sources */,
 				EAE42E6E1C93AD580027DB84 /* FirstViewController.swift in Sources */,
