@@ -46,6 +46,8 @@ class PortfolioTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
         
     }
+    
+    
 
     // MARK: - Table view data source
 
@@ -78,6 +80,12 @@ class PortfolioTableViewController: UITableViewController {
         
     }
     
+    
+    // MARK: - Table view delegate
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 80.0
+    }
 
     /*
     // Override to support conditional editing of the table view.

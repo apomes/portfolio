@@ -517,17 +517,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.67090445759999995" blue="0.66362810130000005" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AssetCellID" id="fpe-R0-N2T" customClass="PortfolioTableViewCell" customModule="Portfolio" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AssetCellID" rowHeight="80" id="fpe-R0-N2T" customClass="PortfolioTableViewCell" customModule="Portfolio" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="600" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fpe-R0-N2T" id="acs-5V-Lq6">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="79"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ASSET" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wuA-BI-dtV">
-                                            <rect key="frame" x="150" y="-1" width="301" height="46"/>
+                                            <rect key="frame" x="150" y="-1" width="301" height="81"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="301" id="rXN-0i-dSJ"/>
+                                                <constraint firstAttribute="width" constant="301" id="lu1-3X-b0d"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -535,9 +535,9 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="wuA-BI-dtV" firstAttribute="top" secondItem="acs-5V-Lq6" secondAttribute="topMargin" constant="-9" id="Ra2-4X-YRA"/>
-                                        <constraint firstItem="wuA-BI-dtV" firstAttribute="centerX" secondItem="acs-5V-Lq6" secondAttribute="centerX" id="Rr5-dI-ZSl"/>
-                                        <constraint firstItem="wuA-BI-dtV" firstAttribute="centerY" secondItem="acs-5V-Lq6" secondAttribute="centerY" id="jlv-c7-Tq7"/>
+                                        <constraint firstItem="wuA-BI-dtV" firstAttribute="top" secondItem="acs-5V-Lq6" secondAttribute="topMargin" constant="-9" id="NtX-go-IVT"/>
+                                        <constraint firstItem="wuA-BI-dtV" firstAttribute="centerX" secondItem="acs-5V-Lq6" secondAttribute="centerX" id="W9I-aW-nVh"/>
+                                        <constraint firstItem="wuA-BI-dtV" firstAttribute="centerY" secondItem="acs-5V-Lq6" secondAttribute="centerY" id="sFE-nG-PDd"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -545,7 +545,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddAssetCellID" id="ish-u5-CId">
-                                <rect key="frame" x="0.0" y="72" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="108" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ish-u5-CId" id="0V0-bI-b2v">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
