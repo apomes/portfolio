@@ -523,25 +523,44 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fpe-R0-N2T" id="acs-5V-Lq6">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="79"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <userGuides>
+                                        <userLayoutGuide location="300" affinity="maxX"/>
+                                    </userGuides>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ASSET" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wuA-BI-dtV">
-                                            <rect key="frame" x="150" y="-1" width="301" height="81"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="301" id="lu1-3X-b0d"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="ASSET" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="wuA-BI-dtV">
+                                            <rect key="frame" x="8" y="0.0" width="299" height="79"/>
+                                            <fontDescription key="fontDescription" name="AmericanTypewriter-Light" family="American Typewriter" pointSize="56"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0,0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HG7-mG-Wnz">
+                                            <rect key="frame" x="307" y="0.0" width="285" height="79"/>
+                                            <fontDescription key="fontDescription" name="AmericanTypewriter-Light" family="American Typewriter" pointSize="63"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="wuA-BI-dtV" firstAttribute="top" secondItem="acs-5V-Lq6" secondAttribute="topMargin" constant="-9" id="NtX-go-IVT"/>
-                                        <constraint firstItem="wuA-BI-dtV" firstAttribute="centerX" secondItem="acs-5V-Lq6" secondAttribute="centerX" id="W9I-aW-nVh"/>
-                                        <constraint firstItem="wuA-BI-dtV" firstAttribute="centerY" secondItem="acs-5V-Lq6" secondAttribute="centerY" id="sFE-nG-PDd"/>
+                                        <constraint firstItem="HG7-mG-Wnz" firstAttribute="leading" secondItem="wuA-BI-dtV" secondAttribute="trailing" id="7bm-SN-6uM"/>
+                                        <constraint firstItem="wuA-BI-dtV" firstAttribute="width" secondItem="HG7-mG-Wnz" secondAttribute="width" constant="14" id="LRa-y1-GPy"/>
+                                        <constraint firstAttribute="trailing" secondItem="HG7-mG-Wnz" secondAttribute="trailing" constant="8" id="OqL-6L-49g"/>
+                                        <constraint firstAttribute="bottom" secondItem="HG7-mG-Wnz" secondAttribute="bottom" id="V1v-JD-IES"/>
+                                        <constraint firstItem="wuA-BI-dtV" firstAttribute="leading" secondItem="acs-5V-Lq6" secondAttribute="leadingMargin" id="XxB-b8-qYM"/>
+                                        <constraint firstItem="wuA-BI-dtV" firstAttribute="leading" secondItem="acs-5V-Lq6" secondAttribute="leading" id="ced-zK-YHJ"/>
+                                        <constraint firstItem="wuA-BI-dtV" firstAttribute="top" secondItem="acs-5V-Lq6" secondAttribute="top" id="fTK-g1-ghX"/>
+                                        <constraint firstItem="HG7-mG-Wnz" firstAttribute="top" secondItem="acs-5V-Lq6" secondAttribute="top" id="hpC-Hz-Ynd"/>
+                                        <constraint firstAttribute="bottom" secondItem="wuA-BI-dtV" secondAttribute="bottom" id="vj7-sZ-xtE"/>
+                                        <constraint firstItem="HG7-mG-Wnz" firstAttribute="leading" secondItem="wuA-BI-dtV" secondAttribute="trailing" id="xvJ-Ek-t8y"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="ced-zK-YHJ"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="assetName" destination="wuA-BI-dtV" id="e3x-IX-bYb"/>
+                                    <outlet property="assetPrice" destination="HG7-mG-Wnz" id="TOA-lb-ftu"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddAssetCellID" id="ish-u5-CId">

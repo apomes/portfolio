@@ -18,13 +18,17 @@ class Asset {
     var tickerSymbol:String?
     
     /** Quantity of the asset. */
-    var value: Float
+    var quantity: Float
+    
+    /** Price of the asset. */
+    var price: Float
     
     
     
-    init(name: String, value: Float) {
+    init(name: String, quantity: Float) {
         self.name = name
-        self.value = value
+        self.quantity = quantity
+        self.price = 36.0
     }
     
     

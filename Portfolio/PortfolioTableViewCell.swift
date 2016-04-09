@@ -11,6 +11,7 @@ import UIKit
 class PortfolioTableViewCell: UITableViewCell {
 
     @IBOutlet weak var assetName: UILabel!
+    @IBOutlet weak var assetPrice: UILabel!
     
     
     override func awakeFromNib() {

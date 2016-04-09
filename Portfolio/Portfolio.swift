@@ -30,8 +30,8 @@ class Portfolio {
         - name: full name of the asset.
         - value: quantity of the asset.
      */
-    func addAsset(name:String, value:Float) {
-        let anAsset = Asset(name: name, value: value)
+    func addAsset(name:String, quantity:Float) {
+        let anAsset = Asset(name: name, quantity: quantity)
         assetList.append(anAsset)
     }
     
@@ -45,6 +45,14 @@ class Portfolio {
     
     func getNameForAsset(index: Int) -> String {
         return assetList[index].name
+    }
+    
+    func getPriceForAsset(index: Int) -> Float {
+        return assetList[index].price
+    }
+    
+    func getPriceForAsset(index: Int) -> String {
+        return "sdf"
     }
     
 }

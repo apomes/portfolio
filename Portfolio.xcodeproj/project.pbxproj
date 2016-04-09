@@ -36,6 +36,7 @@
 		EAF5C45A1CB5A2A600D3412F /* PortfolioHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF5C4591CB5A2A600D3412F /* PortfolioHeader.swift */; };
 		EAF5C45C1CB5D18400D3412F /* PortfolioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF5C45B1CB5D18400D3412F /* PortfolioTableViewCell.swift */; };
 		EAF5C45E1CB5D73C00D3412F /* AssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF5C45D1CB5D73C00D3412F /* AssetViewController.swift */; };
+		EAF5C4601CB8889100D3412F /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF5C45F1CB8889100D3412F /* NumberFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		EAF5C4591CB5A2A600D3412F /* PortfolioHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioHeader.swift; sourceTree = "<group>"; };
 		EAF5C45B1CB5D18400D3412F /* PortfolioTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioTableViewCell.swift; sourceTree = "<group>"; };
 		EAF5C45D1CB5D73C00D3412F /* AssetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetViewController.swift; sourceTree = "<group>"; };
+		EAF5C45F1CB8889100D3412F /* NumberFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 				EAF2C2951CAEDEA7009D3D9E /* Controllers */,
 				EAF2C2961CAEDEB4009D3D9E /* Views */,
 				EAF2C28A1CAC920C009D3D9E /* Models */,
+				EAF5C4611CB8889A00D3412F /* Utils */,
 				EAE42E741C93AD580027DB84 /* Assets.xcassets */,
 				EAE42E711C93AD580027DB84 /* Main.storyboard */,
 				EAE42E761C93AD580027DB84 /* LaunchScreen.storyboard */,
@@ -237,6 +240,14 @@
 				EAF2C2861CAB5246009D3D9E /* ThirdViewController.swift */,
 			);
 			name = OldControllers;
+			sourceTree = "<group>";
+		};
+		EAF5C4611CB8889A00D3412F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				EAF5C45F1CB8889100D3412F /* NumberFormatter.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -392,6 +403,7 @@
 				EAF2C28C1CADB9A3009D3D9E /* Portfolio.swift in Sources */,
 				EAF5C45E1CB5D73C00D3412F /* AssetViewController.swift in Sources */,
 				EAF2C28E1CADE0F0009D3D9E /* TreemapViewController.swift in Sources */,
+				EAF5C4601CB8889100D3412F /* NumberFormatter.swift in Sources */,
 				EAF2C2941CADE464009D3D9E /* MainNavigationViewController.swift in Sources */,
 				EAE42E6E1C93AD580027DB84 /* FirstViewController.swift in Sources */,
 				EAE42E9C1C93B6F70027DB84 /* PoloniexTicker.swift in Sources */,
