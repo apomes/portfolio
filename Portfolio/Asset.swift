@@ -28,8 +28,9 @@ class Asset {
     init(name: String, quantity: Float) {
         self.name = name
         self.quantity = quantity
-        self.price = 36.0
+        self.price = 0.0
     }
+    
     
     
 }

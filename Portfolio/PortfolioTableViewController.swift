@@ -68,7 +68,7 @@ class PortfolioTableViewController: UITableViewController {
 
             // Configure the cell...
             cell.assetName.text = portfolio.getNameForAsset(indexPath.row)
-            cell.assetPrice.text = portfolio.getPriceForAsset(indexPath.row)
+            cell.assetPrice.text = portfolio.getPriceForAssetFormatted(indexPath.row)
             
             return cell
         }

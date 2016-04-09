@@ -11,27 +11,9 @@ import Foundation
 
 
 
-/** Formatter singleton class for currencies. */
-class CurrencyFormatter: NSNumberFormatter {
-    static let sharedInstance = CurrencyFormatter()
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    override init() {
-        super.init()
-        self.locale = NSLocale.currentLocale()
-        self.numberStyle = NSNumberFormatterStyle.CurrencyStyle
-        self.alwaysShowsDecimalSeparator = true
-    }
-}
-
-
-
 /** Formatter singleton class for general numbers. */
-class GeneralFormatter: NSNumberFormatter {
-    static let sharedInstance = GeneralFormatter()
+class NumberFormatter: NSNumberFormatter {
+    static let sharedInstance = NumberFormatter()
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -47,5 +29,23 @@ class GeneralFormatter: NSNumberFormatter {
         self.usesSignificantDigits = true
         self.minimumSignificantDigits = 2
         self.maximumSignificantDigits = 3
+    }
+}
+
+
+
+/** Formatter singleton class for currencies. */
+class CurrencyFormatter: NSNumberFormatter {
+    static let sharedInstance = CurrencyFormatter()
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    override init() {
+        super.init()
+        self.locale = NSLocale.currentLocale()
+        self.numberStyle = NSNumberFormatterStyle.CurrencyStyle
+        self.alwaysShowsDecimalSeparator = true
     }
 }

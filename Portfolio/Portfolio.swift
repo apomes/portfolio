@@ -51,8 +51,8 @@ class Portfolio {
         return assetList[index].price
     }
     
-    func getPriceForAsset(index: Int) -> String {
-        return "sdf"
+    func getPriceForAssetFormatted(index: Int) -> String {
+        return NumberFormatter.sharedInstance.stringFromNumber(assetList[index].price)!
     }
     
 }

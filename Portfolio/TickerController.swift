@@ -18,7 +18,14 @@ class TickerController : TickerProtocol {
     
     /** Nested array containing the ticker data. This corresponds to a JSON 
      structure coming from a data transfer object (DTO). */
-    var tickerData: [String: AnyObject]
+    var tickerData: [String: AnyObject] {
+        didSet {
+            notifyObservers()
+        }
+    }
+    
+    /** List of observers who needs updating when ticker data changes. */
+    var observers: [AnyObject]
     
     
     
@@ -26,8 +33,22 @@ class TickerController : TickerProtocol {
     required init () {
         ticker = 0
         tickerData = [:]
+        observers = []
     }
     
     /** Retrieves data from the ticker. */
     func getTickerData() {}
+    
+    /** Adds an observer that wants to be notified of changes in the model. */
+    func attachObserver(anObserver: AnyObject) {
+        observers.append(anObserver)
+    }
+    
+    /** Notify observers that the model has changed. */
+    func notifyObservers() {
+        print("Notifying \(observers.count) observers...")
+        for item in observers {
+            item.performSelector("update:")
+        }
+    }
 }

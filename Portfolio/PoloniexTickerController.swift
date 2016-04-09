@@ -21,6 +21,9 @@ class PoloniexTickerController: TickerController {
         
         // Init poloniex ticker (ticker model)
         self.ticker = PoloniexTicker(withAPIKey: APIKey, withSecret: Secret)
+        
+        // Get data for the first time
+        getTickerData()
     }
     
     
@@ -35,5 +38,13 @@ class PoloniexTickerController: TickerController {
                 self.tickerData = data
             }
         }
+    }
+    
+    override func notifyObservers() {
+        super.notifyObservers()
+        
+        let factomTicker = self.tickerData["BTC_FCT"]!
+        let lastFCT: Float = Float((factomTicker["last"]!)! as! String)!
+        print("Factom: \(lastFCT)")
     }
 }
