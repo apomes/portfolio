@@ -49,8 +49,7 @@ class Portfolio : NSObject {
     
     /** Pulls latest data from the tickers and tells controller to reload table. */
     func update() {
-        print("updating from tickers data now...")
-        
+        // Updates assets with fresh data from the tickers
         updateAssets()
         
         // Tell portfolio controller to reload table with fresh data
@@ -79,8 +78,15 @@ class Portfolio : NSObject {
     /** Updates data for all assets in the portfolio. */
     func updateAssets() {
         for asset in assetList {
-            let pricePerTicker = myTickerList.getPriceForAsset(asset.name)
+            // Update price
+            let pricePerTicker = myTickerList.getPricesForAsset(asset.name)
+            // TODO: for now we just get the first pair, Poloniex. But we could
+            // choose other exchanges and compute averages and so =D
             asset.price = pricePerTicker.first!.1
+            
+            // Update change
+            let percentChange = myTickerList.getPercentChangesForAsset(asset.name)
+            asset.percentChange = percentChange.first!.1
         }
     }
 
@@ -102,6 +108,10 @@ class Portfolio : NSObject {
     
     func getPriceForAssetFormatted(index: Int) -> String {
         return NumberFormatter.sharedInstance.stringFromNumber(assetList[index].price)!
+    }
+    
+    func getPercentChangeForAsset(index: Int) -> Float {
+        return assetList[index].percentChange
     }
     
     

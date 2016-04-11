@@ -56,7 +56,9 @@ class TickerListController: TickerControllerDelegate  {
 //        return 0.0
 //    }
     
-    func getPriceForAsset(name: String) -> [String: Float] {
+    
+    
+    func getPricesForAsset(name: String) -> [String: Float] {
         var prices = [String: Float]()
         
         // Get price in all available tickers
@@ -70,6 +72,24 @@ class TickerListController: TickerControllerDelegate  {
         }
         
         return prices
+    }
+    
+    
+    
+    func getPercentChangesForAsset(name: String) -> [String: Float] {
+        var percentChanges = [String: Float]()
+        
+        // Get price in all available tickers
+        for aTickerController in tickerList {
+            let percentChange = aTickerController.getPercentChange(name)
+            
+            // Check that we actually got a price from the ticker
+            if percentChange.count > 0 {
+                percentChanges[percentChange.first!.0] = percentChange.first!.1
+            }
+        }
+        
+        return percentChanges
     }
     
     

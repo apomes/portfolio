@@ -184,7 +184,6 @@
 				EAF5C4591CB5A2A600D3412F /* PortfolioHeader.swift */,
 				EAF2C28B1CADB9A3009D3D9E /* Portfolio.swift */,
 				EAF2C2971CAEDF22009D3D9E /* Asset.swift */,
-				EAF5C4641CB945D300D3412F /* CurrencyType.swift */,
 				EAF5C4421CB0AB8D00D3412F /* Tickers */,
 			);
 			name = Models;
@@ -251,6 +250,7 @@
 		EAF5C4611CB8889A00D3412F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				EAF5C4641CB945D300D3412F /* CurrencyType.swift */,
 				EAF5C45F1CB8889100D3412F /* NumberFormatter.swift */,
 			);
 			name = Utils;

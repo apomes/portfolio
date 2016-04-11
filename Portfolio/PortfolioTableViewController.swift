@@ -84,6 +84,7 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
             // Configure the cell...
             cell.assetName.text = portfolio.getNameForAsset(indexPath.row)
             cell.assetPrice.text = portfolio.getPriceForAssetFormatted(indexPath.row)
+            cell.setBackgroundColorForPercentChange(portfolio.getPercentChangeForAsset(indexPath.row))
             
             return cell
         }

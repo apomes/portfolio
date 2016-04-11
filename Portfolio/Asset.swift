@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 /** Asset model. */
 class Asset {
@@ -20,8 +21,11 @@ class Asset {
     /** Quantity of the asset. */
     var quantity: Float
     
-    /** Price of the asset. */
+    /** Last price of the asset. */
     var price: Float
+    
+    /** Last percent change in the value of the asset. */
+    var percentChange: Float
     
     
     
@@ -29,6 +33,7 @@ class Asset {
         self.name = name
         self.quantity = quantity
         self.price = 0.0
+        self.percentChange = 0.0
     }
     
     

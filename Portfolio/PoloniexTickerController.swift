@@ -42,24 +42,7 @@ class PoloniexTickerController: TickerController {
     
     override func getPriceForAsset(name: String) -> [String: Float] {
         // Get currency pair for the asset
-        // TODO: Create singleton class that returns the correct currency pair for every currency or something like that
-        var currencyPair: String
-        switch name {
-            case "Factom":
-                currencyPair = "BTC_FCT"
-            case "Counterparty":
-                currencyPair = "BTC_XCP"
-            case "Ethereum":
-                currencyPair = "BTC_ETH"
-            case "Dash":
-                currencyPair = "BTC_DASH"
-            case "Dogecoin":
-                currencyPair = "BTC_DOGE"
-            case "Bitcoin":
-                currencyPair = "USDT_BTC"
-            default:
-                currencyPair = "BTC_FCT"
-        }
+        let currencyPair = getCurrencyPairForCurrency(name)
         
         // Get the specific ticker for the asset
         let assetTicker = self.tickerData[currencyPair]!
@@ -68,5 +51,43 @@ class PoloniexTickerController: TickerController {
         let lastPrice = Float((assetTicker["last"]!)! as! String)!
         
         return ["Poloniex" : lastPrice]
+    }
+    
+    override func getPercentChange(name: String) -> [String: Float] {
+        // Get currency pair for the asset
+        let currencyPair = getCurrencyPairForCurrency(name)
+        
+        // Get the specific ticker for the asset
+        let assetTicker = self.tickerData[currencyPair]!
+        
+        // Get percent change in value for the asset
+        let percentChange: Float = Float(assetTicker["percentChange"] as! String)! * 100
+        
+        return ["Poloniex" : percentChange]
+    }
+    
+    
+    
+    /** Returns the Poloniex currency pair for a specific currency */
+    // TODO: modify this method to incorporate currencies with multiple currency pairs (Eg. BTC_LTC and USD_LTC for Litecoin)
+    private func getCurrencyPairForCurrency(name: String) -> String {
+        var currencyPair: String
+        switch name {
+        case "Factom":
+            currencyPair = "BTC_FCT"
+        case "Counterparty":
+            currencyPair = "BTC_XCP"
+        case "Ethereum":
+            currencyPair = "BTC_ETH"
+        case "Dash":
+            currencyPair = "BTC_DASH"
+        case "Dogecoin":
+            currencyPair = "BTC_DOGE"
+        case "Bitcoin":
+            currencyPair = "USDT_BTC"
+        default:
+            currencyPair = ""
+        }
+        return currencyPair
     }
 }
