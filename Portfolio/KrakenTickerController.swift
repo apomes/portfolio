@@ -15,18 +15,17 @@ class KrakenTickerController: TickerController {
     let Secret: String = "eb93db31bf5a5b531186154676a8e5b4939c13c13bd26666ef46717/b58d7e4e9bd12a5d11aba8db9d012f4417c3ff2a495504fc45dff61156f4ed3eb130a93db"
     
     
-    required init () {
-        print("Creating Kraken ticker...")
-        
+    required init () {        
         super.init()
         
         // Init kraken ticker (ticker model)
-        //self.ticker = PoloniexTicker(withAPIKey: APIKey, withSecret: Secret)
+        self.ticker = KrakenTicker(withAPIKey: APIKey, withSecret: Secret)
     }
     
     
     
     internal override func getTickerData() {
+        print("GetTickerData for Kraken needs implementation...")
         // Get ticker
 //        (self.ticker as! PoloniexTicker).returnTicker() {
 //            (data, error) -> Void in

@@ -8,11 +8,19 @@
 
 import UIKit
 
-class PortfolioTableViewController: UITableViewController {
+class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
     
+    // Constants
+    
+    /** Height for every row in the table. */
+    let rowHeight : CGFloat = 80.0
+    
+    var delegate: AnyObject?
     
     /** Model for the portfolio asset list. */
     var portfolio = Portfolio()
+    
+    
     
     @IBAction func UIAddNewAssetButton(sender: AnyObject) {
         performSegueWithIdentifier("DisplayAssetView", sender: self)
@@ -27,18 +35,16 @@ class PortfolioTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        print("Portfolio table initialized")
+        portfolio.delegate = self
         
         // Add items to portfolio model (just testing)
         // TODO: This should be added through UI (PLUS button in table)
+        portfolio.addAsset("Bitcoin", quantity: 1.0)
+        portfolio.addAsset("Ethereum", quantity: 1.0)
+        portfolio.addAsset("Factom", quantity: 1.0)
         portfolio.addAsset("Counterparty", quantity: 174.0)
-        portfolio.addAsset("Bitcoin", quantity: 4.3)
         portfolio.addAsset("Dogecoin", quantity: 2500)
         portfolio.addAsset("Dash", quantity: 101)
-        
-        
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,9 +54,18 @@ class PortfolioTableViewController: UITableViewController {
     }
     
     
+    
+    // MARK: - Table view update methods
+    
+    /** Refresh portfolio data. */
+    func refresh() {
+        portfolio.refresh()
+    }
+    
+    
 
     // MARK: - Table view data source
-
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -85,7 +100,7 @@ class PortfolioTableViewController: UITableViewController {
     // MARK: - Table view delegate
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 80.0
+        return rowHeight
     }
 
     /*
@@ -133,4 +148,25 @@ class PortfolioTableViewController: UITableViewController {
     }
     */
 
+    
+    
+    // MARK: - Delegate methods for portfolio model
+    
+    func portfolioDidUpdateData(portfolio: Portfolio) {
+        // Reload table after portfolio pulled fresh data
+        dispatch_async(dispatch_get_main_queue(), {
+            self.tableView.reloadData()
+        })
+    }
+    
+}
+
+
+
+// MARK: - Delegate methods for the Portfolio Table View Controller
+protocol PortfolioTableViewControllerDelegate {
+    func portfolioTableDidTapOnAsset(portfolioTableViewController: PortfolioTableViewController,
+        assetIndex index: Int)
+    
+    
 }

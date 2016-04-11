@@ -12,20 +12,20 @@ import Foundation
 
 class TickerController : TickerProtocol {
     
+    var delegate: TickerControllerDelegate?
+    
     /** Object responsible for retrieving data from the ticker web service. It acts
      as an API wrapper for every particular ticker data provider. */
     var ticker: AnyObject
     
-    /** Nested array containing the ticker data. This corresponds to a JSON 
+    /** Nested array containing the ticker data. Stores a JSON
      structure coming from a data transfer object (DTO). */
     var tickerData: [String: AnyObject] {
         didSet {
-            notifyObservers()
+            // Notify delegate that we got new data!
+            delegate?.tickerControllerDidUpdateData(self)
         }
     }
-    
-    /** List of observers who needs updating when ticker data changes. */
-    var observers: [AnyObject]
     
     
     
@@ -33,22 +33,23 @@ class TickerController : TickerProtocol {
     required init () {
         ticker = 0
         tickerData = [:]
-        observers = []
     }
+
+    
     
     /** Retrieves data from the ticker. */
-    func getTickerData() {}
-    
-    /** Adds an observer that wants to be notified of changes in the model. */
-    func attachObserver(anObserver: AnyObject) {
-        observers.append(anObserver)
+    func getTickerData() {
+        print("generic ticker")
     }
     
-    /** Notify observers that the model has changed. */
-    func notifyObservers() {
-        print("Notifying \(observers.count) observers...")
-        for item in observers {
-            item.performSelector("update:")
-        }
+    
+    func getPriceForAsset(name: String) -> [String: Float] {
+        return [:]
     }
+}
+
+
+
+protocol TickerControllerDelegate {
+    func tickerControllerDidUpdateData(tickerController: TickerController)
 }

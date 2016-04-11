@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--First-->
@@ -64,13 +65,28 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <navigationBar alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rCK-j9-PLm">
+                                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                                <items>
+                                                    <navigationItem id="hWF-2y-V5m">
+                                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="9ML-dg-Rey">
+                                                            <connections>
+                                                                <action selector="DonePressed:" destination="9pv-A4-QxB" id="olW-Pz-mq5"/>
+                                                            </connections>
+                                                        </barButtonItem>
+                                                    </navigationItem>
+                                                </items>
+                                            </navigationBar>
                                         </subviews>
                                         <color key="backgroundColor" red="0.3815828054" green="0.67997853610000003" blue="0.83988944730000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstItem="IVL-cB-Fh7" firstAttribute="top" secondItem="rCK-j9-PLm" secondAttribute="bottom" constant="61" id="2bg-YA-I5H"/>
                                             <constraint firstAttribute="height" constant="160" id="4Z9-oH-eJn"/>
                                             <constraint firstItem="IVL-cB-Fh7" firstAttribute="centerX" secondItem="Ab5-HE-bWg" secondAttribute="centerX" id="Mgi-tf-qyf"/>
+                                            <constraint firstItem="rCK-j9-PLm" firstAttribute="centerX" secondItem="ZEf-l5-T43" secondAttribute="centerX" id="Sxm-EY-KOJ"/>
                                             <constraint firstItem="Ab5-HE-bWg" firstAttribute="centerY" secondItem="WbG-rs-LvF" secondAttribute="centerY" id="Wte-sl-0gr"/>
                                             <constraint firstItem="Ab5-HE-bWg" firstAttribute="bottom" secondItem="IVL-cB-Fh7" secondAttribute="bottom" id="Yjv-27-ecc"/>
+                                            <constraint firstItem="rCK-j9-PLm" firstAttribute="leading" secondItem="WbG-rs-LvF" secondAttribute="leading" id="ax7-EZ-MRO"/>
                                             <constraint firstItem="Ab5-HE-bWg" firstAttribute="leading" secondItem="WbG-rs-LvF" secondAttribute="leadingMargin" id="gUG-7O-PmE"/>
                                             <constraint firstItem="IVL-cB-Fh7" firstAttribute="top" secondItem="ZEf-l5-T43" secondAttribute="bottom" constant="89" id="th4-eK-BHw"/>
                                             <constraint firstItem="Ab5-HE-bWg" firstAttribute="trailing" secondItem="WbG-rs-LvF" secondAttribute="trailingMargin" id="v38-zL-2Y9"/>
@@ -488,20 +504,36 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Portfolio" id="vt9-5Q-2rc">
-                        <barButtonItem key="leftBarButtonItem" image="burger" id="Z0k-dB-oZB">
-                            <connections>
-                                <segue destination="x2I-Xn-Yke" kind="popoverPresentation" popoverAnchorBarButtonItem="Z0k-dB-oZB" id="Yu8-S0-qzN">
-                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                </segue>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="treemap" id="uYS-zf-UvY">
-                            <connections>
-                                <segue destination="Lgv-Vk-HUN" kind="popoverPresentation" popoverAnchorBarButtonItem="uYS-zf-UvY" id="RMJ-Ke-3OG">
-                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                </segue>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem image="burger" id="Z0k-dB-oZB">
+                                <connections>
+                                    <segue destination="x2I-Xn-Yke" kind="popoverPresentation" popoverAnchorBarButtonItem="Z0k-dB-oZB" id="Yu8-S0-qzN">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="old" id="Trq-Tn-M4N">
+                                <connections>
+                                    <segue destination="49e-Tb-3d3" kind="popoverPresentation" popoverAnchorBarButtonItem="Trq-Tn-M4N" id="Ns8-iQ-FMr">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
+                        <rightBarButtonItems>
+                            <barButtonItem title="treemap" id="uYS-zf-UvY">
+                                <connections>
+                                    <segue destination="Lgv-Vk-HUN" kind="popoverPresentation" popoverAnchorBarButtonItem="uYS-zf-UvY" id="RMJ-Ke-3OG">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="refresh" id="4zM-NW-FmJ">
+                                <connections>
+                                    <action selector="refreshPortfolio:" destination="tUh-5T-OiW" id="Bbi-M9-xXM"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fWR-dv-XWZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -533,7 +565,7 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0,0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HG7-mG-Wnz">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0,0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="HG7-mG-Wnz">
                                             <rect key="frame" x="307" y="0.0" width="285" height="79"/>
                                             <fontDescription key="fontDescription" name="AmericanTypewriter-Light" family="American Typewriter" pointSize="63"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>

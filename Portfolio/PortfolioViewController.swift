@@ -8,17 +8,20 @@
 
 import UIKit
 
-class PortfolioViewController: UIViewController {
+class PortfolioViewController: UIViewController, PortfolioTableViewControllerDelegate {
 
     /** Height of the portfolio header. */
     let portfolioHeaderHeight: CGFloat = 100.0
     
-    var portfolioTableViewController: UITableViewController?
+    var portfolioTableViewController: PortfolioTableViewController?
     
     /** Model for the portfolio header. */
     var portfolioHeader = PortfolioHeader()
     
     
+    @IBAction func refreshPortfolio(sender: AnyObject) {
+        portfolioTableViewController?.refresh()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +32,7 @@ class PortfolioViewController: UIViewController {
         /************ VIEWS ****************/
         // Add portfolio table view controller as child
         let myStoryboard:UIStoryboard = self.storyboard!
-        portfolioTableViewController = myStoryboard.instantiateViewControllerWithIdentifier("PortfolioTableControllerID") as? UITableViewController
+        portfolioTableViewController = (myStoryboard.instantiateViewControllerWithIdentifier("PortfolioTableControllerID") as! PortfolioTableViewController)
         
         // Present portfolio table view controller and handle view hierarchy
         addNewChildViewController(portfolioTableViewController!, parentView: self.view)
@@ -37,14 +40,12 @@ class PortfolioViewController: UIViewController {
         // Position portfolio table within the main portfolio controller view
         portfolioTableViewController?.view.frame.origin = CGPointMake((portfolioTableViewController?.view.frame.origin.x)!, portfolioHeaderHeight)
         
+        // Add self as delegate for the portfolio table view controller
+        portfolioTableViewController?.delegate = self
         
         
-        /************ MODEL ****************/        
-        // Instantiate tickers
-        // TODO: tickers should be only instantiated if needed for the current
-        // portfolio of the user
-        let myTickers: TickerListController = TickerListController()
-        myTickers.addTicker(TickerType.Poloniex)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -77,5 +78,11 @@ class PortfolioViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    // MARK: - Delegate methods for the Portfolio Table View Controller
+    func portfolioTableDidTapOnAsset(portfolioTableViewController: PortfolioTableViewController, assetIndex index: Int) {
+        print("Implement portfolioTableDidTapOnAsset method...")
+    }
 
 }

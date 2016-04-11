@@ -26,6 +26,9 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
+    @IBAction func DonePressed(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     @IBOutlet weak var tickersScrollView: UIScrollView!
     

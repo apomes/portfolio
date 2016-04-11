@@ -14,9 +14,7 @@ class PoloniexTickerController: TickerController {
     let Secret: String = "eb93db31bf5a5b531186154676a8e5b4939c13c13bd26666ef46717/b58d7e4e9bd12a5d11aba8db9d012f4417c3ff2a495504fc45dff61156f4ed3eb130a93db"
     
     
-    required init () {
-        print("Creating poloniex ticker...")
-        
+    required init () {        
         super.init()
         
         // Init poloniex ticker (ticker model)
@@ -40,11 +38,35 @@ class PoloniexTickerController: TickerController {
         }
     }
     
-    override func notifyObservers() {
-        super.notifyObservers()
+    
+    
+    override func getPriceForAsset(name: String) -> [String: Float] {
+        // Get currency pair for the asset
+        // TODO: Create singleton class that returns the correct currency pair for every currency or something like that
+        var currencyPair: String
+        switch name {
+            case "Factom":
+                currencyPair = "BTC_FCT"
+            case "Counterparty":
+                currencyPair = "BTC_XCP"
+            case "Ethereum":
+                currencyPair = "BTC_ETH"
+            case "Dash":
+                currencyPair = "BTC_DASH"
+            case "Dogecoin":
+                currencyPair = "BTC_DOGE"
+            case "Bitcoin":
+                currencyPair = "USDT_BTC"
+            default:
+                currencyPair = "BTC_FCT"
+        }
         
-        let factomTicker = self.tickerData["BTC_FCT"]!
-        let lastFCT: Float = Float((factomTicker["last"]!)! as! String)!
-        print("Factom: \(lastFCT)")
+        // Get the specific ticker for the asset
+        let assetTicker = self.tickerData[currencyPair]!
+        
+        // Get price
+        let lastPrice = Float((assetTicker["last"]!)! as! String)!
+        
+        return ["Poloniex" : lastPrice]
     }
 }
