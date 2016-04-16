@@ -13,7 +13,7 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
     // Constants
     
     /** Height for every row in the table. */
-    let rowHeight : CGFloat = 80.0
+    let rowHeight : CGFloat = 90.0
     
     var delegate: PortfolioViewController?
     
@@ -39,13 +39,13 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
         
         // Add items to portfolio model (just testing)
         // TODO: This should be added through UI (PLUS button in table)
-        portfolio.addAsset("Bitcoin", quantity: 1.0)
-        portfolio.addAsset("Ethereum", quantity: 1.0)
-        portfolio.addAsset("Factom", quantity: 1.0)
-        portfolio.addAsset("Counterparty", quantity: 174.0)
-        portfolio.addAsset("Dogecoin", quantity: 2500)
-        portfolio.addAsset("Dash", quantity: 101)
-        portfolio.addAsset("Litecoin", quantity: 236)
+        portfolio.addAsset("Bitcoin", quantity: 6.55)
+        portfolio.addAsset("Ethereum", quantity: 0.0)
+        portfolio.addAsset("Factom", quantity: 0.0)
+        portfolio.addAsset("Counterparty", quantity: 0.0)
+        portfolio.addAsset("Dogecoin", quantity: 383000)
+        portfolio.addAsset("Dash", quantity: 1)
+        portfolio.addAsset("Litecoin", quantity: 239)
         
     }
 
@@ -101,6 +101,7 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
             // Configure the cell...
             cell.assetName.text = portfolio.getNameForAsset(indexPath.row)
             cell.assetPrice.text = portfolio.getPriceForAssetFormatted(indexPath.row)
+            cell.assetQuantity.text = portfolio.getQuantityForAssetFormatted(indexPath.row)
             cell.setSubtractiveBgColorForPercentChange(portfolio.getPercentChangeForAsset(indexPath.row))
 //            cell.setPriceLabelColorForPercentChange(portfolio.getPercentChangeForAsset(indexPath.row))
             

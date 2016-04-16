@@ -54,6 +54,8 @@ class PoloniexTickerController: TickerController {
         return ["Poloniex" : lastPrice]
     }
     
+    
+    
     override func getPercentChange(name: String) -> [String: Float] {
         // Get currency pair for the asset
         let currencyPair = getCurrencyPairForCurrency(name)

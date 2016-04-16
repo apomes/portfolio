@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		EA09401F1CB9EA8700C4FBC7 /* KrakenTicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA09401E1CB9EA8700C4FBC7 /* KrakenTicker.swift */; };
-		EA37C1591CC2CC8B00D3E86D /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA37C1581CC2CC8B00D3E86D /* ApiKeys.plist */; };
 		EA37C15B1CC2CDEC00D3E86D /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA37C15A1CC2CDEC00D3E86D /* ApiKeys.swift */; };
+		EA37C15F1CC2DECD00D3E86D /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA37C15E1CC2DECD00D3E86D /* ApiKeys.plist */; };
 		EAE42E6C1C93AD580027DB84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE42E6B1C93AD580027DB84 /* AppDelegate.swift */; };
 		EAE42E6E1C93AD580027DB84 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE42E6D1C93AD580027DB84 /* FirstViewController.swift */; };
 		EAE42E701C93AD580027DB84 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE42E6F1C93AD580027DB84 /* SecondViewController.swift */; };
@@ -40,7 +40,7 @@
 		EAF5C45C1CB5D18400D3412F /* PortfolioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF5C45B1CB5D18400D3412F /* PortfolioTableViewCell.swift */; };
 		EAF5C45E1CB5D73C00D3412F /* AssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF5C45D1CB5D73C00D3412F /* AssetViewController.swift */; };
 		EAF5C4601CB8889100D3412F /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF5C45F1CB8889100D3412F /* NumberFormatter.swift */; };
-		EAF5C4651CB945D300D3412F /* CurrencyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF5C4641CB945D300D3412F /* CurrencyType.swift */; };
+		EAF5C4651CB945D300D3412F /* CurrencySymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF5C4641CB945D300D3412F /* CurrencySymbol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,8 +62,8 @@
 
 /* Begin PBXFileReference section */
 		EA09401E1CB9EA8700C4FBC7 /* KrakenTicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KrakenTicker.swift; sourceTree = "<group>"; };
-		EA37C1581CC2CC8B00D3E86D /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
 		EA37C15A1CC2CDEC00D3E86D /* ApiKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKeys.swift; sourceTree = "<group>"; };
+		EA37C15E1CC2DECD00D3E86D /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
 		EAE42E681C93AD580027DB84 /* Portfolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Portfolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE42E6B1C93AD580027DB84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAE42E6D1C93AD580027DB84 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 		EAF5C45B1CB5D18400D3412F /* PortfolioTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioTableViewCell.swift; sourceTree = "<group>"; };
 		EAF5C45D1CB5D73C00D3412F /* AssetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetViewController.swift; sourceTree = "<group>"; };
 		EAF5C45F1CB8889100D3412F /* NumberFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
-		EAF5C4641CB945D300D3412F /* CurrencyType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyType.swift; sourceTree = "<group>"; };
+		EAF5C4641CB945D300D3412F /* CurrencySymbol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencySymbol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,7 +160,7 @@
 				EAE42E711C93AD580027DB84 /* Main.storyboard */,
 				EAE42E761C93AD580027DB84 /* LaunchScreen.storyboard */,
 				EAE42E791C93AD580027DB84 /* Info.plist */,
-				EA37C1581CC2CC8B00D3E86D /* ApiKeys.plist */,
+				EA37C15E1CC2DECD00D3E86D /* ApiKeys.plist */,
 			);
 			path = Portfolio;
 			sourceTree = "<group>";
@@ -255,7 +255,7 @@
 		EAF5C4611CB8889A00D3412F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				EAF5C4641CB945D300D3412F /* CurrencyType.swift */,
+				EAF5C4641CB945D300D3412F /* CurrencySymbol.swift */,
 				EAF5C45F1CB8889100D3412F /* NumberFormatter.swift */,
 				EA37C15A1CC2CDEC00D3E86D /* ApiKeys.swift */,
 			);
@@ -368,7 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAE42E781C93AD580027DB84 /* LaunchScreen.storyboard in Resources */,
-				EA37C1591CC2CC8B00D3E86D /* ApiKeys.plist in Resources */,
+				EA37C15F1CC2DECD00D3E86D /* ApiKeys.plist in Resources */,
 				EAE42E751C93AD580027DB84 /* Assets.xcassets in Resources */,
 				EAE42E731C93AD580027DB84 /* Main.storyboard in Resources */,
 			);
@@ -411,7 +411,7 @@
 				EAF5C4491CB16A7D00D3412F /* TickerListController.swift in Sources */,
 				EA37C15B1CC2CDEC00D3E86D /* ApiKeys.swift in Sources */,
 				EAF5C44D1CB481EA00D3412F /* TickerCreator.swift in Sources */,
-				EAF5C4651CB945D300D3412F /* CurrencyType.swift in Sources */,
+				EAF5C4651CB945D300D3412F /* CurrencySymbol.swift in Sources */,
 				EAE42E6C1C93AD580027DB84 /* AppDelegate.swift in Sources */,
 				EAF5C4531CB599A300D3412F /* KrakenTickerController.swift in Sources */,
 				EA09401F1CB9EA8700C4FBC7 /* KrakenTicker.swift in Sources */,

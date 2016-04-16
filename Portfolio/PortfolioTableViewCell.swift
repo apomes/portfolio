@@ -12,6 +12,7 @@ class PortfolioTableViewCell: UITableViewCell {
 
     @IBOutlet weak var assetName: UILabel!
     @IBOutlet weak var assetPrice: UILabel!
+    @IBOutlet weak var assetQuantity: UILabel!
     
     
     

@@ -90,6 +90,19 @@ class PortfolioViewController: UIViewController, PortfolioTableViewControllerDel
     }
     
     
+    
+    /** Manage controller view size changes including rotations. */
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+        
+        // Manage rotation
+        print("View is about to rotate!")
+        
+        // TODO: Implement changes on UI for rotation. For instance, in portrait mode we show symbols of currencies while in landscape we show the full name.
+        
+    }
+    
+    
 
     /*
     // MARK: - Navigation

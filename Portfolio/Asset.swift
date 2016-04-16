@@ -14,14 +14,17 @@ class Asset {
     
     /** The full name of the asset. Ex. Dogecoin */
     var name:String
+
+    /** Currency we are monitoring in the asset. */
+    var baseCurrencySymbol: String
     
-    /** The abreviated name of the asset used in tickers. Ex. DOGE */
-    var tickerSymbol:String?
+    /** Currency used as the reference. Usually EUR, USD, BTC, ... */
+    var counterCurrencySymbol: String
     
     /** Quantity of the asset. */
     var quantity: Float
     
-    /** Last price of the asset. */
+    /** Last price (exchange rate) of the base currency in terms of the counter currency. */
     var price: Float
     
     /** Last percent change in the value of the asset. */
@@ -34,6 +37,8 @@ class Asset {
         self.quantity = quantity
         self.price = 0.0
         self.percentChange = 0.0
+        self.baseCurrencySymbol = ""
+        self.counterCurrencySymbol = ""
     }
     
     

@@ -568,46 +568,59 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AssetCellID" rowHeight="80" id="fpe-R0-N2T" customClass="PortfolioTableViewCell" customModule="Portfolio" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="80"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AssetCellID" rowHeight="90" id="fpe-R0-N2T" customClass="PortfolioTableViewCell" customModule="Portfolio" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fpe-R0-N2T" id="acs-5V-Lq6">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="79"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <userGuides>
                                         <userLayoutGuide location="300" affinity="maxX"/>
                                     </userGuides>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="ASSET" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="wuA-BI-dtV">
-                                            <rect key="frame" x="8" y="0.0" width="299" height="79"/>
-                                            <fontDescription key="fontDescription" name="AmericanTypewriter-Light" family="American Typewriter" pointSize="56"/>
+                                            <rect key="frame" x="8" y="0.0" width="292" height="50"/>
+                                            <fontDescription key="fontDescription" name="AmericanTypewriter-Light" family="American Typewriter" pointSize="50"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0,0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="HG7-mG-Wnz">
-                                            <rect key="frame" x="307" y="0.0" width="285" height="79"/>
-                                            <fontDescription key="fontDescription" name="AmericanTypewriter-Light" family="American Typewriter" pointSize="63"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0,0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="HG7-mG-Wnz">
+                                            <rect key="frame" x="8" y="58" width="285" height="26"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="285" id="Ri6-cR-dMR"/>
+                                                <constraint firstAttribute="height" constant="26" id="SHC-Ok-cnB"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AmericanTypewriter-Light" family="American Typewriter" pointSize="25"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0,0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="xoK-UP-AA3">
+                                            <rect key="frame" x="300" y="0.0" width="292" height="89"/>
+                                            <fontDescription key="fontDescription" name="AmericanTypewriter-Light" family="American Typewriter" pointSize="80"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="HG7-mG-Wnz" firstAttribute="leading" secondItem="wuA-BI-dtV" secondAttribute="trailing" id="7bm-SN-6uM"/>
-                                        <constraint firstItem="wuA-BI-dtV" firstAttribute="width" secondItem="HG7-mG-Wnz" secondAttribute="width" constant="14" id="LRa-y1-GPy"/>
-                                        <constraint firstAttribute="trailing" secondItem="HG7-mG-Wnz" secondAttribute="trailing" constant="8" id="OqL-6L-49g"/>
-                                        <constraint firstAttribute="bottom" secondItem="HG7-mG-Wnz" secondAttribute="bottom" id="V1v-JD-IES"/>
-                                        <constraint firstItem="wuA-BI-dtV" firstAttribute="leading" secondItem="acs-5V-Lq6" secondAttribute="leadingMargin" id="XxB-b8-qYM"/>
-                                        <constraint firstItem="wuA-BI-dtV" firstAttribute="top" secondItem="acs-5V-Lq6" secondAttribute="top" id="fTK-g1-ghX"/>
-                                        <constraint firstItem="HG7-mG-Wnz" firstAttribute="top" secondItem="acs-5V-Lq6" secondAttribute="top" id="hpC-Hz-Ynd"/>
-                                        <constraint firstAttribute="bottom" secondItem="wuA-BI-dtV" secondAttribute="bottom" id="vj7-sZ-xtE"/>
-                                        <constraint firstItem="HG7-mG-Wnz" firstAttribute="leading" secondItem="wuA-BI-dtV" secondAttribute="trailing" id="xvJ-Ek-t8y"/>
+                                        <constraint firstItem="HG7-mG-Wnz" firstAttribute="top" secondItem="wuA-BI-dtV" secondAttribute="bottom" constant="8" symbolic="YES" id="8FV-Qq-ydF"/>
+                                        <constraint firstAttribute="bottom" secondItem="xoK-UP-AA3" secondAttribute="bottom" id="IMi-l7-mto"/>
+                                        <constraint firstItem="xoK-UP-AA3" firstAttribute="leading" secondItem="HG7-mG-Wnz" secondAttribute="trailing" constant="7" id="J4s-BU-9QA"/>
+                                        <constraint firstItem="wuA-BI-dtV" firstAttribute="top" secondItem="xoK-UP-AA3" secondAttribute="top" id="MsS-bC-Piq"/>
+                                        <constraint firstItem="wuA-BI-dtV" firstAttribute="top" secondItem="acs-5V-Lq6" secondAttribute="top" id="MzK-3E-LTR"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="HG7-mG-Wnz" secondAttribute="bottom" constant="-3" id="NVJ-3S-3gy"/>
+                                        <constraint firstItem="xoK-UP-AA3" firstAttribute="width" secondItem="wuA-BI-dtV" secondAttribute="width" id="RDF-yL-zf3"/>
+                                        <constraint firstItem="xoK-UP-AA3" firstAttribute="leading" secondItem="wuA-BI-dtV" secondAttribute="trailing" id="Vhc-sg-0pS"/>
+                                        <constraint firstItem="wuA-BI-dtV" firstAttribute="leading" secondItem="acs-5V-Lq6" secondAttribute="leadingMargin" id="eHx-Yp-AiE"/>
+                                        <constraint firstItem="xoK-UP-AA3" firstAttribute="trailing" secondItem="acs-5V-Lq6" secondAttribute="trailingMargin" id="fit-Nk-Z1P"/>
+                                        <constraint firstItem="wuA-BI-dtV" firstAttribute="leading" secondItem="HG7-mG-Wnz" secondAttribute="leading" id="sTE-MM-6aN"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="assetName" destination="wuA-BI-dtV" id="e3x-IX-bYb"/>
                                     <outlet property="assetPrice" destination="HG7-mG-Wnz" id="TOA-lb-ftu"/>
+                                    <outlet property="assetQuantity" destination="xoK-UP-AA3" id="bOj-ME-vVw"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddAssetCellID" id="ish-u5-CId">
-                                <rect key="frame" x="0.0" y="108" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="118" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ish-u5-CId" id="0V0-bI-b2v">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>

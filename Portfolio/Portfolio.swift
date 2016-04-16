@@ -80,6 +80,7 @@ class Portfolio : NSObject {
         for asset in assetList {
             // Update price
             let pricePerTicker = myTickerList.getPricesForAsset(asset.name)
+            
             // TODO: for now we just get the first pair, Poloniex. But we could
             // choose other exchanges and compute averages and so =D
             asset.price = pricePerTicker.first!.1
@@ -91,6 +92,14 @@ class Portfolio : NSObject {
     }
 
     
+    
+    //   o-o  o--o o-O-o o-O-o o--o o--o   o-o
+    //  o     |      |     |   |    |   | |
+    //  |  -o O-o    |     |   O-o  O-Oo   o-o
+    //  o   | |      |     |   |    |  \      |
+    //   o-o  o--o   o     o   o--o o   o o--o
+    //
+    //
     // MARK: - Getter methods to retrieve information from the portfolio
 
     func numberOfAssets() -> Int {
@@ -114,10 +123,18 @@ class Portfolio : NSObject {
         return assetList[index].percentChange
     }
     
+    func getQuantityForAsset(index: Int) -> Float {
+        return assetList[index].quantity
+    }
+    
+    func getQuantityForAssetFormatted(index: Int) -> String {
+        return NumberFormatter.sharedInstance.stringFromNumber(assetList[index].quantity)!
+    }
+    
     func getTotalValue() -> Float {
         var total: Float = 0.0
         for item in assetList {
-            total += item.quantity
+            total += item.getValue()
         }
         return total
     }

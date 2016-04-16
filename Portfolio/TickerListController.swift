@@ -94,6 +94,14 @@ class TickerListController: TickerControllerDelegate  {
     
     
     
+    //   o-o  o--o   o-o  o--o o--o  o   o o--o o--o
+    //  o   o |   | |     |    |   | |   | |    |   |
+    //  |   | O--o   o-o  O-o  O-Oo  o   o O-o  O-Oo
+    //  o   o |   |     | |    |  \   \ /  |    |  \
+    //   o-o  o--o  o--o  o--o o   o   o   o--o o   o
+    //
+    //
+    
     // MARK: - Methods to implement the observer pattern
     
     /** Adds an observer that wants to be notified of changes in the model. */
@@ -117,6 +125,14 @@ class TickerListController: TickerControllerDelegate  {
     }
     
     
+    
+    //  o-o   o--o o    o--o  o-o    O  o-O-o o--o
+    //  |  \  |    |    |    o      / \   |   |
+    //  |   O O-o  |    O-o  |  -o o---o  |   O-o
+    //  |  /  |    |    |    o   | |   |  |   |
+    //  o-o   o--o O---oo--o  o-o  o   o  o   o--o
+    //
+    //
     
     // MARK: - Ticker controller delegate methods
     
