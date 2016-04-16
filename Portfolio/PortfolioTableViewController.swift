@@ -15,7 +15,7 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
     /** Height for every row in the table. */
     let rowHeight : CGFloat = 80.0
     
-    var delegate: AnyObject?
+    var delegate: PortfolioViewController?
     
     /** Model for the portfolio asset list. */
     var portfolio = Portfolio()
@@ -46,6 +46,7 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
         portfolio.addAsset("Dogecoin", quantity: 2500)
         portfolio.addAsset("Dash", quantity: 101)
         portfolio.addAsset("Litecoin", quantity: 236)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,6 +65,21 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
     }
     
     
+    
+    /** Returns the total value in the portfolio. */
+    func getPortfolioTotalValue() -> Float {
+        return portfolio.getTotalValue()
+    }
+    
+    
+    
+    //  o-o     O  o-O-o   O       o-o   o-o  o   o o--o    o-o o--o
+    //  |  \   / \   |    / \     |     o   o |   | |   |  /    |
+    //  |   O o---o  |   o---o     o-o  |   | |   | O-Oo  O     O-o
+    //  |  /  |   |  |   |   |        | o   o |   | |  \   \    |
+    //  o-o   o   o  o   o   o    o--o   o-o   o-o  o   o   o-o o--o
+    //
+    //
 
     // MARK: - Table view data source
     
@@ -100,6 +116,14 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
     }
     
     
+    
+    //  o-o   o--o o    o--o  o-o    O  o-O-o o--o
+    //  |  \  |    |    |    o      / \   |   |
+    //  |   O O-o  |    O-o  |  -o o---o  |   O-o
+    //  |  /  |    |    |    o   | |   |  |   |
+    //  o-o   o--o O---oo--o  o-o  o   o  o   o--o
+    //
+    //
     // MARK: - Table view delegate
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -159,6 +183,9 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
         // Reload table after portfolio pulled fresh data
         dispatch_async(dispatch_get_main_queue(), {
             self.tableView.reloadData()
+            
+            // Notify delegate that the portfolio got updated
+            self.delegate?.portfolioTableDidUpdate(self)
         })
     }
     
@@ -166,10 +193,16 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
 
 
 
+//  o--o  o--o   o-o  o-O-o  o-o    o-o  o-o  o     o-o
+//  |   | |   | o   o   |   o   o  /    o   o |    |
+//  O--o  O-Oo  |   |   |   |   | O     |   | |     o-o
+//  |     |  \  o   o   |   o   o  \    o   o |        |
+//  o     o   o  o-o    o    o-o    o-o  o-o  O---oo--o
+//
 // MARK: - Delegate methods for the Portfolio Table View Controller
 protocol PortfolioTableViewControllerDelegate {
     func portfolioTableDidTapOnAsset(portfolioTableViewController: PortfolioTableViewController,
         assetIndex index: Int)
     
-    
+    func portfolioTableDidUpdate(portfolioTableViewController: PortfolioTableViewController)
 }

@@ -10,18 +10,40 @@ import UIKit
 
 class PortfolioViewController: UIViewController, PortfolioTableViewControllerDelegate {
 
+    
+    
+    // OTHER CONTROLLERS
+    var portfolioTableViewController: PortfolioTableViewController?
+    
+    
+    
+    // MODEL
     /** Height of the portfolio header. */
     let portfolioHeaderHeight: CGFloat = 100.0
     
-    var portfolioTableViewController: PortfolioTableViewController?
-    
     /** Model for the portfolio header. */
+    // FIXME: this model may not be necessary for now...
     var portfolioHeader = PortfolioHeader()
     
     
+    
+    // VIEW
+    @IBOutlet weak var TotalValue: UILabel!
+    
     @IBAction func refreshPortfolio(sender: AnyObject) {
+        // Update portfolio table model and view
         portfolioTableViewController?.refresh()
     }
+    
+    
+    
+    //  o   o o--o o-O-o o  o  o-o  o-o    o-o
+    //  |\ /| |      |   |  | o   o |  \  |
+    //  | O | O-o    |   O--O |   | |   O  o-o
+    //  |   | |      |   |  | o   o |  /      |
+    //  o   o o--o   o   o  o  o-o  o-o   o--o
+    //
+    //
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,9 +102,17 @@ class PortfolioViewController: UIViewController, PortfolioTableViewControllerDel
     */
     
     
+    
     // MARK: - Delegate methods for the Portfolio Table View Controller
+    
     func portfolioTableDidTapOnAsset(portfolioTableViewController: PortfolioTableViewController, assetIndex index: Int) {
         print("Implement portfolioTableDidTapOnAsset method...")
+    }
+    
+    func portfolioTableDidUpdate(portfolioTableViewController: PortfolioTableViewController) {
+        print("update total...")
+        
+        TotalValue.text = CurrencyFormatter.sharedInstance.stringFromNumber((portfolioTableViewController.getPortfolioTotalValue()))
     }
 
 }

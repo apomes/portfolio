@@ -114,6 +114,14 @@ class Portfolio : NSObject {
         return assetList[index].percentChange
     }
     
+    func getTotalValue() -> Float {
+        var total: Float = 0.0
+        for item in assetList {
+            total += item.quantity
+        }
+        return total
+    }
+    
     
     // MARK: - Sort methods to display portfolio in a certain order
     // TODO: For instance, sort by quantity of the asset, name, price, ...
