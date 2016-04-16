@@ -10,8 +10,9 @@ import Foundation
 
 class PoloniexTickerController: TickerController {
     
-    let APIKey: String = "VJC0L8L2-UDFKQDZZ-CL9V2XGZ-07ZCJVS5"
-    let Secret: String = "eb93db31bf5a5b531186154676a8e5b4939c13c13bd26666ef46717/b58d7e4e9bd12a5d11aba8db9d012f4417c3ff2a495504fc45dff61156f4ed3eb130a93db"
+    // TODO: Generate new keys before open sourcing
+    let APIKey: String = valueForAPIKey(keyname: "API_CLIENT_ID") as! String
+    let Secret: String = valueForAPIKey(keyname: "API_SECRET") as! String
     
     
     required init () {        

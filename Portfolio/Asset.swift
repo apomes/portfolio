@@ -37,4 +37,10 @@ class Asset {
     }
     
     
+    
+    /** Returns the total value of the asset. */
+    func getValue() -> Float {
+        return quantity * price
+    }
+    
 }

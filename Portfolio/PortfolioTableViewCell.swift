@@ -30,14 +30,28 @@ class PortfolioTableViewCell: UITableViewCell {
     
     
     /** Changes the cell background color to visualize the change in value
-     of the asset. */
-    func setBackgroundColorForPercentChange(percentChange: Float) {
+     of the asset with colors based on an additive color model. */
+    func setAdditiveBgColorForPercentChange(percentChange: Float) {
         let intensity: CGFloat = sqrt(CGFloat(abs(percentChange/100.0)))
         if percentChange >= 0 {
             self.backgroundColor = UIColor.init(red: 0, green: intensity, blue: 0, alpha: 1)
         }
         else {
             self.backgroundColor = UIColor.init(red: intensity, green: 0, blue: 0, alpha: 1)
+        }
+    }
+    
+    
+    
+    /** Changes the cell background color to visualize the change in value
+     of the asset with colors based on a substractive color model. */
+    func setSubtractiveBgColorForPercentChange(percentChange: Float) {
+        let intensity: CGFloat = sqrt(CGFloat(abs(percentChange/100.0)))
+        if percentChange >= 0 {
+            self.backgroundColor = UIColor.init(red: 0, green: 1, blue: 0, alpha: intensity)
+        }
+        else {
+            self.backgroundColor = UIColor.init(red: 1, green: 0, blue: 0, alpha: intensity)
         }
     }
     

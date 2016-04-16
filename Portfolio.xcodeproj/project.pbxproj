@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		EA09401F1CB9EA8700C4FBC7 /* KrakenTicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA09401E1CB9EA8700C4FBC7 /* KrakenTicker.swift */; };
+		EA37C1591CC2CC8B00D3E86D /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA37C1581CC2CC8B00D3E86D /* ApiKeys.plist */; };
+		EA37C15B1CC2CDEC00D3E86D /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA37C15A1CC2CDEC00D3E86D /* ApiKeys.swift */; };
 		EAE42E6C1C93AD580027DB84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE42E6B1C93AD580027DB84 /* AppDelegate.swift */; };
 		EAE42E6E1C93AD580027DB84 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE42E6D1C93AD580027DB84 /* FirstViewController.swift */; };
 		EAE42E701C93AD580027DB84 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE42E6F1C93AD580027DB84 /* SecondViewController.swift */; };
@@ -60,6 +62,8 @@
 
 /* Begin PBXFileReference section */
 		EA09401E1CB9EA8700C4FBC7 /* KrakenTicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KrakenTicker.swift; sourceTree = "<group>"; };
+		EA37C1581CC2CC8B00D3E86D /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
+		EA37C15A1CC2CDEC00D3E86D /* ApiKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKeys.swift; sourceTree = "<group>"; };
 		EAE42E681C93AD580027DB84 /* Portfolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Portfolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE42E6B1C93AD580027DB84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAE42E6D1C93AD580027DB84 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +160,7 @@
 				EAE42E711C93AD580027DB84 /* Main.storyboard */,
 				EAE42E761C93AD580027DB84 /* LaunchScreen.storyboard */,
 				EAE42E791C93AD580027DB84 /* Info.plist */,
+				EA37C1581CC2CC8B00D3E86D /* ApiKeys.plist */,
 			);
 			path = Portfolio;
 			sourceTree = "<group>";
@@ -252,6 +257,7 @@
 			children = (
 				EAF5C4641CB945D300D3412F /* CurrencyType.swift */,
 				EAF5C45F1CB8889100D3412F /* NumberFormatter.swift */,
+				EA37C15A1CC2CDEC00D3E86D /* ApiKeys.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -362,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAE42E781C93AD580027DB84 /* LaunchScreen.storyboard in Resources */,
+				EA37C1591CC2CC8B00D3E86D /* ApiKeys.plist in Resources */,
 				EAE42E751C93AD580027DB84 /* Assets.xcassets in Resources */,
 				EAE42E731C93AD580027DB84 /* Main.storyboard in Resources */,
 			);
@@ -402,6 +409,7 @@
 				EAF2C2851CAB495D009D3D9E /* AssetTableViewCell.swift in Sources */,
 				EAF5C45A1CB5A2A600D3412F /* PortfolioHeader.swift in Sources */,
 				EAF5C4491CB16A7D00D3412F /* TickerListController.swift in Sources */,
+				EA37C15B1CC2CDEC00D3E86D /* ApiKeys.swift in Sources */,
 				EAF5C44D1CB481EA00D3412F /* TickerCreator.swift in Sources */,
 				EAF5C4651CB945D300D3412F /* CurrencyType.swift in Sources */,
 				EAE42E6C1C93AD580027DB84 /* AppDelegate.swift in Sources */,
