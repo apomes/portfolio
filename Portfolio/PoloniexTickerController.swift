@@ -78,13 +78,15 @@ class PoloniexTickerController: TickerController {
         case "Counterparty":
             currencyPair = "BTC_XCP"
         case "Ethereum":
-            currencyPair = "BTC_ETH"
+            currencyPair = "USDT_ETH"
         case "Dash":
             currencyPair = "BTC_DASH"
         case "Dogecoin":
             currencyPair = "BTC_DOGE"
         case "Bitcoin":
             currencyPair = "USDT_BTC"
+        case "Litecoin":
+            currencyPair = "USDT_LTC"
         default:
             currencyPair = ""
         }

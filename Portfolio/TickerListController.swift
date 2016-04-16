@@ -103,6 +103,7 @@ class TickerListController: TickerControllerDelegate  {
     
     /** Detach an observer to stop receiving notifications on changes. */
     func detachObserver(anObserver: AnyObject) {
+        // FIXME: This is probably wrong. Observers are of type Portfolio now
         let index = observers.indexOf( {$0.name == (anObserver as! Asset).name} )
         observers.removeAtIndex(index!)
     }
@@ -111,7 +112,7 @@ class TickerListController: TickerControllerDelegate  {
     func notifyObservers() {
         print("Notifying \(observers.count) observers...")
         for item in observers {
-            item.performSelector("update")
+            item.performSelector(#selector(Portfolio.update))
         }
     }
     

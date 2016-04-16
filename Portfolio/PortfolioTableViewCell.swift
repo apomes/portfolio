@@ -29,6 +29,8 @@ class PortfolioTableViewCell: UITableViewCell {
     
     
     
+    /** Changes the cell background color to visualize the change in value
+     of the asset. */
     func setBackgroundColorForPercentChange(percentChange: Float) {
         let intensity: CGFloat = sqrt(CGFloat(abs(percentChange/100.0)))
         if percentChange >= 0 {
@@ -36,6 +38,20 @@ class PortfolioTableViewCell: UITableViewCell {
         }
         else {
             self.backgroundColor = UIColor.init(red: intensity, green: 0, blue: 0, alpha: 1)
+        }
+    }
+    
+    
+    
+    /** Changes the price text label color to visualize the change in value
+     of the asset. */
+    func setPriceLabelColorForPercentChange(percentChange: Float) {
+        let intensity: CGFloat = sqrt(CGFloat(abs(percentChange/100.0)))
+        if percentChange >= 0 {
+            self.assetPrice.textColor = UIColor.init(red: 0, green: intensity, blue: 0, alpha: 1)
+        }
+        else {
+            self.assetPrice.textColor = UIColor.init(red: intensity, green: 0, blue: 0, alpha: 1)
         }
     }
 

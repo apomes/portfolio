@@ -38,7 +38,7 @@ class PortfolioViewController: UIViewController, PortfolioTableViewControllerDel
         addNewChildViewController(portfolioTableViewController!, parentView: self.view)
         
         // Position portfolio table within the main portfolio controller view
-        portfolioTableViewController?.view.frame.origin = CGPointMake((portfolioTableViewController?.view.frame.origin.x)!, portfolioHeaderHeight)
+        portfolioTableViewController?.view.frame = CGRectMake(0, portfolioHeaderHeight, self.view.frame.width, self.view.frame.height - portfolioHeaderHeight)
         
         // Add self as delegate for the portfolio table view controller
         portfolioTableViewController?.delegate = self
