@@ -16,10 +16,10 @@ class Asset {
     var name:String
 
     /** Currency we are monitoring in the asset. */
-    var baseCurrencySymbol: String
+    var baseCurrency: CurrencySymbol?
     
     /** Currency used as the reference. Usually EUR, USD, BTC, ... */
-    var counterCurrencySymbol: String
+    var counterCurrency: CurrencySymbol?
     
     /** Quantity of the asset. */
     var quantity: Float
@@ -37,15 +37,18 @@ class Asset {
         self.quantity = quantity
         self.price = 0.0
         self.percentChange = 0.0
-        self.baseCurrencySymbol = ""
-        self.counterCurrencySymbol = ""
     }
     
     
     
     /** Returns the total value of the asset. */
     func getValue() -> Float {
-        return quantity * price
+        var value = quantity * price
+        if counterCurrency == CurrencySymbol.Bitcoin {
+            // TODO: get price of bitcoin from ticker to compute value
+            value *= 431
+        }
+        return value
     }
     
 }

@@ -40,7 +40,7 @@
 		EAF5C45C1CB5D18400D3412F /* PortfolioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF5C45B1CB5D18400D3412F /* PortfolioTableViewCell.swift */; };
 		EAF5C45E1CB5D73C00D3412F /* AssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF5C45D1CB5D73C00D3412F /* AssetViewController.swift */; };
 		EAF5C4601CB8889100D3412F /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF5C45F1CB8889100D3412F /* NumberFormatter.swift */; };
-		EAF5C4651CB945D300D3412F /* CurrencySymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF5C4641CB945D300D3412F /* CurrencySymbol.swift */; };
+		EAF5C4651CB945D300D3412F /* CurrencySymbolConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF5C4641CB945D300D3412F /* CurrencySymbolConverter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,7 +100,7 @@
 		EAF5C45B1CB5D18400D3412F /* PortfolioTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioTableViewCell.swift; sourceTree = "<group>"; };
 		EAF5C45D1CB5D73C00D3412F /* AssetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetViewController.swift; sourceTree = "<group>"; };
 		EAF5C45F1CB8889100D3412F /* NumberFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
-		EAF5C4641CB945D300D3412F /* CurrencySymbol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencySymbol.swift; sourceTree = "<group>"; };
+		EAF5C4641CB945D300D3412F /* CurrencySymbolConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencySymbolConverter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,7 +255,7 @@
 		EAF5C4611CB8889A00D3412F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				EAF5C4641CB945D300D3412F /* CurrencySymbol.swift */,
+				EAF5C4641CB945D300D3412F /* CurrencySymbolConverter.swift */,
 				EAF5C45F1CB8889100D3412F /* NumberFormatter.swift */,
 				EA37C15A1CC2CDEC00D3E86D /* ApiKeys.swift */,
 			);
@@ -411,7 +411,7 @@
 				EAF5C4491CB16A7D00D3412F /* TickerListController.swift in Sources */,
 				EA37C15B1CC2CDEC00D3E86D /* ApiKeys.swift in Sources */,
 				EAF5C44D1CB481EA00D3412F /* TickerCreator.swift in Sources */,
-				EAF5C4651CB945D300D3412F /* CurrencySymbol.swift in Sources */,
+				EAF5C4651CB945D300D3412F /* CurrencySymbolConverter.swift in Sources */,
 				EAE42E6C1C93AD580027DB84 /* AppDelegate.swift in Sources */,
 				EAF5C4531CB599A300D3412F /* KrakenTickerController.swift in Sources */,
 				EA09401F1CB9EA8700C4FBC7 /* KrakenTicker.swift in Sources */,

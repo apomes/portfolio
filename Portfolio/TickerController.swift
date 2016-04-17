@@ -51,6 +51,10 @@ class TickerController : TickerProtocol {
     func getPercentChange(name: String) -> [String: Float] {
         return [:]
     }
+    
+    func getCurrencyPairForAsset(name: String) -> [CurrencySymbol] {
+        return []
+    }
 }
 
 

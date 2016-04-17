@@ -78,16 +78,21 @@ class Portfolio : NSObject {
     /** Updates data for all assets in the portfolio. */
     func updateAssets() {
         for asset in assetList {
-            // Update price
+            // Get price
             let pricePerTicker = myTickerList.getPricesForAsset(asset.name)
             
             // TODO: for now we just get the first pair, Poloniex. But we could
             // choose other exchanges and compute averages and so =D
             asset.price = pricePerTicker.first!.1
             
-            // Update change
+            // Get percent change in value
             let percentChange = myTickerList.getPercentChangesForAsset(asset.name)
             asset.percentChange = percentChange.first!.1
+            
+            // Get currency pair
+            let currencyPairs = myTickerList.getCurrencyPairsForAsset(asset.name)
+            asset.counterCurrency = currencyPairs.first?.first
+            asset.baseCurrency = currencyPairs.first?.last
         }
     }
 

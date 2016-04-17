@@ -94,6 +94,16 @@ class TickerListController: TickerControllerDelegate  {
     
     
     
+    func getCurrencyPairsForAsset(name: String) -> [[CurrencySymbol]] {
+        var currencyPairs = [[CurrencySymbol]]()
+        for aTickerController in tickerList {
+            let currencyPair = aTickerController.getCurrencyPairForAsset(name)
+            currencyPairs.append(currencyPair)
+        }
+        return currencyPairs
+    }
+    
+    
     //   o-o  o--o   o-o  o--o o--o  o   o o--o o--o
     //  o   o |   | |     |    |   | |   | |    |   |
     //  |   | O--o   o-o  O-o  O-Oo  o   o O-o  O-Oo
