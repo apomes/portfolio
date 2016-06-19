@@ -37,17 +37,9 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
         
         portfolio.delegate = self
         
-        // Add items to portfolio model (just testing)
-        // TODO: This should be added through UI (PLUS button in table)
-        portfolio.addAsset("Bitcoin", quantity: 6.55)
-        portfolio.addAsset("Ethereum", quantity: 0.0)
-        portfolio.addAsset("Factom", quantity: 0.0)
-        portfolio.addAsset("Counterparty", quantity: 0.0)
-        portfolio.addAsset("Dogecoin", quantity: 383000)
-        portfolio.addAsset("Dash", quantity: 1)
-        portfolio.addAsset("Litecoin", quantity: 239)
-        
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -101,7 +93,15 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
             // Configure the cell...
             cell.assetName.text = portfolio.getNameForAsset(indexPath.row)
             cell.assetPrice.text = portfolio.getPriceForAssetFormatted(indexPath.row)
-            cell.assetQuantity.text = portfolio.getQuantityForAssetFormatted(indexPath.row)
+            
+            if (delegate?.portfolioTableShouldUseLocalCurrency(self)) == true {
+                cell.assetQuantity.text = portfolio.getValueForAssetFormatted(indexPath.row)
+            }
+            else {
+                cell.assetQuantity.text = portfolio.getQuantityForAssetFormatted(indexPath.row)
+            }
+            
+            // Set cell background color
             cell.setSubtractiveBgColorForPercentChange(portfolio.getPercentChangeForAsset(indexPath.row))
 //            cell.setPriceLabelColorForPercentChange(portfolio.getPercentChangeForAsset(indexPath.row))
             
@@ -131,15 +131,15 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
         return rowHeight
     }
 
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+    
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
@@ -149,22 +149,22 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+ 
 
-    /*
+    
     // Override to support rearranging the table view.
     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
 
     }
-    */
+ 
 
-    /*
+    
     // Override to support conditional rearranging of the table view.
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
     }
-    */
+ 
 
     /*
     // MARK: - Navigation
@@ -206,4 +206,6 @@ protocol PortfolioTableViewControllerDelegate {
         assetIndex index: Int)
     
     func portfolioTableDidUpdate(portfolioTableViewController: PortfolioTableViewController)
+    
+    func portfolioTableShouldUseLocalCurrency(portfolioTableViewController: PortfolioTableViewController) -> Bool
 }

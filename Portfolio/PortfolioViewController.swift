@@ -25,10 +25,21 @@ class PortfolioViewController: UIViewController, PortfolioTableViewControllerDel
     // FIXME: this model may not be necessary for now...
     var portfolioHeader = PortfolioHeader()
     
+    /** True if the portfolio should use the local currency to display value. */
+    var _shouldUseLocalCurrency: Bool = false
+    
     
     
     // VIEW
     @IBOutlet weak var TotalValue: UILabel!
+    
+
+    @IBAction func tapOnTotalValue(sender: UITapGestureRecognizer) {
+        _shouldUseLocalCurrency = !_shouldUseLocalCurrency
+        
+        portfolioTableViewController?.refresh()
+        
+    }
     
     @IBAction func refreshPortfolio(sender: AnyObject) {
         // Update portfolio table model and view
@@ -116,6 +127,13 @@ class PortfolioViewController: UIViewController, PortfolioTableViewControllerDel
     
     
     
+    //  o-o   o--o o    o--o  o-o    O  o-O-o o--o
+    //  |  \  |    |    |    o      / \   |   |
+    //  |   O O-o  |    O-o  |  -o o---o  |   O-o
+    //  |  /  |    |    |    o   | |   |  |   |
+    //  o-o   o--o O---oo--o  o-o  o   o  o   o--o
+    //
+    
     // MARK: - Delegate methods for the Portfolio Table View Controller
     
     func portfolioTableDidTapOnAsset(portfolioTableViewController: PortfolioTableViewController, assetIndex index: Int) {
@@ -126,6 +144,10 @@ class PortfolioViewController: UIViewController, PortfolioTableViewControllerDel
         print("update total...")
         
         TotalValue.text = CurrencyFormatter.sharedInstance.stringFromNumber((portfolioTableViewController.getPortfolioTotalValue()))
+    }
+    
+    func portfolioTableShouldUseLocalCurrency(portfolioTableViewController: PortfolioTableViewController) -> Bool {
+        return _shouldUseLocalCurrency
     }
 
 }

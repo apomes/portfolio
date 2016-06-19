@@ -10,10 +10,9 @@ import Foundation
 
 class PoloniexTickerController: TickerController {
     
-    // TODO: Generate new keys before open sourcing
-    let APIKey: String = valueForAPIKey(keyname: "API_CLIENT_ID") as! String
-    let Secret: String = valueForAPIKey(keyname: "API_SECRET") as! String
-    
+    // Gets ticker key and secret 
+    let APIKey: String = apiKeyForTicker(tickerType: TickerType.Poloniex) as! String
+    let Secret: String = apiSecretForTicker(tickerType: TickerType.Poloniex) as! String
     
     required init () {        
         super.init()
@@ -42,14 +41,21 @@ class PoloniexTickerController: TickerController {
     
     
     override func getPriceForAsset(name: String) -> [String: Float] {
+        // Init return price
+        var lastPrice: Float = -1
+        
         // Get currency pair for the asset
         let currencyPair = getPoloniexCurrencyPairForCurrency(name)
         
-        // Get the specific ticker for the asset
-        let assetTicker = self.tickerData[currencyPair]!
-        
-        // Get price
-        let lastPrice = Float((assetTicker["last"]!)! as! String)!
+        // Check that the currency pair exists in the ticker data
+        // to make sure it hasn't been delisted or something
+        if (currencyPair != "") {
+            // Get the specific ticker for the asset
+            let assetTicker = self.tickerData[currencyPair]!
+            
+            // Get price
+            lastPrice = Float((assetTicker["last"]!)! as! String)!
+        }
         
         return ["Poloniex" : lastPrice]
     }
@@ -57,14 +63,21 @@ class PoloniexTickerController: TickerController {
     
     
     override func getPercentChange(name: String) -> [String: Float] {
+        // Init return percent change
+        var percentChange: Float = -1
+        
         // Get currency pair for the asset
         let currencyPair = getPoloniexCurrencyPairForCurrency(name)
         
-        // Get the specific ticker for the asset
-        let assetTicker = self.tickerData[currencyPair]!
-        
-        // Get percent change in value for the asset
-        let percentChange: Float = Float(assetTicker["percentChange"] as! String)! * 100
+        // Check that the currency pair exists in the ticker data
+        // to make sure it hasn't been delisted or something
+        if (currencyPair != "") {
+            // Get the specific ticker for the asset
+            let assetTicker = self.tickerData[currencyPair]!
+            
+            // Get percent change in value for the asset
+            percentChange = Float(assetTicker["percentChange"] as! String)! * 100
+        }
         
         return ["Poloniex" : percentChange]
     }

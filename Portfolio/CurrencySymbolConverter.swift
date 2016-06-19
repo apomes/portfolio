@@ -20,16 +20,26 @@ class CurrencySymbolConverter {
             currencySymbol = CurrencySymbol.Factom
         case "Counterparty":
             currencySymbol = CurrencySymbol.Counterparty
-        case "Ethereum":
+        case "Ethereum", "Ether":
             currencySymbol = CurrencySymbol.Ether
         case "Dash":
             currencySymbol = CurrencySymbol.Dash
         case "Dogecoin":
             currencySymbol = CurrencySymbol.Dogecoin
+        case "Voxel":
+            currencySymbol = CurrencySymbol.Voxel
+        case "Lisk":
+            currencySymbol = CurrencySymbol.Lisk
+        case "DAO":
+            currencySymbol = CurrencySymbol.DAO
         case "Bitcoin", "BTC":
             currencySymbol = CurrencySymbol.Bitcoin
         case "Litecoin":
             currencySymbol = CurrencySymbol.Litecoin
+        case "Gems", "GetGems", "Gemz":
+            currencySymbol = CurrencySymbol.Gemz
+        case "LTBCoin":
+            currencySymbol = CurrencySymbol.LTBCoin
         case "USD", "USDT":
             currencySymbol = CurrencySymbol.Dollar
         default:
@@ -60,5 +70,10 @@ enum CurrencySymbol: String {
     case Factom = "FCT"
     case Dash = "DASH"
     case Counterparty = "XCP"
+    case Gemz = "GEMZ"
+    case LTBCoin = "LTBC"
+    case Voxel = "VOX"
+    case Lisk = "LSK"
+    case DAO = "DAO"
     
 }

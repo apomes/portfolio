@@ -8,8 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		EA09401F1CB9EA8700C4FBC7 /* KrakenTicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA09401E1CB9EA8700C4FBC7 /* KrakenTicker.swift */; };
+		EA15A1381CD585960079722B /* PortfolioDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA15A1371CD585960079722B /* PortfolioDataController.swift */; };
+		EA15A13B1CD58C0A0079722B /* PortfolioData.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA15A13A1CD58C0A0079722B /* PortfolioData.plist */; };
 		EA37C15B1CC2CDEC00D3E86D /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA37C15A1CC2CDEC00D3E86D /* ApiKeys.swift */; };
 		EA37C15F1CC2DECD00D3E86D /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA37C15E1CC2DECD00D3E86D /* ApiKeys.plist */; };
+		EA70A3B81D0D9E5900DE85EE /* BittrexTicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA70A3B71D0D9E5900DE85EE /* BittrexTicker.swift */; };
+		EA70A3BA1D0D9E7100DE85EE /* BittrexTickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA70A3B91D0D9E7100DE85EE /* BittrexTickerController.swift */; };
 		EAE42E6C1C93AD580027DB84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE42E6B1C93AD580027DB84 /* AppDelegate.swift */; };
 		EAE42E6E1C93AD580027DB84 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE42E6D1C93AD580027DB84 /* FirstViewController.swift */; };
 		EAE42E701C93AD580027DB84 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE42E6F1C93AD580027DB84 /* SecondViewController.swift */; };
@@ -62,8 +66,12 @@
 
 /* Begin PBXFileReference section */
 		EA09401E1CB9EA8700C4FBC7 /* KrakenTicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KrakenTicker.swift; sourceTree = "<group>"; };
+		EA15A1371CD585960079722B /* PortfolioDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioDataController.swift; sourceTree = "<group>"; };
+		EA15A13A1CD58C0A0079722B /* PortfolioData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PortfolioData.plist; sourceTree = "<group>"; };
 		EA37C15A1CC2CDEC00D3E86D /* ApiKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKeys.swift; sourceTree = "<group>"; };
 		EA37C15E1CC2DECD00D3E86D /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
+		EA70A3B71D0D9E5900DE85EE /* BittrexTicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BittrexTicker.swift; sourceTree = "<group>"; };
+		EA70A3B91D0D9E7100DE85EE /* BittrexTickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BittrexTickerController.swift; sourceTree = "<group>"; };
 		EAE42E681C93AD580027DB84 /* Portfolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Portfolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE42E6B1C93AD580027DB84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAE42E6D1C93AD580027DB84 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +136,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EA15A1361CD585660079722B /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				EA15A1371CD585960079722B /* PortfolioDataController.swift */,
+			);
+			name = Persistence;
+			sourceTree = "<group>";
+		};
+		EA15A1391CD58BD80079722B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EA37C15E1CC2DECD00D3E86D /* ApiKeys.plist */,
+				EA15A13A1CD58C0A0079722B /* PortfolioData.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		EAE42E5F1C93AD580027DB84 = {
 			isa = PBXGroup;
 			children = (
@@ -155,12 +180,13 @@
 				EAF2C2951CAEDEA7009D3D9E /* Controllers */,
 				EAF2C2961CAEDEB4009D3D9E /* Views */,
 				EAF2C28A1CAC920C009D3D9E /* Models */,
+				EA15A1361CD585660079722B /* Persistence */,
+				EA15A1391CD58BD80079722B /* Supporting Files */,
 				EAF5C4611CB8889A00D3412F /* Utils */,
 				EAE42E741C93AD580027DB84 /* Assets.xcassets */,
 				EAE42E711C93AD580027DB84 /* Main.storyboard */,
 				EAE42E761C93AD580027DB84 /* LaunchScreen.storyboard */,
 				EAE42E791C93AD580027DB84 /* Info.plist */,
-				EA37C15E1CC2DECD00D3E86D /* ApiKeys.plist */,
 			);
 			path = Portfolio;
 			sourceTree = "<group>";
@@ -224,6 +250,7 @@
 			children = (
 				EAE42E9B1C93B6F70027DB84 /* PoloniexTicker.swift */,
 				EA09401E1CB9EA8700C4FBC7 /* KrakenTicker.swift */,
+				EA70A3B71D0D9E5900DE85EE /* BittrexTicker.swift */,
 			);
 			name = Tickers;
 			sourceTree = "<group>";
@@ -237,6 +264,7 @@
 				EAF5C4451CB0AD3D00D3412F /* TickerController.swift */,
 				EAF5C4431CB0ABDC00D3412F /* PoloniexTickerController.swift */,
 				EAF5C4521CB599A300D3412F /* KrakenTickerController.swift */,
+				EA70A3B91D0D9E7100DE85EE /* BittrexTickerController.swift */,
 			);
 			name = TickerControllers;
 			sourceTree = "<group>";
@@ -368,6 +396,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAE42E781C93AD580027DB84 /* LaunchScreen.storyboard in Resources */,
+				EA15A13B1CD58C0A0079722B /* PortfolioData.plist in Resources */,
 				EA37C15F1CC2DECD00D3E86D /* ApiKeys.plist in Resources */,
 				EAE42E751C93AD580027DB84 /* Assets.xcassets in Resources */,
 				EAE42E731C93AD580027DB84 /* Main.storyboard in Resources */,
@@ -405,10 +434,12 @@
 				EAE42EA51C953D140027DB84 /* UIAssetsScrollView.swift in Sources */,
 				EAF2C2871CAB5246009D3D9E /* ThirdViewController.swift in Sources */,
 				EAF2C2981CAEDF22009D3D9E /* Asset.swift in Sources */,
+				EA70A3BA1D0D9E7100DE85EE /* BittrexTickerController.swift in Sources */,
 				EAF5C4461CB0AD3D00D3412F /* TickerController.swift in Sources */,
 				EAF2C2851CAB495D009D3D9E /* AssetTableViewCell.swift in Sources */,
 				EAF5C45A1CB5A2A600D3412F /* PortfolioHeader.swift in Sources */,
 				EAF5C4491CB16A7D00D3412F /* TickerListController.swift in Sources */,
+				EA70A3B81D0D9E5900DE85EE /* BittrexTicker.swift in Sources */,
 				EA37C15B1CC2CDEC00D3E86D /* ApiKeys.swift in Sources */,
 				EAF5C44D1CB481EA00D3412F /* TickerCreator.swift in Sources */,
 				EAF5C4651CB945D300D3412F /* CurrencySymbolConverter.swift in Sources */,
@@ -418,6 +449,7 @@
 				EAF2C29E1CAF66BA009D3D9E /* PortfolioTableViewController.swift in Sources */,
 				EAF2C28C1CADB9A3009D3D9E /* Portfolio.swift in Sources */,
 				EAF5C45E1CB5D73C00D3412F /* AssetViewController.swift in Sources */,
+				EA15A1381CD585960079722B /* PortfolioDataController.swift in Sources */,
 				EAF2C28E1CADE0F0009D3D9E /* TreemapViewController.swift in Sources */,
 				EAF5C4601CB8889100D3412F /* NumberFormatter.swift in Sources */,
 				EAF2C2941CADE464009D3D9E /* MainNavigationViewController.swift in Sources */,

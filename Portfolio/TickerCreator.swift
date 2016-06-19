@@ -39,5 +39,6 @@ class TickerCreator {
 enum TickerType: String {
     case Poloniex = "Poloniex"
     case Kraken = "Kraken"
+    case Bittrex = "Bittrex"
     case Other = "Other"
 }

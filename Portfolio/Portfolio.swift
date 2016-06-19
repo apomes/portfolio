@@ -10,7 +10,7 @@ import Foundation
 
 
 /** Portfolio table model. */
-class Portfolio : NSObject {
+class Portfolio : NSObject, AssetDelegate {
     
     var delegate: PortfolioTableViewController?
     
@@ -19,6 +19,9 @@ class Portfolio : NSObject {
     
     /** List of assets. */
     var assetList = [Asset]()
+    
+    /** Persistence objects. */
+    var _portfolioDataController: PortfolioDataController = PortfolioDataController()
     
     
     override init () {
@@ -35,7 +38,25 @@ class Portfolio : NSObject {
         
         // Add self as observer to track changes in the tickers
         myTickerList.attachObserver(self)
+        
+        
+        /* Persistence */
+        initPortfolio()
     }
+
+    
+    
+    /** Initializes the portfolio with persistent data. */
+    func initPortfolio() {
+        print(_portfolioDataController.portfolioData?.valueForKey("Bitcoin")?.valueForKey("quantity") as! NSNumber)
+        
+        for anAsset in _portfolioDataController.portfolioData! {
+            let assetName = anAsset.key
+            let assetQuantity = anAsset.value.valueForKey("quantity") as! NSNumber
+            addAsset(assetName as! String, quantity: assetQuantity.floatValue)
+        }
+    }
+    
     
     
     // MARK: - Methods to refresh data in the portfolio
@@ -68,6 +89,7 @@ class Portfolio : NSObject {
      */
     func addAsset(name: String, quantity:Float) {
         let anAsset = Asset(name: name, quantity: quantity)
+        anAsset.delegate = self
         assetList.append(anAsset)
     }
     
@@ -78,7 +100,7 @@ class Portfolio : NSObject {
     /** Updates data for all assets in the portfolio. */
     func updateAssets() {
         for asset in assetList {
-            // Get price
+            // Get prices
             let pricePerTicker = myTickerList.getPricesForAsset(asset.name)
             
             // TODO: for now we just get the first pair, Poloniex. But we could
@@ -136,10 +158,16 @@ class Portfolio : NSObject {
         return NumberFormatter.sharedInstance.stringFromNumber(assetList[index].quantity)!
     }
     
+    func getValueForAssetFormatted(index: Int) -> String {
+        return CurrencyFormatter.sharedInstance.stringFromNumber(assetList[index].getValue())!
+    }
+    
     func getTotalValue() -> Float {
         var total: Float = 0.0
         for item in assetList {
-            total += item.getValue()
+            if item.getValue() != -1 {
+                total += item.getValue()
+            }
         }
         return total
     }
@@ -148,10 +176,32 @@ class Portfolio : NSObject {
     // MARK: - Sort methods to display portfolio in a certain order
     // TODO: For instance, sort by quantity of the asset, name, price, ...
     
+    
+    
+    // MARK: - Delegate methods for Asset model
+    
+    /** Returns the price of the asset _currencySymbol_ from the ticker. */
+    func assetDidRequestAssetPrice(asset: Asset, currencySymbol: CurrencySymbol) -> Float {
+        // Get prices
+        let pricePerTicker = myTickerList.getPricesForAsset(currencySymbol.rawValue)
+        
+        // TODO: for now we just get the first pair, Poloniex. But we could
+        // choose other exchanges and compute averages and so =D
+        return pricePerTicker.first!.1
+    }
+    
 }
 
 
 
+
+//  o--o  o--o   o-o  o-O-o  o-o    o-o  o-o  o     o-o
+//  |   | |   | o   o   |   o   o  /    o   o |    |
+//  O--o  O-Oo  |   |   |   |   | O     |   | |     o-o
+//  |     |  \  o   o   |   o   o  \    o   o |        |
+//  o     o   o  o-o    o    o-o    o-o  o-o  O---oo--o
+//
+// MARK: - Delegate methods for the Portfolio
 
 protocol PortfolioDelegate {
     func portfolioDidUpdateData (portfolio: Portfolio)

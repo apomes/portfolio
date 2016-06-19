@@ -11,8 +11,8 @@ import UIKit
 
 class FirstViewController: UIViewController, UIScrollViewDelegate {
 
-    let APIKey: String = valueForAPIKey(keyname: "API_CLIENT_ID") as! String
-    let Secret: String = valueForAPIKey(keyname: "API_SECRET") as! String
+    let APIKey: String = apiKeyForTicker(tickerType: TickerType.Poloniex) as! String
+    let Secret: String = apiSecretForTicker(tickerType: TickerType.Poloniex) as! String
     
     // Init the poloniex wrapper
     var poloniexWrapper: PoloniexTicker!

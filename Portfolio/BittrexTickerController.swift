@@ -1,5 +1,5 @@
 //
-//  KrakenTickerController.swift
+//  BittrexTickerController.swift
 //  Portfolio
 //
 //  Created by Ausias on 06/04/16.
@@ -9,23 +9,23 @@
 import Foundation
 
 
-class KrakenTickerController: TickerController {
+class BittrexTickerController: TickerController {
     
-    let APIKey: String = apiKeyForTicker(tickerType: TickerType.Kraken) as! String
-    let Secret: String = apiSecretForTicker(tickerType: TickerType.Kraken) as! String
+    let APIKey: String = apiKeyForTicker(tickerType: TickerType.Bittrex) as! String
+    let Secret: String = apiSecretForTicker(tickerType: TickerType.Bittrex) as! String
     
     
     required init () {        
         super.init()
         
-        // Init kraken ticker (ticker model)
-        self.ticker = KrakenTicker(withAPIKey: APIKey, withSecret: Secret)
+        // Init Bittrex ticker (ticker model)
+        self.ticker = BittrexTicker(withAPIKey: APIKey, withSecret: Secret)
     }
     
     
     
     internal override func getTickerData() {
-        print("GetTickerData for Kraken needs implementation...")
+        print("GetTickerData for Bittrex needs implementation...")
         // Get ticker
 //        (self.ticker as! PoloniexTicker).returnTicker() {
 //            (data, error) -> Void in

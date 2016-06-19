@@ -12,6 +12,8 @@ import UIKit
 /** Asset model. */
 class Asset {
     
+    var delegate: Portfolio?
+    
     /** The full name of the asset. Ex. Dogecoin */
     var name:String
 
@@ -43,12 +45,30 @@ class Asset {
     
     /** Returns the total value of the asset. */
     func getValue() -> Float {
-        var value = quantity * price
-        if counterCurrency == CurrencySymbol.Bitcoin {
-            // TODO: get price of bitcoin from ticker to compute value
-            value *= 431
+        var value: Float = -1
+        if price >= 0 {
+            value = quantity * price
+            if counterCurrency == CurrencySymbol.Bitcoin {
+                // Get price of bitcoin from ticker to compute value in $
+                value *= (delegate?.assetDidRequestAssetPrice(self, currencySymbol: CurrencySymbol.Bitcoin))!
+            }
         }
+        
         return value
     }
     
+}
+
+
+
+//  o--o  o--o   o-o  o-O-o  o-o    o-o  o-o  o     o-o
+//  |   | |   | o   o   |   o   o  /    o   o |    |
+//  O--o  O-Oo  |   |   |   |   | O     |   | |     o-o
+//  |     |  \  o   o   |   o   o  \    o   o |        |
+//  o     o   o  o-o    o    o-o    o-o  o-o  O---oo--o
+//
+// MARK: - Delegate methods for the Asset
+
+protocol AssetDelegate {
+    func assetDidRequestAssetPrice(asset: Asset, currencySymbol: CurrencySymbol) -> Float
 }
