@@ -39,7 +39,6 @@ class Portfolio : NSObject, AssetDelegate {
         // Add self as observer to track changes in the tickers
         myTickerList.attachObserver(self)
         
-        
         /* Persistence */
         initPortfolio()
     }
@@ -48,8 +47,6 @@ class Portfolio : NSObject, AssetDelegate {
     
     /** Initializes the portfolio with persistent data. */
     func initPortfolio() {
-        print(_portfolioDataController.portfolioData?.valueForKey("Bitcoin")?.valueForKey("quantity") as! NSNumber)
-        
         for anAsset in _portfolioDataController.portfolioData! {
             let assetName = anAsset.key
             let assetQuantity = anAsset.value.valueForKey("quantity") as! NSNumber

@@ -14,6 +14,8 @@ class PortfolioDataController: NSObject {
     
     var portfolioData: NSMutableDictionary?
     
+    
+    
     override init () {
         super.init()
 
@@ -22,8 +24,6 @@ class PortfolioDataController: NSObject {
         
         let err: NSErrorPointer = nil
         if plistURL.checkResourceIsReachableAndReturnError(err) {
-            print(plistURL)
-            
             let plistData = NSFileManager.defaultManager().contentsAtPath(plistURL.path!)
             
             var plistDictionary: NSDictionary
@@ -31,7 +31,6 @@ class PortfolioDataController: NSObject {
                 plistDictionary = try NSPropertyListSerialization.propertyListWithData(plistData!, options: NSPropertyListReadOptions.Immutable, format: nil) as! NSDictionary
                 
                 portfolioData = NSMutableDictionary.init(dictionary: plistDictionary)
-                
             }
             catch {
                 print("Error deserializing plist.")
