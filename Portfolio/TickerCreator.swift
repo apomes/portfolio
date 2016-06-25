@@ -26,6 +26,8 @@ class TickerCreator {
             return PoloniexTickerController()
         case TickerType.Kraken:
             return KrakenTickerController()
+        case TickerType.Bittrex:
+            return BittrexTickerController()
         default:
             print("General ticker returned")
             return TickerController()

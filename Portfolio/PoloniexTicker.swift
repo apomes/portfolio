@@ -13,6 +13,8 @@ class PoloniexTicker {
     var APIKey: String
     var Secret: String
     
+    let base_url: String = "https://poloniex.com/public?command="
+    
     
     
     /**
@@ -49,7 +51,7 @@ class PoloniexTicker {
     
     private func api_query(command: String, req: [String: String]?, callback: (String, String?) -> Void) {
         if command == "returnTicker" || command == "return24hVolume" {
-            executeHttpRequest("https://poloniex.com/public?command=" + command) {
+            executeHttpRequest(base_url + command) {
                 (data, error) -> Void in
                 if error != nil {
                     callback("", error)
@@ -59,7 +61,7 @@ class PoloniexTicker {
             }
         }
         else if command == "returnOrderBook" {
-            executeHttpRequest("http://poloniex.com/public?command=" + command +
+            executeHttpRequest(base_url + command +
                 "&currencyPair=" + req!["currencyPair"]!) {
                 (data, error) -> Void in
                     if error != nil {
