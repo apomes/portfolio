@@ -38,13 +38,21 @@ class NumberFormatter: NSNumberFormatter {
 class CurrencyFormatter: NSNumberFormatter {
     static let sharedInstance = CurrencyFormatter()
     
+    /** Currently selected locale that determines the currency symbol. */
+    var selectedLocale: String = "en_US" {
+        didSet {
+            self.locale = NSLocale.init(localeIdentifier: selectedLocale)
+        }
+        
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
     override init() {
         super.init()
-        self.locale = NSLocale.currentLocale()
+        self.locale = NSLocale.init(localeIdentifier: selectedLocale)
         self.numberStyle = NSNumberFormatterStyle.CurrencyStyle
         self.alwaysShowsDecimalSeparator = true
     }
