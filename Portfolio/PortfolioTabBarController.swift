@@ -22,9 +22,9 @@ class PortfolioTabBarController: UITabBarController {
         
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+    override var preferredStatusBarStyle : UIStatusBarStyle {
         print("Status bar style")
-        return .LightContent // can also return: .Default (black on light), .BlackOpaque (opaque black)
+        return .lightContent // can also return: .Default (black on light), .BlackOpaque (opaque black)
     }
 
     /*

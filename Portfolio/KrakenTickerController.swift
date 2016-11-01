@@ -11,8 +11,8 @@ import Foundation
 
 class KrakenTickerController: TickerController {
     
-    let APIKey: String = apiKeyForTicker(tickerType: TickerType.Kraken) as! String
-    let Secret: String = apiSecretForTicker(tickerType: TickerType.Kraken) as! String
+    let APIKey: String = apiKeyForTicker(tickerType: TickerType.Kraken) 
+    let Secret: String = apiSecretForTicker(tickerType: TickerType.Kraken) 
     
     
     required init () {        

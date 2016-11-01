@@ -14,11 +14,11 @@ class AssetTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        backgroundView?.backgroundColor = UIColor.grayColor()
+        backgroundView?.backgroundColor = UIColor.gray
         print("cell")
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

@@ -35,7 +35,7 @@ class BittrexTicker {
     
     
     
-    func returnTicker(callback: ([String: AnyObject], String?) -> Void) {
+    func returnTicker(_ callback: @escaping ([String: AnyObject], String?) -> Void) {
         self.api_query("getmarketsummaries", req: nil) {
             (data, error) -> Void in
             if error != nil {
@@ -53,7 +53,7 @@ class BittrexTicker {
     
     
     
-    private func api_query(command: String, req: [String: String]?, callback: (String, String?) -> Void) {
+    fileprivate func api_query(_ command: String, req: [String: String]?, callback: @escaping (String, String?) -> Void) {
         if command == "getmarketsummaries" {
             executeHttpRequest(public_base_url + command) {
                 (data, error) -> Void in
@@ -79,9 +79,9 @@ class BittrexTicker {
     
     
     
-    private func executeHttpRequest(request: String, callback: (String, String?) -> Void) {
-        let request = NSMutableURLRequest(URL: NSURL(string: request)!)
-        httpGet(request) {
+    fileprivate func executeHttpRequest(_ request: String, callback: @escaping (String, String?) -> Void) {
+        let request = NSMutableURLRequest(url: URL(string: request)!)
+        httpGet(request as URLRequest!) {
             (data, error) -> Void in
             if error != nil {
                 callback("", error)
@@ -93,28 +93,28 @@ class BittrexTicker {
     
     
     
-    private func httpGet(request: NSURLRequest!, callback: (String, String?) -> Void) {
-        let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithRequest(request){
+    fileprivate func httpGet(_ request: URLRequest!, callback: @escaping (String, String?) -> Void) {
+        let session = URLSession.shared
+        let task = session.dataTask(with: request, completionHandler: {
             (data, response, error) -> Void in
             if error != nil {
                 callback("", error!.localizedDescription)
             } else {
                 let result = NSString(data: data!, encoding:
-                    NSASCIIStringEncoding)!
+                    String.Encoding.ascii.rawValue)!
                 callback(result as String, nil)
             }
-        }
+        })
         task.resume()
     }
     
     
     
-    private func convertStringToJSON (jsonString: String) -> [String: AnyObject] {
-        let jsondata: NSData = jsonString.dataUsingEncoding(NSUTF8StringEncoding)!
+    fileprivate func convertStringToJSON (_ jsonString: String) -> [String: AnyObject] {
+        let jsondata: Data = jsonString.data(using: String.Encoding.utf8)!
         var json: [String: AnyObject] = [:]
         do {
-            json = try NSJSONSerialization.JSONObjectWithData(jsondata, options: NSJSONReadingOptions()) as! [String: AnyObject]
+            json = try JSONSerialization.jsonObject(with: jsondata, options: JSONSerialization.ReadingOptions()) as! [String: AnyObject]
         } catch {
             print(error)
         }

@@ -36,7 +36,7 @@ class TickerListController: TickerControllerDelegate  {
      - parameters:
         - tickerType: Enum with the type of the ticker to instantiate
      */
-    func addTicker(tickerType: TickerType) {
+    func addTicker(_ tickerType: TickerType) {
         let myTicker: TickerController = TickerCreator.makeTickerController(tickerType)
         myTicker.delegate = self
         tickerList.append(myTicker)
@@ -58,7 +58,7 @@ class TickerListController: TickerControllerDelegate  {
     
     
     
-    func getPricesForAsset(name: String) -> [String: Float] {
+    func getPricesForAsset(_ name: String) -> [String: Float] {
         var prices = [String: Float]()
         
         // Get price in all available tickers
@@ -76,7 +76,7 @@ class TickerListController: TickerControllerDelegate  {
     
     
     
-    func getPercentChangesForAsset(name: String) -> [String: Float] {
+    func getPercentChangesForAsset(_ name: String) -> [String: Float] {
         var percentChanges = [String: Float]()
         
         // Get price in all available tickers
@@ -94,7 +94,7 @@ class TickerListController: TickerControllerDelegate  {
     
     
     
-    func getCurrencyPairsForAsset(name: String) -> [[CurrencySymbol]] {
+    func getCurrencyPairsForAsset(_ name: String) -> [[CurrencySymbol]] {
         var currencyPairs = [[CurrencySymbol]]()
         for aTickerController in tickerList {
             let currencyPair = aTickerController.getCurrencyPairForAsset(name)
@@ -115,22 +115,22 @@ class TickerListController: TickerControllerDelegate  {
     // MARK: - Methods to implement the observer pattern
     
     /** Adds an observer that wants to be notified of changes in the model. */
-    func attachObserver(anObserver: AnyObject) {
+    func attachObserver(_ anObserver: AnyObject) {
         observers.append(anObserver)
     }
     
     /** Detach an observer to stop receiving notifications on changes. */
-    func detachObserver(anObserver: AnyObject) {
+    func detachObserver(_ anObserver: AnyObject) {
         // FIXME: This is probably wrong. Observers are of type Portfolio now
-        let index = observers.indexOf( {$0.name == (anObserver as! Asset).name} )
-        observers.removeAtIndex(index!)
+        let index = observers.index( where: {$0.name == (anObserver as! Asset).name} )
+        observers.remove(at: index!)
     }
     
     /** Notify observers that the model has changed. */
     func notifyObservers() {
         print("Notifying \(observers.count) observers...")
         for item in observers {
-            item.performSelector(#selector(Portfolio.update))
+            _ = item.perform(#selector(Portfolio.update))
         }
     }
     
@@ -146,7 +146,7 @@ class TickerListController: TickerControllerDelegate  {
     
     // MARK: - Ticker controller delegate methods
     
-    func tickerControllerDidUpdateData(tickerController: TickerController) {
+    func tickerControllerDidUpdateData(_ tickerController: TickerController) {
         // Notify observers that there is new data
         notifyObservers()
     }

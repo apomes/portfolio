@@ -11,8 +11,8 @@ import UIKit
 
 class FirstViewController: UIViewController, UIScrollViewDelegate {
 
-    let APIKey: String = apiKeyForTicker(tickerType: TickerType.Poloniex) as! String
-    let Secret: String = apiSecretForTicker(tickerType: TickerType.Poloniex) as! String
+    let APIKey: String = apiKeyForTicker(tickerType: TickerType.Poloniex) 
+    let Secret: String = apiSecretForTicker(tickerType: TickerType.Poloniex) 
     
     // Init the poloniex wrapper
     var poloniexWrapper: PoloniexTicker!
@@ -26,8 +26,8 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    @IBAction func DonePressed(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func DonePressed(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBOutlet weak var tickersScrollView: UIScrollView!
@@ -64,9 +64,9 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
         getTickerData()
         
         // Init background color for views to black
-        dashView.backgroundColor = UIColor.blackColor()
-        factomView.backgroundColor = UIColor.blackColor()
-        ethereumView.backgroundColor = UIColor.blackColor()
+        dashView.backgroundColor = UIColor.black
+        factomView.backgroundColor = UIColor.black
+        ethereumView.backgroundColor = UIColor.black
         
     }
 
@@ -80,7 +80,7 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
     
     
     
-    private func getTickerData() {
+    fileprivate func getTickerData() {
         // Get ticker
         poloniexWrapper.returnTicker() {
             (data, error) -> Void in
@@ -96,10 +96,10 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
     
     func updateTickerModel() {
         // Set up number formatter with significant digits
-        let formatter: NSNumberFormatter = NSNumberFormatter()
-        formatter.locale = NSLocale.currentLocale()
+        let formatter: Foundation.NumberFormatter = Foundation.NumberFormatter()
+        formatter.locale = Locale.current
         formatter.allowsFloats = true
-        formatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        formatter.numberStyle = Foundation.NumberFormatter.Style.decimal
         
         // Makes formatter use maximumSignificantDigits
         formatter.usesSignificantDigits = true
@@ -118,9 +118,9 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
         print("1 BTC = $\(btcPrice)")
         
         // TODO: implement proper update of fields using SetNeedsDisplay and so on
-        dispatch_async(dispatch_get_main_queue(), {
+        DispatchQueue.main.async(execute: {
             let lastDASH: Float = Float((dashTicker["last"]!)! as! String)!
-            self.LastValueDASH.text = formatter.stringFromNumber(lastDASH)
+            self.LastValueDASH.text = formatter.string(from: NSNumber(value: lastDASH))
             self.SavingsDASH.text = "\(lastDASH * 101 * btcPrice)"
             let dashPercentChange: Float = Float(dashTicker["percentChange"] as! String)! * 100
             let dashColor: CGFloat = sqrt(CGFloat(abs(dashPercentChange/100.0)))
@@ -133,7 +133,7 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
             
             
             let lastFCT: Float = Float((factomTicker["last"]!)! as! String)!
-            self.LastValueFCT.text = formatter.stringFromNumber(lastFCT)
+            self.LastValueFCT.text = formatter.string(from: NSNumber(value: lastFCT))
             self.SavingsFCT.text = "\(lastFCT * 200.0 * btcPrice)"
             let factomPercentChange: Float = Float(factomTicker["percentChange"] as! String)! * 100
             let factomColor: CGFloat = sqrt(CGFloat(abs(factomPercentChange/100.0)))
@@ -146,8 +146,8 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
             
             
             let lastETH: Float = Float((ethTicker["last"]!)! as! String)!
-            self.LastValueETH.text = formatter.stringFromNumber(lastETH)
-            self.SavingsETH.text = "$\(formatter.stringFromNumber(ethPrice)!)"
+            self.LastValueETH.text = formatter.string(from: NSNumber(value: lastETH))
+            self.SavingsETH.text = "$\(formatter.string(from: NSNumber(value: ethPrice))!)"
             let ethPercentChange: Float = Float(ethTicker["percentChange"] as! String)! * 100
             let ethColor: CGFloat = sqrt(CGFloat(abs(ethPercentChange/100.0)))
             if ethPercentChange >= 0 {
@@ -159,7 +159,7 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
             
             
             let lastXCP: Float = Float((xcpTicker["last"]!)! as! String)!
-            self.LastValueXCP.text = formatter.stringFromNumber(lastXCP)
+            self.LastValueXCP.text = formatter.string(from: NSNumber(value: lastXCP))
             self.SavingsXCP.text = "$\(lastXCP * 175 * btcPrice)"
             let xcpPercentChange: Float = Float(xcpTicker["percentChange"] as! String)! * 100
             let xcpColor: CGFloat = sqrt(CGFloat(abs(xcpPercentChange/100.0)))
@@ -172,7 +172,7 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
             
             
             let lastDOGE: Float = Float((dogeTicker["last"]!)! as! String)!
-            self.LastValueDOGE.text = formatter.stringFromNumber(lastDOGE)
+            self.LastValueDOGE.text = formatter.string(from: NSNumber(value: lastDOGE))
             self.SavingsDOGE.text = "$\(lastDOGE * 473000 * btcPrice)"
             let dogePercentChange: Float = Float(dogeTicker["percentChange"] as! String)! * 100
             let dogeColor: CGFloat = sqrt(CGFloat(abs(dogePercentChange/100.0)))
@@ -189,7 +189,7 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
     
     
     
-    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         getTickerData()
     }
 

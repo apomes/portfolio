@@ -12,8 +12,8 @@ class SettingsViewController: UIViewController {
 
     
     
-    @IBAction func Done(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func Done(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     

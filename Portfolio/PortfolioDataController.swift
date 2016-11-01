@@ -19,32 +19,35 @@ class PortfolioDataController: NSObject {
     override init () {
         super.init()
 
-        let path = NSBundle.mainBundle().pathForResource("PortfolioData", ofType: "plist")!
-        let plistURL: NSURL = NSURL.fileURLWithPath(path)
-        
-        let err: NSErrorPointer = nil
-        if plistURL.checkResourceIsReachableAndReturnError(err) {
-            let plistData = NSFileManager.defaultManager().contentsAtPath(plistURL.path!)
-            
-            var plistDictionary: NSDictionary
-            do {
-                plistDictionary = try NSPropertyListSerialization.propertyListWithData(plistData!, options: NSPropertyListReadOptions.Immutable, format: nil) as! NSDictionary
+        let path = Bundle.main.path(forResource: "PortfolioData", ofType: "plist")!
+        let plistURL: URL = URL(fileURLWithPath: path)
                 
-                portfolioData = NSMutableDictionary.init(dictionary: plistDictionary)
+        do {
+            let haveResource: Bool = try plistURL.checkResourceIsReachable()
+            
+            if haveResource {
+                let plistData = FileManager.default.contents(atPath: plistURL.path)
+                
+                var plistDictionary: NSDictionary
+                do {
+                    plistDictionary = try PropertyListSerialization.propertyList(from: plistData!, options: PropertyListSerialization.MutabilityOptions(), format: nil) as! NSDictionary
+                    
+                    portfolioData = NSMutableDictionary.init(dictionary: plistDictionary)
+                }
+                catch {
+                    print("Error deserializing plist.")
+                }
             }
-            catch {
-                print("Error deserializing plist.")
-            }
+        } catch {
+            print("Error: PortfolioData resource is not available.")
         }
     }
-    
-
 }
 
 
 
 
 /** Enums to manage errors in our code. */
-enum DataControllerError: ErrorType {
-    case SerializationError
+enum DataControllerError: Error {
+    case serializationError
 }

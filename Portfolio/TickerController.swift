@@ -31,7 +31,7 @@ class TickerController : TickerProtocol {
     
     /** Initializes the ticker. */
     required init () {
-        ticker = 0
+        ticker = 0 as AnyObject
         tickerData = [:]
     }
 
@@ -43,16 +43,16 @@ class TickerController : TickerProtocol {
     }
     
     
-    func getPriceForAsset(name: String) -> [String: Float] {
+    func getPriceForAsset(_ name: String) -> [String: Float] {
         return [:]
     }
     
     
-    func getPercentChange(name: String) -> [String: Float] {
+    func getPercentChange(_ name: String) -> [String: Float] {
         return [:]
     }
     
-    func getCurrencyPairForAsset(name: String) -> [CurrencySymbol] {
+    func getCurrencyPairForAsset(_ name: String) -> [CurrencySymbol] {
         return []
     }
 }
@@ -60,5 +60,5 @@ class TickerController : TickerProtocol {
 
 
 protocol TickerControllerDelegate {
-    func tickerControllerDidUpdateData(tickerController: TickerController)
+    func tickerControllerDidUpdateData(_ tickerController: TickerController)
 }

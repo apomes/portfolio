@@ -12,21 +12,21 @@ import Foundation
 
 
 /** Extracts the API keys values from a plist file.  */
-func apiKeyForTicker(tickerType tickerType:TickerType) -> AnyObject {
-    let filePath = NSBundle.mainBundle().pathForResource("ApiKeys", ofType:"plist")
+func apiKeyForTicker(tickerType:TickerType) -> String {
+    let filePath = Bundle.main.path(forResource: "ApiKeys", ofType:"plist")
     let plist = NSDictionary(contentsOfFile:filePath!)
-    let tickerSecret:AnyObject = (plist?.objectForKey(tickerType.rawValue))!
+    let tickerSecret: NSDictionary = (plist?.object(forKey: tickerType.rawValue))! as! NSDictionary
     
-    return tickerSecret.valueForKey("API_KEY")!
+    return tickerSecret.value(forKey: "API_KEY") as! String
 }
 
 
 
 /**  */
-func apiSecretForTicker(tickerType tickerType:TickerType) -> AnyObject {
-    let filePath = NSBundle.mainBundle().pathForResource("ApiKeys", ofType:"plist")
+func apiSecretForTicker(tickerType:TickerType) -> String {
+    let filePath = Bundle.main.path(forResource: "ApiKeys", ofType:"plist")
     let plist = NSDictionary(contentsOfFile:filePath!)
-    let tickerSecret:AnyObject = (plist?.objectForKey(tickerType.rawValue))!
+    let tickerSecret: NSDictionary = (plist?.object(forKey: tickerType.rawValue))! as! NSDictionary
     
-    return tickerSecret.valueForKey("API_SECRET")!
+    return tickerSecret.value(forKey: "API_SECRET") as! String
 }

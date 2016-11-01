@@ -22,8 +22,8 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
     
     
     
-    @IBAction func UIAddNewAssetButton(sender: AnyObject) {
-        performSegueWithIdentifier("DisplayAssetView", sender: self)
+    @IBAction func UIAddNewAssetButton(_ sender: AnyObject) {
+        performSegue(withIdentifier: "DisplayAssetView", sender: self)
     }
     
     override func viewDidLoad() {
@@ -33,7 +33,7 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         portfolio.delegate = self
         
@@ -75,41 +75,41 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
 
     // MARK: - Table view data source
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return portfolio.numberOfAssets() + 1
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if indexPath.row < portfolio.numberOfAssets() {
-            let cell = tableView.dequeueReusableCellWithIdentifier("AssetCellID", forIndexPath: indexPath) as! PortfolioTableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if (indexPath as NSIndexPath).row < portfolio.numberOfAssets() {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AssetCellID", for: indexPath) as! PortfolioTableViewCell
 
             // Configure the cell...
-            cell.assetName.text = portfolio.getNameForAsset(indexPath.row)
-            cell.assetPrice.text = portfolio.getPriceForAssetFormatted(indexPath.row)
+            cell.assetName.text = portfolio.getNameForAsset((indexPath as NSIndexPath).row)
+            cell.assetPrice.text = portfolio.getPriceForAssetFormatted((indexPath as NSIndexPath).row)
             
             if (delegate?.portfolioTableShouldUseLocalCurrency(self)) == true {
-                cell.assetQuantity.text = portfolio.getValueForAssetFormatted(indexPath.row)
+                cell.assetQuantity.text = portfolio.getValueForAssetFormatted((indexPath as NSIndexPath).row)
             }
             else {
-                cell.assetQuantity.text = portfolio.getQuantityForAssetFormatted(indexPath.row)
+                cell.assetQuantity.text = portfolio.getQuantityForAssetFormatted((indexPath as NSIndexPath).row)
             }
             
             // Set cell background color
-            cell.setSubtractiveBgColorForPercentChange(portfolio.getPercentChangeForAsset(indexPath.row))
+            cell.setSubtractiveBgColorForPercentChange(portfolio.getPercentChangeForAsset((indexPath as NSIndexPath).row))
 //            cell.setPriceLabelColorForPercentChange(portfolio.getPercentChangeForAsset(indexPath.row))
             
             return cell
         }
         else {
             // Last cell in the table, to add a new asset
-            let cell = tableView.dequeueReusableCellWithIdentifier("AddAssetCellID", forIndexPath: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AddAssetCellID", for: indexPath)
             
             return cell
         }
@@ -127,13 +127,13 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
     //
     // MARK: - Table view delegate
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return rowHeight
     }
 
     
     // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
@@ -141,11 +141,11 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
 
     
     // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
             // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
@@ -153,14 +153,14 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
 
     
     // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to toIndexPath: IndexPath) {
 
     }
  
 
     
     // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
     }
@@ -180,9 +180,9 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
     
     // MARK: - Delegate methods for portfolio model
     
-    func portfolioDidUpdateData(portfolio: Portfolio) {
+    func portfolioDidUpdateData(_ portfolio: Portfolio) {
         // Reload table after portfolio pulled fresh data
-        dispatch_async(dispatch_get_main_queue(), {
+        DispatchQueue.main.async(execute: {
             self.tableView.reloadData()
             
             // Notify delegate that the portfolio got updated
@@ -202,10 +202,10 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
 //
 // MARK: - Delegate methods for the Portfolio Table View Controller
 protocol PortfolioTableViewControllerDelegate {
-    func portfolioTableDidTapOnAsset(portfolioTableViewController: PortfolioTableViewController,
+    func portfolioTableDidTapOnAsset(_ portfolioTableViewController: PortfolioTableViewController,
         assetIndex index: Int)
     
-    func portfolioTableDidUpdate(portfolioTableViewController: PortfolioTableViewController)
+    func portfolioTableDidUpdate(_ portfolioTableViewController: PortfolioTableViewController)
     
-    func portfolioTableShouldUseLocalCurrency(portfolioTableViewController: PortfolioTableViewController) -> Bool
+    func portfolioTableShouldUseLocalCurrency(_ portfolioTableViewController: PortfolioTableViewController) -> Bool
 }

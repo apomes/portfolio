@@ -70,5 +70,5 @@ class Asset {
 // MARK: - Delegate methods for the Asset
 
 protocol AssetDelegate {
-    func assetDidRequestAssetPrice(asset: Asset, currencySymbol: CurrencySymbol) -> Float
+    func assetDidRequestAssetPrice(_ asset: Asset, currencySymbol: CurrencySymbol) -> Float
 }

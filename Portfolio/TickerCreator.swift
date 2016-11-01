@@ -20,7 +20,7 @@ class TickerCreator {
         - tickerType: Type of ticker to be instantiated. It's an ENUM.
      - returns: A concrete instance of TickerController.
      */
-    class func makeTickerController(tickerType: TickerType) -> TickerController {
+    class func makeTickerController(_ tickerType: TickerType) -> TickerController {
         switch tickerType {
         case TickerType.Poloniex:
             return PoloniexTickerController()

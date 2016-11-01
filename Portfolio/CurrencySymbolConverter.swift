@@ -13,7 +13,7 @@ import Foundation
 class CurrencySymbolConverter {
     static let sharedInstance = CurrencySymbolConverter()
 
-    func getSymbolForName(name: String) -> CurrencySymbol {
+    func getSymbolForName(_ name: String) -> CurrencySymbol {
         var currencySymbol: CurrencySymbol
         switch name {
         case "Factom":

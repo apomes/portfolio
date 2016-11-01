@@ -12,7 +12,7 @@ import Foundation
 
 
 /** Formatter singleton class for general numbers. */
-class NumberFormatter: NSNumberFormatter {
+class NumberFormatter: Foundation.NumberFormatter {
     static let sharedInstance = NumberFormatter()
     
     required init?(coder aDecoder: NSCoder) {
@@ -21,9 +21,9 @@ class NumberFormatter: NSNumberFormatter {
     
     override init() {
         super.init()
-        self.locale = NSLocale.currentLocale()
+        self.locale = Locale.current
         self.allowsFloats = true
-        self.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        self.numberStyle = Foundation.NumberFormatter.Style.decimal
         
         // Makes formatter use maximumSignificantDigits
         self.usesSignificantDigits = true
@@ -35,13 +35,13 @@ class NumberFormatter: NSNumberFormatter {
 
 
 /** Formatter singleton class for currencies. */
-class CurrencyFormatter: NSNumberFormatter {
+class CurrencyFormatter: Foundation.NumberFormatter {
     static let sharedInstance = CurrencyFormatter()
     
     /** Currently selected locale that determines the currency symbol. */
     var selectedLocale: String = "en_US" {
         didSet {
-            self.locale = NSLocale.init(localeIdentifier: selectedLocale)
+            self.locale = Locale.init(identifier: selectedLocale)
         }
         
     }
@@ -52,8 +52,8 @@ class CurrencyFormatter: NSNumberFormatter {
     
     override init() {
         super.init()
-        self.locale = NSLocale.init(localeIdentifier: selectedLocale)
-        self.numberStyle = NSNumberFormatterStyle.CurrencyStyle
+        self.locale = Locale.init(identifier: selectedLocale)
+        self.numberStyle = Foundation.NumberFormatter.Style.currency
         self.alwaysShowsDecimalSeparator = true
     }
 }

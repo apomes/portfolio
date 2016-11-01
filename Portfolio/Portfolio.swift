@@ -50,7 +50,7 @@ class Portfolio : NSObject, AssetDelegate {
     func initPortfolio() {
         for anAsset in _portfolioDataController.portfolioData! {
             let assetName = anAsset.key
-            let assetQuantity = anAsset.value.valueForKey("quantity") as! NSNumber
+            let assetQuantity = (anAsset.value as AnyObject).value(forKey: "quantity") as! NSNumber
             addAsset(assetName as! String, quantity: assetQuantity.floatValue)
         }
     }
@@ -85,13 +85,13 @@ class Portfolio : NSObject, AssetDelegate {
         - name: full name of the asset.
         - value: quantity of the asset.
      */
-    func addAsset(name: String, quantity:Float) {
+    func addAsset(_ name: String, quantity:Float) {
         let anAsset = Asset(name: name, quantity: quantity)
         anAsset.delegate = self
         assetList.append(anAsset)
     }
     
-    func removeAsset(name: String) {
+    func removeAsset(_ name: String) {
         print("remove asset needs implementation...")
     }
     
@@ -132,32 +132,32 @@ class Portfolio : NSObject, AssetDelegate {
     }
     
     
-    func getNameForAsset(index: Int) -> String {
+    func getNameForAsset(_ index: Int) -> String {
         return assetList[index].name
     }
     
-    func getPriceForAsset(index: Int) -> Float {
+    func getPriceForAsset(_ index: Int) -> Float {
         return assetList[index].price
     }
     
-    func getPriceForAssetFormatted(index: Int) -> String {
-        return NumberFormatter.sharedInstance.stringFromNumber(assetList[index].price)!
+    func getPriceForAssetFormatted(_ index: Int) -> String {
+        return NumberFormatter.sharedInstance.string(from: NSNumber(value: assetList[index].price))!
     }
     
-    func getPercentChangeForAsset(index: Int) -> Float {
+    func getPercentChangeForAsset(_ index: Int) -> Float {
         return assetList[index].percentChange
     }
     
-    func getQuantityForAsset(index: Int) -> Float {
+    func getQuantityForAsset(_ index: Int) -> Float {
         return assetList[index].quantity
     }
     
-    func getQuantityForAssetFormatted(index: Int) -> String {
-        return NumberFormatter.sharedInstance.stringFromNumber(assetList[index].quantity)!
+    func getQuantityForAssetFormatted(_ index: Int) -> String {
+        return NumberFormatter.sharedInstance.string(from: NSNumber(value: assetList[index].quantity))!
     }
     
-    func getValueForAssetFormatted(index: Int) -> String {
-        return CurrencyFormatter.sharedInstance.stringFromNumber(assetList[index].getValue())!
+    func getValueForAssetFormatted(_ index: Int) -> String {
+        return CurrencyFormatter.sharedInstance.string(from: NSNumber(value: assetList[index].getValue()))!
     }
     
     func getTotalValue() -> Float {
@@ -179,7 +179,7 @@ class Portfolio : NSObject, AssetDelegate {
     // MARK: - Delegate methods for Asset model
     
     /** Returns the price of the asset _currencySymbol_ from the ticker. */
-    func assetDidRequestAssetPrice(asset: Asset, currencySymbol: CurrencySymbol) -> Float {
+    func assetDidRequestAssetPrice(_ asset: Asset, currencySymbol: CurrencySymbol) -> Float {
         // Get prices
         let pricePerTicker = myTickerList.getPricesForAsset(currencySymbol.rawValue)
         
@@ -202,5 +202,5 @@ class Portfolio : NSObject, AssetDelegate {
 // MARK: - Delegate methods for the Portfolio
 
 protocol PortfolioDelegate {
-    func portfolioDidUpdateData (portfolio: Portfolio)
+    func portfolioDidUpdateData (_ portfolio: Portfolio)
 }

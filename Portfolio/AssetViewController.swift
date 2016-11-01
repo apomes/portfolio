@@ -11,8 +11,8 @@ import UIKit
 class AssetViewController: UIViewController {
 
     
-    @IBAction func UIAssetViewDoneButton(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func UIAssetViewDoneButton(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
     }
     
     

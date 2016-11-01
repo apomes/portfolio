@@ -22,7 +22,7 @@ class PortfolioTableViewCell: UITableViewCell {
         
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
@@ -32,7 +32,7 @@ class PortfolioTableViewCell: UITableViewCell {
     
     /** Changes the cell background color to visualize the change in value
      of the asset with colors based on an additive color model. */
-    func setAdditiveBgColorForPercentChange(percentChange: Float) {
+    func setAdditiveBgColorForPercentChange(_ percentChange: Float) {
         let intensity: CGFloat = sqrt(CGFloat(abs(percentChange/100.0)))
         if percentChange >= 0 {
             self.backgroundColor = UIColor.init(red: 0, green: intensity, blue: 0, alpha: 1)
@@ -46,7 +46,7 @@ class PortfolioTableViewCell: UITableViewCell {
     
     /** Changes the cell background color to visualize the change in value
      of the asset with colors based on a substractive color model. */
-    func setSubtractiveBgColorForPercentChange(percentChange: Float) {
+    func setSubtractiveBgColorForPercentChange(_ percentChange: Float) {
         let intensity: CGFloat = sqrt(CGFloat(abs(percentChange/100.0)))
         if percentChange >= 0 {
             self.backgroundColor = UIColor.init(red: 0, green: 1, blue: 0, alpha: intensity)
@@ -60,7 +60,7 @@ class PortfolioTableViewCell: UITableViewCell {
     
     /** Changes the price text label color to visualize the change in value
      of the asset. */
-    func setPriceLabelColorForPercentChange(percentChange: Float) {
+    func setPriceLabelColorForPercentChange(_ percentChange: Float) {
         let intensity: CGFloat = sqrt(CGFloat(abs(percentChange/100.0)))
         if percentChange >= 0 {
             self.assetPrice.textColor = UIColor.init(red: 0, green: intensity, blue: 0, alpha: 1)

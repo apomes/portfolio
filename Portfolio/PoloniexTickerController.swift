@@ -11,8 +11,8 @@ import Foundation
 class PoloniexTickerController: TickerController {
     
     // Gets ticker key and secret 
-    let APIKey: String = apiKeyForTicker(tickerType: TickerType.Poloniex) as! String
-    let Secret: String = apiSecretForTicker(tickerType: TickerType.Poloniex) as! String
+    let APIKey: String = apiKeyForTicker(tickerType: TickerType.Poloniex) 
+    let Secret: String = apiSecretForTicker(tickerType: TickerType.Poloniex) 
     
     required init () {        
         super.init()
@@ -40,7 +40,7 @@ class PoloniexTickerController: TickerController {
     
     
     
-    override func getPriceForAsset(name: String) -> [String: Float] {
+    override func getPriceForAsset(_ name: String) -> [String: Float] {
         // Init return price
         var lastPrice: Float = -1
         
@@ -62,7 +62,7 @@ class PoloniexTickerController: TickerController {
     
     
     
-    override func getPercentChange(name: String) -> [String: Float] {
+    override func getPercentChange(_ name: String) -> [String: Float] {
         // Init return percent change
         var percentChange: Float = -1
         
@@ -85,11 +85,11 @@ class PoloniexTickerController: TickerController {
     
     
     /** Returns a list representing a currency pair. */
-    override func getCurrencyPairForAsset(name: String) -> [CurrencySymbol] {
+    override func getCurrencyPairForAsset(_ name: String) -> [CurrencySymbol] {
         var currencyPair = [CurrencySymbol]()
         
         let poloniexCurrencyPair = getPoloniexCurrencyPairForCurrency(name)
-        let currencies = poloniexCurrencyPair.componentsSeparatedByString("_")
+        let currencies = poloniexCurrencyPair.components(separatedBy: "_")
         
         currencyPair.append(CurrencySymbolConverter.sharedInstance.getSymbolForName(currencies.first!))
         currencyPair.append(CurrencySymbolConverter.sharedInstance.getSymbolForName(currencies.last!))
@@ -100,7 +100,7 @@ class PoloniexTickerController: TickerController {
     
     
     /** Returns a currency pair in Poloniex format with most popular counter currency. First USD, then BTC, then others. */
-    private func getPoloniexCurrencyPairForCurrency(name: String) -> String {
+    fileprivate func getPoloniexCurrencyPairForCurrency(_ name: String) -> String {
         
         let currencyPairs = getCurrencyPairsForCurrency(name)
         
@@ -119,7 +119,7 @@ class PoloniexTickerController: TickerController {
     
     
     /** Returns the a list of currency pairs for a specific base currency */
-    private func getCurrencyPairsForCurrency(name: String) -> [String] {
+    fileprivate func getCurrencyPairsForCurrency(_ name: String) -> [String] {
         var currencyPairs = [String]()
         
         // Get base currency symbol from currency name
@@ -130,12 +130,12 @@ class PoloniexTickerController: TickerController {
             let currencyPair = item.0
             
             // Get currencies in pair
-            let currencyList = currencyPair.componentsSeparatedByString("_")
+            let currencyList = currencyPair.components(separatedBy: "_")
             // Poloniex puts the base currency in last place
             let baseCurrency = currencyList.last!
             
             // Check if base currency symbol is contained in currency pair
-            if baseCurrency.containsString(baseCurrencySymbol.rawValue) {
+            if baseCurrency.contains(baseCurrencySymbol.rawValue) {
                 currencyPairs.append(currencyPair)
             }
         }
@@ -145,10 +145,10 @@ class PoloniexTickerController: TickerController {
     
     
     
-    private func getCurrencyPairForCounterCurrency(aCounterCurrency: CurrencySymbol, currencyPairs: [String]) -> String {
+    fileprivate func getCurrencyPairForCounterCurrency(_ aCounterCurrency: CurrencySymbol, currencyPairs: [String]) -> String {
         for aCurrencyPair in currencyPairs {
-            let counterCurrency = aCurrencyPair.componentsSeparatedByString("_").first!
-            if counterCurrency.containsString(aCounterCurrency.rawValue) {
+            let counterCurrency = aCurrencyPair.components(separatedBy: "_").first!
+            if counterCurrency.contains(aCounterCurrency.rawValue) {
                 return aCurrencyPair
             }
         }

@@ -11,8 +11,8 @@ import UIKit
 class TreemapViewController: UIViewController {
 
     
-    @IBAction func Close(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func Close(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     

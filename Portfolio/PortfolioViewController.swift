@@ -34,14 +34,14 @@ class PortfolioViewController: UIViewController, PortfolioTableViewControllerDel
     @IBOutlet weak var TotalValue: UILabel!
     
 
-    @IBAction func tapOnTotalValue(sender: UITapGestureRecognizer) {
+    @IBAction func tapOnTotalValue(_ sender: UITapGestureRecognizer) {
         _shouldUseLocalCurrency = !_shouldUseLocalCurrency
         
         portfolioTableViewController?.refresh()
         
     }
     
-    @IBAction func refreshPortfolio(sender: AnyObject) {
+    @IBAction func refreshPortfolio(_ sender: AnyObject) {
         // Update portfolio table model and view
         portfolioTableViewController?.refresh()
     }
@@ -65,13 +65,13 @@ class PortfolioViewController: UIViewController, PortfolioTableViewControllerDel
         /************ VIEWS ****************/
         // Add portfolio table view controller as child
         let myStoryboard:UIStoryboard = self.storyboard!
-        portfolioTableViewController = (myStoryboard.instantiateViewControllerWithIdentifier("PortfolioTableControllerID") as! PortfolioTableViewController)
+        portfolioTableViewController = (myStoryboard.instantiateViewController(withIdentifier: "PortfolioTableControllerID") as! PortfolioTableViewController)
         
         // Present portfolio table view controller and handle view hierarchy
         addNewChildViewController(portfolioTableViewController!, parentView: self.view)
         
         // Position portfolio table within the main portfolio controller view
-        portfolioTableViewController?.view.frame = CGRectMake(0, portfolioHeaderHeight, self.view.frame.width, self.view.frame.height - portfolioHeaderHeight)
+        portfolioTableViewController?.view.frame = CGRect(x: 0, y: portfolioHeaderHeight, width: self.view.frame.width, height: self.view.frame.height - portfolioHeaderHeight)
         
         // Add self as delegate for the portfolio table view controller
         portfolioTableViewController?.delegate = self
@@ -87,7 +87,7 @@ class PortfolioViewController: UIViewController, PortfolioTableViewControllerDel
     }
     
     
-    func addNewChildViewController(viewController:UIViewController, parentView:UIView) {
+    func addNewChildViewController(_ viewController:UIViewController, parentView:UIView) {
         // Add controller to the controllers hierarchy
         // This also calls willMoveToParentViewController
         self.addChildViewController(viewController)
@@ -96,15 +96,15 @@ class PortfolioViewController: UIViewController, PortfolioTableViewControllerDel
         parentView.addSubview(viewController.view)
         
         // Notify controller it was added to parent controller hierarchy
-        viewController.didMoveToParentViewController(self)
+        viewController.didMove(toParentViewController: self)
         
     }
     
     
     
     /** Manage controller view size changes including rotations. */
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
         
         // Manage rotation
         print("View is about to rotate!")
@@ -136,17 +136,17 @@ class PortfolioViewController: UIViewController, PortfolioTableViewControllerDel
     
     // MARK: - Delegate methods for the Portfolio Table View Controller
     
-    func portfolioTableDidTapOnAsset(portfolioTableViewController: PortfolioTableViewController, assetIndex index: Int) {
+    func portfolioTableDidTapOnAsset(_ portfolioTableViewController: PortfolioTableViewController, assetIndex index: Int) {
         print("Implement portfolioTableDidTapOnAsset method...")
     }
     
-    func portfolioTableDidUpdate(portfolioTableViewController: PortfolioTableViewController) {
+    func portfolioTableDidUpdate(_ portfolioTableViewController: PortfolioTableViewController) {
         print("update total...")
         
-        TotalValue.text = CurrencyFormatter.sharedInstance.stringFromNumber((portfolioTableViewController.getPortfolioTotalValue()))
+        TotalValue.text = CurrencyFormatter.sharedInstance.string(from: NSNumber(value: portfolioTableViewController.getPortfolioTotalValue()))
     }
     
-    func portfolioTableShouldUseLocalCurrency(portfolioTableViewController: PortfolioTableViewController) -> Bool {
+    func portfolioTableShouldUseLocalCurrency(_ portfolioTableViewController: PortfolioTableViewController) -> Bool {
         return _shouldUseLocalCurrency
     }
 
