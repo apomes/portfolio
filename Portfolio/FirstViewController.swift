@@ -85,7 +85,7 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
         poloniexWrapper.returnTicker() {
             (data, error) -> Void in
             if error != nil {
-                print(error)
+                print(error!)
             } else {
                 self.poloniexTicker = data
             }

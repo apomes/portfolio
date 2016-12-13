@@ -31,7 +31,7 @@ class PoloniexTickerController: TickerController {
         (self.ticker as! PoloniexTicker).returnTicker() {
             (data, error) -> Void in
             if error != nil {
-                print(error)
+                print(error!)
             } else {
                 self.tickerData = data
             }

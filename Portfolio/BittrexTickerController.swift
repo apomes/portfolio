@@ -32,7 +32,7 @@ class BittrexTickerController: TickerController {
         (self.ticker as! BittrexTicker).returnTicker() {
             (data, error) -> Void in
             if error != nil {
-                print(error)
+                print(error!)
             } else {
                 self.tickerData = data
             }
