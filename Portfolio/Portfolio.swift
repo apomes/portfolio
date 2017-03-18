@@ -93,6 +93,11 @@ class Portfolio : NSObject, AssetDelegate {
     
     func removeAsset(_ name: String) {
         print("remove asset needs implementation...")
+        
+    }
+    
+    func removeAsset(index: Int) {
+        assetList.remove(at: index)
     }
     
     /** Updates data for all assets in the portfolio. */

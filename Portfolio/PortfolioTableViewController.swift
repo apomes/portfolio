@@ -144,7 +144,8 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            portfolio.removeAsset(index: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .left)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
