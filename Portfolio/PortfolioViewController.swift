@@ -18,6 +18,7 @@ class PortfolioViewController: UIViewController, PortfolioTableViewControllerDel
     
     
     // MODEL
+    
     /** Height of the portfolio header. */
     let portfolioHeaderHeight: CGFloat = 100.0
     
@@ -31,9 +32,8 @@ class PortfolioViewController: UIViewController, PortfolioTableViewControllerDel
     
     
     // VIEW
-    @IBOutlet weak var TotalValue: UILabel!
     
-
+    @IBOutlet weak var TotalValue: UILabel!
     @IBAction func tapOnTotalValue(_ sender: UITapGestureRecognizer) {
         _shouldUseLocalCurrency = !_shouldUseLocalCurrency
         
@@ -44,6 +44,12 @@ class PortfolioViewController: UIViewController, PortfolioTableViewControllerDel
     @IBAction func refreshPortfolio(_ sender: AnyObject) {
         // Update portfolio table model and view
         portfolioTableViewController?.refresh()
+    }
+    
+    @IBOutlet weak var SortPortfolioButton: UIBarButtonItem!
+    @IBAction func sortPortfolio(_ sender: Any) {
+        // Sort portfolio table 
+        portfolioTableViewController?.sort()
     }
     
     
@@ -76,15 +82,18 @@ class PortfolioViewController: UIViewController, PortfolioTableViewControllerDel
         // Add self as delegate for the portfolio table view controller
         portfolioTableViewController?.delegate = self
         
-        
-        
-        
+        // Init portfolio
+        portfolioTableViewController?.initPortfolio()
+        portfolioTableViewController?.sortByMethod(aSortMethod: SortMethod.Percent)
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
     
     func addNewChildViewController(_ viewController:UIViewController, parentView:UIView) {
@@ -126,6 +135,26 @@ class PortfolioViewController: UIViewController, PortfolioTableViewControllerDel
     */
     
     
+    /** Updates the label of the portfolio button. */
+    func ChangeSortButtonLabelToMethod(aSortMethod: SortMethod) {
+        var sortButtonSymbol: String
+        
+        switch aSortMethod {
+        case SortMethod.Name:
+            sortButtonSymbol = "@"
+        case SortMethod.Price:
+            sortButtonSymbol = "$"
+        case SortMethod.Quantity:
+            sortButtonSymbol = "Q"
+        case SortMethod.Percent:
+            sortButtonSymbol = "%"
+        }
+        
+        // Update sort button symbol
+        SortPortfolioButton.title = sortButtonSymbol
+    }
+    
+    
     
     //  o-o   o--o o    o--o  o-o    O  o-O-o o--o
     //  |  \  |    |    |    o      / \   |   |
@@ -137,17 +166,20 @@ class PortfolioViewController: UIViewController, PortfolioTableViewControllerDel
     // MARK: - Delegate methods for the Portfolio Table View Controller
     
     func portfolioTableDidTapOnAsset(_ portfolioTableViewController: PortfolioTableViewController, assetIndex index: Int) {
-        print("Implement portfolioTableDidTapOnAsset method...")
+        print("Method portfolioTableDidTapOnAsset NOT implemented yet...")
+        
     }
     
     func portfolioTableDidUpdate(_ portfolioTableViewController: PortfolioTableViewController) {
-        print("update total...")
-        
         TotalValue.text = CurrencyFormatter.sharedInstance.string(from: NSNumber(value: portfolioTableViewController.getPortfolioTotalValue()))
     }
     
     func portfolioTableShouldUseLocalCurrency(_ portfolioTableViewController: PortfolioTableViewController) -> Bool {
         return _shouldUseLocalCurrency
+    }
+    
+    func portfolioTableDidChangeSortMethod(_ portfolioTableViewController: PortfolioTableViewController, sortMethod aSortMethod: SortMethod) {
+        ChangeSortButtonLabelToMethod(aSortMethod: aSortMethod)
     }
 
 }

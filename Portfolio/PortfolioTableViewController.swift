@@ -36,7 +36,11 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         portfolio.delegate = self
-        
+    }
+    
+    
+    func initPortfolio() {
+        portfolio.initPortfolio()
     }
     
     
@@ -49,11 +53,24 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
     
     
     
-    // MARK: - Table view update methods
+    // MARK: - Table view callback methods
     
     /** Refresh portfolio data. */
     func refresh() {
         portfolio.refresh()
+    }
+    
+    
+    
+    /** Sort portfolio assets. */
+    func sort() {
+        // TODO: for now we just cycle sort methods with one single button.
+        // UI should allow users to choose the sort method.
+        portfolio.sortCycle()
+    }
+    
+    func sortByMethod(aSortMethod: SortMethod) {
+        portfolio.sortByMethod(aSortMethod: aSortMethod)
     }
     
     
@@ -118,11 +135,11 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
     
     
     
-    //  o-o   o--o o    o--o  o-o    O  o-O-o o--o
-    //  |  \  |    |    |    o      / \   |   |
-    //  |   O O-o  |    O-o  |  -o o---o  |   O-o
-    //  |  /  |    |    |    o   | |   |  |   |
-    //  o-o   o--o O---oo--o  o-o  o   o  o   o--o
+    //  o-o   o--o o    o--o  o-o    O  o-O-o o--o  o-o
+    //  |  \  |    |    |    o      / \   |   |    |
+    //  |   O O-o  |    O-o  |  -o o---o  |   O-o   o-o
+    //  |  /  |    |    |    o   | |   |  |   |        |
+    //  o-o   o--o O---oo--o  o-o  o   o  o   o--o o--o
     //
     //
     // MARK: - Table view delegate
@@ -191,6 +208,10 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
         })
     }
     
+    func portfolioDidChangeSortMethod(_ portfolio: Portfolio, sortMethod aSortMethod: SortMethod) {
+        self.delegate?.portfolioTableDidChangeSortMethod(self, sortMethod: aSortMethod)
+    }
+    
 }
 
 
@@ -209,4 +230,6 @@ protocol PortfolioTableViewControllerDelegate {
     func portfolioTableDidUpdate(_ portfolioTableViewController: PortfolioTableViewController)
     
     func portfolioTableShouldUseLocalCurrency(_ portfolioTableViewController: PortfolioTableViewController) -> Bool
+    
+    func portfolioTableDidChangeSortMethod(_ portfolioTableViewController: PortfolioTableViewController, sortMethod aSortMethod: SortMethod)
 }

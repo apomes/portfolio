@@ -23,6 +23,11 @@ class Portfolio : NSObject, AssetDelegate {
     /** Persistence objects. */
     var _portfolioDataController: PortfolioDataController = PortfolioDataController()
     
+    /** Sort method currently selected. */
+    var sortMethod: SortMethod = SortMethod.Name
+    let _maxSortMethods = 4
+    
+    
     
     override init () {
         super.init()
@@ -39,9 +44,6 @@ class Portfolio : NSObject, AssetDelegate {
         
         // Add self as observer to track changes in the tickers
         myTickerList.attachObserver(self)
-        
-        /* Persistence */
-        initPortfolio()
     }
 
     
@@ -70,6 +72,9 @@ class Portfolio : NSObject, AssetDelegate {
     func update() {
         // Updates assets with fresh data from the tickers
         updateAssets()
+        
+        // Make sure data stays sorted
+        sortByMethod(aSortMethod: sortMethod)
         
         // Tell portfolio controller to reload table with fresh data
         delegate?.portfolioDidUpdateData(self)
@@ -176,8 +181,51 @@ class Portfolio : NSObject, AssetDelegate {
     }
     
     
-    // MARK: - Sort methods to display portfolio in a certain order
-    // TODO: For instance, sort by quantity of the asset, name, price, ...
+    // MARK: - SORT methods to display portfolio in a certain order
+    /** Cycle sort methods. */
+    func sortCycle() {
+        // Update model with new sorting method
+        sortMethod =  SortMethod(rawValue: (sortMethod.rawValue + 1) % _maxSortMethods)!
+        sortByMethod(aSortMethod: sortMethod)
+    }
+    
+    func sortByMethod(aSortMethod: SortMethod) {
+        sortMethod = aSortMethod
+        
+        switch aSortMethod {
+        case SortMethod.Name:
+            sortByName()
+        case SortMethod.Price:
+            sortByPrice()
+        case SortMethod.Quantity:
+            sortByQuantity()
+        case SortMethod.Percent:
+            sortByPercent()
+        }
+        
+        // Inform delegates
+        delegate?.portfolioDidChangeSortMethod(
+            self, sortMethod: aSortMethod)
+        
+        // Tell portfolio controller to reload table
+        delegate?.portfolioDidUpdateData(self)
+    }
+    
+    private func sortByName() {
+        assetList.sort(by: {$0.name < $1.name})
+    }
+    
+    private func sortByPrice() {
+        assetList.sort(by: {$0.price > $1.price})
+    }
+    
+    private func sortByQuantity() {
+        assetList.sort(by: {$0.quantity > $1.quantity})
+    }
+    
+    private func sortByPercent() {
+        assetList.sort(by: {$0.percentChange > $1.percentChange})
+    }
     
     
     
@@ -208,4 +256,16 @@ class Portfolio : NSObject, AssetDelegate {
 
 protocol PortfolioDelegate {
     func portfolioDidUpdateData (_ portfolio: Portfolio)
+    func portfolioDidChangeSortMethod(_ portfolio: Portfolio, sortMethod aSortMethod: SortMethod)
+}
+
+
+
+// MARK: - Enums
+enum SortMethod: Int {
+    case Name = 0
+    case Price = 1
+    case Quantity = 2
+    case Percent = 3
+    
 }

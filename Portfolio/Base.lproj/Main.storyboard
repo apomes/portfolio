@@ -367,10 +367,10 @@
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AssetCellID" rowHeight="100" id="4tV-EZ-RLO" customClass="AssetTableViewCell" customModule="Portfolio" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="1000" height="100"/>
+                                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4tV-EZ-RLO" id="pUC-WB-pEM">
-                                                    <rect key="frame" x="0.0" y="0.0" width="1000" height="100"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z3w-j6-Dki">
@@ -544,6 +544,11 @@
                                     </segue>
                                 </connections>
                             </barButtonItem>
+                            <barButtonItem title="↓" id="iMU-5l-3XM">
+                                <connections>
+                                    <action selector="sortPortfolio:" destination="tUh-5T-OiW" id="wz5-tK-wU3"/>
+                                </connections>
+                            </barButtonItem>
                         </leftBarButtonItems>
                         <rightBarButtonItems>
                             <barButtonItem title="treemap" id="uYS-zf-UvY">
@@ -561,6 +566,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="SortPortfolioButton" destination="iMU-5l-3XM" id="9tT-Zi-eQ1"/>
                         <outlet property="TotalValue" destination="DW4-LA-m7F" id="ARe-Pq-9yX"/>
                     </connections>
                 </viewController>
@@ -749,7 +755,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hOX-ok-6ci" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="818" y="-814"/>
+            <point key="canvasLocation" x="1098" y="-916"/>
         </scene>
         <!--Main Navigation View Controller-->
         <scene sceneID="6RX-jj-QP7">
