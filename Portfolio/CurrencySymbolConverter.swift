@@ -46,6 +46,8 @@ class CurrencySymbolConverter {
             currencySymbol = CurrencySymbol.Lumen
         case "StorjcoinX":
             currencySymbol = CurrencySymbol.StorjcoinX
+        case "Zcash":
+            currencySymbol = CurrencySymbol.Zcash
         default:
             currencySymbol = CurrencySymbol.Bitcoin
         }
@@ -81,5 +83,6 @@ enum CurrencySymbol: String {
     case DAO = "DAO"
     case Lumen = "STR"
     case StorjcoinX = "SJCX"
+    case Zcash = "ZEC"
     
 }
