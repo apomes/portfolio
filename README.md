@@ -1,4 +1,4 @@
-# portfolio
+# Portfolio
 Hello!
 
 This iOS app allows you to keep track of personal assets like crypto-tokens and fiat money. 
@@ -9,3 +9,9 @@ Supported tickers:
 - Poloniex
 - Kraken (soon available)
 - Bittrex (soon available)
+
+## Screenshots
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/apomes/portfolio/Develop/Readme/Images/MainView.png" alt="Portfolio app sample image missing">
+</p>
