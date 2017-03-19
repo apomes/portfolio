@@ -12,6 +12,7 @@
 		EA15A13B1CD58C0A0079722B /* PortfolioData.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA15A13A1CD58C0A0079722B /* PortfolioData.plist */; };
 		EA37C15B1CC2CDEC00D3E86D /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA37C15A1CC2CDEC00D3E86D /* ApiKeys.swift */; };
 		EA37C15F1CC2DECD00D3E86D /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA37C15E1CC2DECD00D3E86D /* ApiKeys.plist */; };
+		EA3EF4681E7E01D600706A98 /* PortfolioDataDemo.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA3EF4671E7E01D600706A98 /* PortfolioDataDemo.plist */; };
 		EA70A3B81D0D9E5900DE85EE /* BittrexTicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA70A3B71D0D9E5900DE85EE /* BittrexTicker.swift */; };
 		EA70A3BA1D0D9E7100DE85EE /* BittrexTickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA70A3B91D0D9E7100DE85EE /* BittrexTickerController.swift */; };
 		EAE42E6C1C93AD580027DB84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE42E6B1C93AD580027DB84 /* AppDelegate.swift */; };
@@ -70,6 +71,7 @@
 		EA15A13A1CD58C0A0079722B /* PortfolioData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PortfolioData.plist; sourceTree = "<group>"; };
 		EA37C15A1CC2CDEC00D3E86D /* ApiKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKeys.swift; sourceTree = "<group>"; };
 		EA37C15E1CC2DECD00D3E86D /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
+		EA3EF4671E7E01D600706A98 /* PortfolioDataDemo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PortfolioDataDemo.plist; sourceTree = "<group>"; };
 		EA70A3B71D0D9E5900DE85EE /* BittrexTicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BittrexTicker.swift; sourceTree = "<group>"; };
 		EA70A3B91D0D9E7100DE85EE /* BittrexTickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BittrexTickerController.swift; sourceTree = "<group>"; };
 		EAE42E681C93AD580027DB84 /* Portfolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Portfolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,6 +151,7 @@
 			children = (
 				EA37C15E1CC2DECD00D3E86D /* ApiKeys.plist */,
 				EA15A13A1CD58C0A0079722B /* PortfolioData.plist */,
+				EA3EF4671E7E01D600706A98 /* PortfolioDataDemo.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				EA15A13B1CD58C0A0079722B /* PortfolioData.plist in Resources */,
 				EA37C15F1CC2DECD00D3E86D /* ApiKeys.plist in Resources */,
 				EAE42E751C93AD580027DB84 /* Assets.xcassets in Resources */,
+				EA3EF4681E7E01D600706A98 /* PortfolioDataDemo.plist in Resources */,
 				EAE42E731C93AD580027DB84 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
