@@ -15,6 +15,7 @@
 		EA3EF4681E7E01D600706A98 /* PortfolioDataDemo.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA3EF4671E7E01D600706A98 /* PortfolioDataDemo.plist */; };
 		EA70A3B81D0D9E5900DE85EE /* BittrexTicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA70A3B71D0D9E5900DE85EE /* BittrexTicker.swift */; };
 		EA70A3BA1D0D9E7100DE85EE /* BittrexTickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA70A3B91D0D9E7100DE85EE /* BittrexTickerController.swift */; };
+		EAC233BC1EBD3E1E00E23FCB /* AssetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC233BB1EBD3E1E00E23FCB /* AssetDetailViewController.swift */; };
 		EAE42E6C1C93AD580027DB84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE42E6B1C93AD580027DB84 /* AppDelegate.swift */; };
 		EAE42E6E1C93AD580027DB84 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE42E6D1C93AD580027DB84 /* FirstViewController.swift */; };
 		EAE42E701C93AD580027DB84 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE42E6F1C93AD580027DB84 /* SecondViewController.swift */; };
@@ -74,6 +75,7 @@
 		EA3EF4671E7E01D600706A98 /* PortfolioDataDemo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PortfolioDataDemo.plist; sourceTree = "<group>"; };
 		EA70A3B71D0D9E5900DE85EE /* BittrexTicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BittrexTicker.swift; sourceTree = "<group>"; };
 		EA70A3B91D0D9E7100DE85EE /* BittrexTickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BittrexTickerController.swift; sourceTree = "<group>"; };
+		EAC233BB1EBD3E1E00E23FCB /* AssetDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetDetailViewController.swift; sourceTree = "<group>"; };
 		EAE42E681C93AD580027DB84 /* Portfolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Portfolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE42E6B1C93AD580027DB84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAE42E6D1C93AD580027DB84 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				EAF2C28D1CADE0F0009D3D9E /* TreemapViewController.swift */,
 				EAF5C4571CB59D9100D3412F /* SettingsViewController.swift */,
 				EAF5C45D1CB5D73C00D3412F /* AssetViewController.swift */,
+				EAC233BB1EBD3E1E00E23FCB /* AssetDetailViewController.swift */,
 				EAF5C4471CB1690700D3412F /* TickerControllers */,
 				EAF5C4541CB59BE100D3412F /* OldControllers */,
 			);
@@ -443,6 +446,7 @@
 				EAF2C2981CAEDF22009D3D9E /* Asset.swift in Sources */,
 				EA70A3BA1D0D9E7100DE85EE /* BittrexTickerController.swift in Sources */,
 				EAF5C4461CB0AD3D00D3412F /* TickerController.swift in Sources */,
+				EAC233BC1EBD3E1E00E23FCB /* AssetDetailViewController.swift in Sources */,
 				EAF2C2851CAB495D009D3D9E /* AssetTableViewCell.swift in Sources */,
 				EAF5C45A1CB5A2A600D3412F /* PortfolioHeader.swift in Sources */,
 				EAF5C4491CB16A7D00D3412F /* TickerListController.swift in Sources */,

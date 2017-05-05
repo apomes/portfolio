@@ -184,15 +184,33 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
     }
  
 
-    /*
+    
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("Preparing for segue")
+        // Make sure your segue name in storyboard is the same as this line
+        if (segue.identifier == "DisplayAssetDetail")
+        {
+            //if you need to pass data to the next controller do it here
+            // Get the new view controller using segue.destinationViewController.
+            let detailViewController: AssetDetailViewController = segue.destination as! AssetDetailViewController
+            
+            // Pass the selected object to the new view controller.
+            detailViewController.asset = sender as? PortfolioTableViewCell
+        }
+        
     }
-    */
+    
+    
+    // MARK: - Selection 
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "DisplayAssetDetail", sender: tableView.cellForRow(at: indexPath))
+        print("Row selected is: ", indexPath.row)
+    }
+    
 
     
     
