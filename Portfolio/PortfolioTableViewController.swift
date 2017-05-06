@@ -165,11 +165,22 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            // Update portfolio model to delete row from the data source
             portfolio.removeAsset(index: indexPath.row)
+            
+            // Commit changes to the portfolio view
             tableView.deleteRows(at: [indexPath], with: .left)
+            
+            // Reload portfolio to update total count of assets
+            reloadTable()
+            
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+            //TODO: ...
+            
+            
+            // Reload portfolio to update total count of assets
+            reloadTable()
         }    
     }
  
@@ -187,6 +198,10 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
         // Return false if you do not want the item to be re-orderable.
         return true
     }
+    
+    
+    
+    
  
 
     
