@@ -10,20 +10,23 @@ import UIKit
 
 class AssetDetailViewController: UIViewController {
 
-    var asset:PortfolioTableViewCell?
+    var asset:Asset?
     
     @IBOutlet weak var assetName: UILabel!
     
-    @IBOutlet weak var assetQuantity: UILabel!
-    
+    @IBOutlet weak var assetQuantity: UITextField!
+    @IBAction func assetQuantity(_ sender: Any) {
+        asset?.quantity = NumberFormatter.sharedInstance.number(from: assetQuantity.text!) as Float? ?? 0
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        assetName.text = asset?.assetName.text
-        assetQuantity.text = asset?.assetQuantity.text
+        assetName.text = asset?.name
+        assetQuantity.text = NumberFormatter.sharedInstance.string(from: NSNumber(value: (asset?.quantity)!))!
+        
     }
 
     override func didReceiveMemoryWarning() {

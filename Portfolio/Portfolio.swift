@@ -141,6 +141,9 @@ class Portfolio : NSObject, AssetDelegate {
         return assetList.count
     }
     
+    func getAssetAtIndex(_ index: Int) -> Asset {
+        return assetList[index]
+    }
     
     func getNameForAsset(_ index: Int) -> String {
         return assetList[index].name

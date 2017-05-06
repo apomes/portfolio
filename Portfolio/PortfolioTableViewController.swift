@@ -38,6 +38,11 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
         portfolio.delegate = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        // Reload table to make sure data is up to date
+        reloadTable()
+    }
+    
     
     func initPortfolio() {
         portfolio.initPortfolio()
@@ -189,7 +194,6 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("Preparing for segue")
         // Make sure your segue name in storyboard is the same as this line
         if (segue.identifier == "DisplayAssetDetail")
         {
@@ -198,17 +202,24 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
             let detailViewController: AssetDetailViewController = segue.destination as! AssetDetailViewController
             
             // Pass the selected object to the new view controller.
-            detailViewController.asset = sender as? PortfolioTableViewCell
+            detailViewController.asset = sender as? Asset
         }
         
+    }
+    
+    
+    
+    override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
+        print("and we are back")
     }
     
     
     // MARK: - Selection 
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "DisplayAssetDetail", sender: tableView.cellForRow(at: indexPath))
-        print("Row selected is: ", indexPath.row)
+        // Launch segue with asset model
+        performSegue(withIdentifier: "DisplayAssetDetail",
+                     sender: portfolio.getAssetAtIndex(indexPath.row))
     }
     
 
@@ -217,6 +228,18 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
     // MARK: - Delegate methods for portfolio model
     
     func portfolioDidUpdateData(_ portfolio: Portfolio) {
+        reloadTable()
+    }
+    
+    func portfolioDidChangeSortMethod(_ portfolio: Portfolio, sortMethod aSortMethod: SortMethod) {
+        self.delegate?.portfolioTableDidChangeSortMethod(self, sortMethod: aSortMethod)
+    }
+    
+    
+    
+    // MARK: - Helper methods
+    
+    func reloadTable() {
         // Reload table after portfolio pulled fresh data
         DispatchQueue.main.async(execute: {
             self.tableView.reloadData()
@@ -224,10 +247,6 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
             // Notify delegate that the portfolio got updated
             self.delegate?.portfolioTableDidUpdate(self)
         })
-    }
-    
-    func portfolioDidChangeSortMethod(_ portfolio: Portfolio, sortMethod aSortMethod: SortMethod) {
-        self.delegate?.portfolioTableDidChangeSortMethod(self, sortMethod: aSortMethod)
     }
     
 }

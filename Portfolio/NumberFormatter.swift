@@ -28,7 +28,7 @@ class NumberFormatter: Foundation.NumberFormatter {
         // Makes formatter use maximumSignificantDigits
         self.usesSignificantDigits = true
         self.minimumSignificantDigits = 2
-        self.maximumSignificantDigits = 3
+        self.maximumSignificantDigits = 5
     }
 }
 
