@@ -244,6 +244,29 @@ class Portfolio : NSObject, AssetDelegate {
         return pricePerTicker.first!.1
     }
     
+    
+    
+    // MARK: - Methods to manage portfolio data persistence
+    
+    func savePortfolioData() {
+        _portfolioDataController.savePortfolioDataToDisk(portfolioData: generatePortfolioDataForPersistence())
+    }
+    
+    
+    
+    func generatePortfolioDataForPersistence() -> NSMutableDictionary {
+        let portfolioDict: NSMutableDictionary = NSMutableDictionary()
+        
+        for anAsset in assetList {
+            let assetDict: NSMutableDictionary = NSMutableDictionary()
+            
+            assetDict.setValue(anAsset.quantity, forKey: "quantity")
+            portfolioDict.setObject(assetDict, forKey: anAsset.name as NSCopying)
+        }
+        
+        return portfolioDict
+    }
+    
 }
 
 

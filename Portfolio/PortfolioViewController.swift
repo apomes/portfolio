@@ -156,6 +156,15 @@ class PortfolioViewController: UIViewController, PortfolioTableViewControllerDel
     
     
     
+    // MARK: - Data persistence methods
+    
+    func savePortfolioData() {
+        portfolioTableViewController?.savePortfolioData()
+    }
+    
+    
+    
+    
     //  o-o   o--o o    o--o  o-o    O  o-O-o o--o
     //  |  \  |    |    |    o      / \   |   |
     //  |   O O-o  |    O-o  |  -o o---o  |   O-o

@@ -249,6 +249,14 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
         })
     }
     
+    
+    
+    // MARK: - Persistence methods
+    
+    func savePortfolioData() {
+        portfolio.savePortfolioData()
+    }
+    
 }
 
 
