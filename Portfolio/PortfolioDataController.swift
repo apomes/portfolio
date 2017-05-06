@@ -20,7 +20,24 @@ class PortfolioDataController: NSObject {
     override init () {
         super.init()
 
-        let path = Bundle.main.path(forResource: portfolioFilename, ofType: "plist")!
+        // getting path to GameData.plist
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) as NSArray
+        let documentsDirectory = paths.object(at: 0) as! NSString
+        let path = documentsDirectory.appendingPathComponent(portfolioFilename + ".plist")
+        
+        let fileManager = FileManager.default
+        
+        //check if file exists
+        if !fileManager.fileExists(atPath: path) {
+            guard let bundlePath = Bundle.main.path(forResource: portfolioFilename, ofType: "plist") else { return }
+            
+            do {
+                try fileManager.copyItem(atPath: bundlePath, toPath: path)
+            } catch let error as NSError {
+                print("Unable to copy file. ERROR: \(error.localizedDescription)")
+            }
+        }
+        
         let plistURL: URL = URL(fileURLWithPath: path)
                 
         do {
@@ -47,8 +64,10 @@ class PortfolioDataController: NSObject {
     
     
     func savePortfolioDataToDisk (portfolioData: NSMutableDictionary) {
-//        var error: String
-        let path = Bundle.main.path(forResource: portfolioFilename, ofType: "plist")!
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) as NSArray
+        let documentsDirectory = paths.object(at: 0) as! NSString
+        let path = documentsDirectory.appendingPathComponent(portfolioFilename + ".plist")
+        
         let plistURL: URL = URL(fileURLWithPath: path)
         
         do {
