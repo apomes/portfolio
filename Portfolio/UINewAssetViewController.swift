@@ -18,7 +18,7 @@ UIPickerViewDelegate, UITextFieldDelegate {
     var assetQuantity: Float = 0
     
     // TODO: This list should be generated dynamically from ticker information
-    var currencyList:[String] = ["Bitcoin", "Litecoin", "Ether", "Dogecoin",
+    var currencyList:[String] = ["", "Bitcoin", "Litecoin", "Ether", "Dogecoin",
                                  "StorjcoinX", "Lisk", "Dash", "Voxel", "Gemz",
                                  "LTBCoin", "USD", "Lumen", "Factom", "Zcash",
                                  "Augur", "Counterparty", "Ethereum Classic",
