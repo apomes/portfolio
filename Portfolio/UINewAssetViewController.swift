@@ -17,6 +17,12 @@ UIPickerViewDelegate, UITextFieldDelegate {
     var assetName: String = ""
     var assetQuantity: Float = 0
     
+    // TODO: This list should be generated dynamically from ticker information
+    var currencyList:[String] = ["Bitcoin", "Litecoin", "Ether", "Dogecoin",
+                                 "StorjcoinX", "Lisk", "Dash", "Voxel", "Gemz",
+                                 "LTBCoin", "USD", "Lumen", "Factom", "Zcash",
+                                 "Augur", "Counterparty", "Ethereum Classic",
+                                 "Monero"]
     
     @IBOutlet weak var pickerView: UIPickerView!
     
@@ -76,7 +82,7 @@ UIPickerViewDelegate, UITextFieldDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 5
+        return currencyList.count
     }
     
     
@@ -90,19 +96,11 @@ UIPickerViewDelegate, UITextFieldDelegate {
     
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        switch row {
-        case 0:
-            return ""
-        case 1:
-            return "Augur"
-        case 2:
-            return "Ethereum Classic"
-        case 3:
-            return "Monero"
-        case 4:
-            return "Ripple"
-        default:
+        if row >= currencyList.count {
             return "Error"
+        }
+        else {
+            return currencyList[row]
         }
     }
     

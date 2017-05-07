@@ -30,8 +30,6 @@ class CurrencySymbolConverter {
             currencySymbol = CurrencySymbol.Voxel
         case "Lisk":
             currencySymbol = CurrencySymbol.Lisk
-        case "DAO":
-            currencySymbol = CurrencySymbol.DAO
         case "Bitcoin", "BTC":
             currencySymbol = CurrencySymbol.Bitcoin
         case "Litecoin":
@@ -87,7 +85,6 @@ enum CurrencySymbol: String {
     case LTBCoin = "LTBC"
     case Voxel = "VOX"
     case Lisk = "LSK"
-    case DAO = "DAO"
     case Lumen = "STR"
     case StorjcoinX = "SJCX"
     case Zcash = "ZEC"
