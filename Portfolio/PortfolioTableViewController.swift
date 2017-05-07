@@ -171,8 +171,8 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate, UI
             // Commit changes to the portfolio view
             tableView.deleteRows(at: [indexPath], with: .left)
             
-            // Reload portfolio to update total count of assets
-            reloadTable()
+            // Update total sum of assets
+            delegate?.portfolioTableDidUpdate(self)
             
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
