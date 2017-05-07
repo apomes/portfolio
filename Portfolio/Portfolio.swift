@@ -15,7 +15,7 @@ class Portfolio : NSObject, AssetDelegate {
     var delegate: PortfolioTableViewController?
     
     /** List of tickers that provide data for our portfolio. */
-    let myTickerList: TickerListController = TickerListController()
+    let myTickerListController: TickerListController = TickerListController()
     
     /** List of assets. */
     var assetList = [Asset]()
@@ -38,12 +38,12 @@ class Portfolio : NSObject, AssetDelegate {
         /************ Ticker MODEL ****************/
         // Instantiate tickers
         // FIXME: tickers should only be instantiated if needed for the current portfolio of the user
-        myTickerList.addTicker(TickerType.Poloniex)
-        myTickerList.addTicker(TickerType.Kraken)
-        myTickerList.addTicker(TickerType.Bittrex)
+        myTickerListController.addTicker(TickerType.Poloniex)
+        myTickerListController.addTicker(TickerType.Kraken)
+        myTickerListController.addTicker(TickerType.Bittrex)
         
         // Add self as observer to track changes in the tickers
-        myTickerList.attachObserver(self)
+        myTickerListController.attachObserver(self)
     }
 
     
@@ -63,7 +63,7 @@ class Portfolio : NSObject, AssetDelegate {
     
     /** Triggers data update for all tickers. */
     func refresh() {
-        myTickerList.update()
+        myTickerListController.update()
     }
 
     
@@ -109,18 +109,18 @@ class Portfolio : NSObject, AssetDelegate {
     func updateAssets() {
         for asset in assetList {
             // Get prices
-            let pricePerTicker = myTickerList.getPricesForAsset(asset.name)
+            let pricePerTicker = myTickerListController.getPricesForAsset(asset.name)
             
             // TODO: for now we just get the first pair, Poloniex. But we could
             // choose other exchanges and compute averages and so =D
             asset.price = pricePerTicker.first!.1
             
             // Get percent change in value
-            let percentChange = myTickerList.getPercentChangesForAsset(asset.name)
+            let percentChange = myTickerListController.getPercentChangesForAsset(asset.name)
             asset.percentChange = percentChange.first!.1
             
             // Get currency pair
-            let currencyPairs = myTickerList.getCurrencyPairsForAsset(asset.name)
+            let currencyPairs = myTickerListController.getCurrencyPairsForAsset(asset.name)
             asset.counterCurrency = currencyPairs.first?.first
             asset.baseCurrency = currencyPairs.first?.last
         }
@@ -237,7 +237,7 @@ class Portfolio : NSObject, AssetDelegate {
     /** Returns the price of the asset _currencySymbol_ from the ticker. */
     func assetDidRequestAssetPrice(_ asset: Asset, currencySymbol: CurrencySymbol) -> Float {
         // Get prices
-        let pricePerTicker = myTickerList.getPricesForAsset(currencySymbol.rawValue)
+        let pricePerTicker = myTickerListController.getPricesForAsset(currencySymbol.rawValue)
         
         // TODO: for now we just get the first pair, Poloniex. But we could
         // choose other exchanges and compute averages and so =D
