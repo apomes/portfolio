@@ -673,7 +673,7 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="jNR-4q-HN1" kind="presentation" identifier="DisplayAssetView" modalPresentationStyle="overFullScreen" id="PUp-Nd-emB"/>
+                        <segue destination="jNR-4q-HN1" kind="presentation" identifier="AddNewAsset" modalPresentationStyle="overFullScreen" id="PUp-Nd-emB"/>
                         <segue destination="1Up-wK-oq3" kind="show" identifier="DisplayAssetDetail" id="rqU-Jj-ijS"/>
                     </connections>
                 </tableViewController>

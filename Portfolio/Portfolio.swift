@@ -94,10 +94,13 @@ class Portfolio : NSObject, AssetDelegate {
         let anAsset = Asset(name: name, quantity: quantity)
         anAsset.delegate = self
         assetList.append(anAsset)
+        
+        // Trigger portfolio data update and table of assets
+        update()
     }
     
     func removeAsset(_ name: String) {
-        print("remove asset needs implementation...")
+        print("remove asset by name needs implementation...")
         
     }
     
@@ -106,7 +109,7 @@ class Portfolio : NSObject, AssetDelegate {
     }
     
     /** Updates data for all assets in the portfolio. */
-    func updateAssets() {
+    private func updateAssets() {
         for asset in assetList {
             // Get prices
             let pricePerTicker = myTickerListController.getPricesForAsset(asset.name)

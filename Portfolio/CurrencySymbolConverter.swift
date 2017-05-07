@@ -48,6 +48,9 @@ class CurrencySymbolConverter {
             currencySymbol = CurrencySymbol.StorjcoinX
         case "Zcash":
             currencySymbol = CurrencySymbol.Zcash
+        case "Augur":
+            currencySymbol = CurrencySymbol.Augur
+            
         default:
             currencySymbol = CurrencySymbol.Bitcoin
         }
@@ -84,5 +87,6 @@ enum CurrencySymbol: String {
     case Lumen = "STR"
     case StorjcoinX = "SJCX"
     case Zcash = "ZEC"
+    case Augur = "REP"
     
 }

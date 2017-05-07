@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
+class PortfolioTableViewController: UITableViewController, PortfolioDelegate, UINewAssetViewControllerDelegate {
     
     // Constants
     
@@ -23,7 +23,7 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
     
     
     @IBAction func UIAddNewAssetButton(_ sender: AnyObject) {
-        performSegue(withIdentifier: "DisplayAssetView", sender: self)
+        performSegue(withIdentifier: "AddNewAsset", sender: self)
     }
     
     override func viewDidLoad() {
@@ -201,6 +201,12 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
     
     
     
+    // MARK: - New asset view controller delegate
+    
+    func newAssetViewController(_ newAssetViewController: UINewAssetViewController, didReturnNewAsset anAsset: Asset) {        
+        portfolio.addAsset(anAsset.name, quantity: anAsset.quantity)
+    }
+    
     
  
 
@@ -210,8 +216,7 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Make sure your segue name in storyboard is the same as this line
-        if (segue.identifier == "DisplayAssetDetail")
-        {
+        if (segue.identifier == "DisplayAssetDetail") {
             //if you need to pass data to the next controller do it here
             // Get the new view controller using segue.destinationViewController.
             let detailViewController: AssetDetailViewController = segue.destination as! AssetDetailViewController
@@ -219,14 +224,14 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate {
             // Pass the selected object to the new view controller.
             detailViewController.asset = sender as? Asset
         }
+        if (segue.identifier == "AddNewAsset") {
+            let newAssetViewController: UINewAssetViewController =
+                segue.destination as! UINewAssetViewController
+            newAssetViewController.delegate = self
+        }
         
     }
     
-    
-    
-    override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
-        print("and we are back")
-    }
     
     
     // MARK: - Selection 

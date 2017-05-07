@@ -11,8 +11,13 @@ import UIKit
 class UINewAssetViewController: UIViewController, UIPickerViewDataSource,
 UIPickerViewDelegate {
 
+    var delegate: Any?
     
     @IBAction func DoneButton(_ sender: Any) {
+        // Pass new asset to parent view controller
+        let ass: Asset = Asset(name: "Augur", quantity: 34)
+        (delegate as! UINewAssetViewControllerDelegate).newAssetViewController(self, didReturnNewAsset: ass)
+        
         dismiss(animated: true, completion: nil)
     }
     
@@ -44,7 +49,7 @@ UIPickerViewDelegate {
     // MARK: - Picker View Data Source
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 2
+        return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -72,4 +77,17 @@ UIPickerViewDelegate {
 //    }
     
 
+}
+
+
+
+//  o--o  o--o   o-o  o-O-o  o-o    o-o  o-o  o     o-o
+//  |   | |   | o   o   |   o   o  /    o   o |    |
+//  O--o  O-Oo  |   |   |   |   | O     |   | |     o-o
+//  |     |  \  o   o   |   o   o  \    o   o |        |
+//  o     o   o  o-o    o    o-o    o-o  o-o  O---oo--o
+//
+// MARK: - Delegate methods for the Portfolio Table View Controller
+protocol UINewAssetViewControllerDelegate {
+    func newAssetViewController(_ newAssetViewController: UINewAssetViewController, didReturnNewAsset anAsset:Asset)
 }
