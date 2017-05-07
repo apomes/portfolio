@@ -9,15 +9,38 @@
 import UIKit
 
 class UINewAssetViewController: UIViewController, UIPickerViewDataSource,
-UIPickerViewDelegate {
+UIPickerViewDelegate, UITextFieldDelegate {
 
     var delegate: Any?
     
+    // Asset information
+    var assetName: String = ""
+    var assetQuantity: Float = 0
+    
+    
+    @IBOutlet weak var pickerView: UIPickerView!
+    
+    @IBOutlet weak var assetQuantityField: UITextField!
+    
+    @IBAction func assetQuantityField(_ sender: Any) {
+//        assetQuantity = NumberFormatter.sharedInstance.number(from: assetQuantityField.text!) as Float? ?? 0
+    }
+    
+    
     @IBAction func DoneButton(_ sender: Any) {
-        // Pass new asset to parent view controller
-        let ass: Asset = Asset(name: "Augur", quantity: 34)
-        (delegate as! UINewAssetViewControllerDelegate).newAssetViewController(self, didReturnNewAsset: ass)
+        // Get asset data
+        let selectedRow = pickerView.selectedRow(inComponent: 0)
+        assetName = pickerView(pickerView, titleForRow: selectedRow, forComponent: 0)!
+        assetQuantity = NumberFormatter.sharedInstance.number(from: assetQuantityField.text!) as Float? ?? 0
         
+        if assetName != "" {
+            // Pass new asset to parent view controller
+            (delegate as! UINewAssetViewControllerDelegate)
+                .newAssetViewController(self,
+                                        didReturnNewAssetWithName: assetName,
+                                        quantity: assetQuantity)
+        }
+
         dismiss(animated: true, completion: nil)
     }
     
@@ -53,7 +76,7 @@ UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 10
+        return 5
     }
     
     
@@ -61,13 +84,26 @@ UIPickerViewDelegate {
     // MARK: - Picker View Delegate
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-        return CGFloat(component) * 20
+        return CGFloat(component) * 40
     }
     
     
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "title row " + String(row) + "comp " + String(component)
+        switch row {
+        case 0:
+            return ""
+        case 1:
+            return "Augur"
+        case 2:
+            return "Ethereum Classic"
+        case 3:
+            return "Monero"
+        case 4:
+            return "Ripple"
+        default:
+            return "Error"
+        }
     }
     
     
@@ -76,7 +112,26 @@ UIPickerViewDelegate {
 //        <#code#>
 //    }
     
-
+    
+    
+    // MARK: - Text field delegate
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        textField.returnKeyType = UIReturnKeyType.done
+        assetQuantityField.text = ""
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if assetQuantityField.text == "" {
+            assetQuantityField.text = "0"
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        assetQuantityField.endEditing(false)
+        return false
+    }
 }
 
 
@@ -89,5 +144,5 @@ UIPickerViewDelegate {
 //
 // MARK: - Delegate methods for the Portfolio Table View Controller
 protocol UINewAssetViewControllerDelegate {
-    func newAssetViewController(_ newAssetViewController: UINewAssetViewController, didReturnNewAsset anAsset:Asset)
+    func newAssetViewController(_ newAssetViewController: UINewAssetViewController, didReturnNewAssetWithName assetName:String, quantity: Float)
 }

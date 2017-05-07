@@ -203,8 +203,8 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate, UI
     
     // MARK: - New asset view controller delegate
     
-    func newAssetViewController(_ newAssetViewController: UINewAssetViewController, didReturnNewAsset anAsset: Asset) {        
-        portfolio.addAsset(anAsset.name, quantity: anAsset.quantity)
+    func newAssetViewController(_ newAssetViewController: UINewAssetViewController, didReturnNewAssetWithName assetName: String, quantity: Float) {
+        portfolio.addAsset(assetName, quantity: quantity)
     }
     
     
