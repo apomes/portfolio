@@ -50,6 +50,10 @@ class CurrencySymbolConverter {
             currencySymbol = CurrencySymbol.Zcash
         case "Augur":
             currencySymbol = CurrencySymbol.Augur
+        case "Ethereum Classic":
+            currencySymbol = CurrencySymbol.EthereumClassic
+        case "Monero":
+            currencySymbol = CurrencySymbol.Monero
             
         default:
             currencySymbol = CurrencySymbol.Bitcoin
@@ -88,5 +92,7 @@ enum CurrencySymbol: String {
     case StorjcoinX = "SJCX"
     case Zcash = "ZEC"
     case Augur = "REP"
+    case EthereumClassic = "ETC"
+    case Monero = "XMR"
     
 }
