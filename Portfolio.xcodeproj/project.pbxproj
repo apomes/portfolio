@@ -36,6 +36,9 @@
 		EAF2C2981CAEDF22009D3D9E /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF2C2971CAEDF22009D3D9E /* Asset.swift */; };
 		EAF2C29C1CAF65FA009D3D9E /* PortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF2C29B1CAF65FA009D3D9E /* PortfolioViewController.swift */; };
 		EAF2C29E1CAF66BA009D3D9E /* PortfolioTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF2C29D1CAF66BA009D3D9E /* PortfolioTableViewController.swift */; };
+		EAF4011B1EE1A53000CC5EDA /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = EAF401161EE1A53000CC5EDA /* LICENSE.txt */; };
+		EAF4011C1EE1A53000CC5EDA /* TreemapView.m in Sources */ = {isa = PBXBuildFile; fileRef = EAF401181EE1A53000CC5EDA /* TreemapView.m */; };
+		EAF4011D1EE1A53000CC5EDA /* TreemapViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EAF4011A1EE1A53000CC5EDA /* TreemapViewCell.m */; };
 		EAF5C4441CB0ABDC00D3412F /* PoloniexTickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF5C4431CB0ABDC00D3412F /* PoloniexTickerController.swift */; };
 		EAF5C4461CB0AD3D00D3412F /* TickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF5C4451CB0AD3D00D3412F /* TickerController.swift */; };
 		EAF5C4491CB16A7D00D3412F /* TickerListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF5C4481CB16A7D00D3412F /* TickerListController.swift */; };
@@ -102,6 +105,11 @@
 		EAF2C2971CAEDF22009D3D9E /* Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
 		EAF2C29B1CAF65FA009D3D9E /* PortfolioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioViewController.swift; sourceTree = "<group>"; };
 		EAF2C29D1CAF66BA009D3D9E /* PortfolioTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioTableViewController.swift; sourceTree = "<group>"; };
+		EAF401161EE1A53000CC5EDA /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		EAF401171EE1A53000CC5EDA /* TreemapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreemapView.h; sourceTree = "<group>"; };
+		EAF401181EE1A53000CC5EDA /* TreemapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreemapView.m; sourceTree = "<group>"; };
+		EAF401191EE1A53000CC5EDA /* TreemapViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreemapViewCell.h; sourceTree = "<group>"; };
+		EAF4011A1EE1A53000CC5EDA /* TreemapViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreemapViewCell.m; sourceTree = "<group>"; };
 		EAF5C4431CB0ABDC00D3412F /* PoloniexTickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoloniexTickerController.swift; sourceTree = "<group>"; };
 		EAF5C4451CB0AD3D00D3412F /* TickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TickerController.swift; sourceTree = "<group>"; };
 		EAF5C4481CB16A7D00D3412F /* TickerListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TickerListController.swift; sourceTree = "<group>"; };
@@ -187,6 +195,7 @@
 				EAF2C28A1CAC920C009D3D9E /* Models */,
 				EA15A1361CD585660079722B /* Persistence */,
 				EA15A1391CD58BD80079722B /* Supporting Files */,
+				EAF401121EE1A3FA00CC5EDA /* Libraries */,
 				EAF5C4611CB8889A00D3412F /* Utils */,
 				EAE42E741C93AD580027DB84 /* Assets.xcassets */,
 				EAE42E711C93AD580027DB84 /* Main.storyboard */,
@@ -249,6 +258,27 @@
 				EAF5C45B1CB5D18400D3412F /* PortfolioTableViewCell.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		EAF401121EE1A3FA00CC5EDA /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				EAF401151EE1A53000CC5EDA /* TreemapKit */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		EAF401151EE1A53000CC5EDA /* TreemapKit */ = {
+			isa = PBXGroup;
+			children = (
+				EAF401161EE1A53000CC5EDA /* LICENSE.txt */,
+				EAF401171EE1A53000CC5EDA /* TreemapView.h */,
+				EAF401181EE1A53000CC5EDA /* TreemapView.m */,
+				EAF401191EE1A53000CC5EDA /* TreemapViewCell.h */,
+				EAF4011A1EE1A53000CC5EDA /* TreemapViewCell.m */,
+			);
+			name = TreemapKit;
+			path = Libraries/TreemapKit;
 			sourceTree = "<group>";
 		};
 		EAF5C4421CB0AB8D00D3412F /* Tickers */ = {
@@ -410,6 +440,7 @@
 				EAE42E751C93AD580027DB84 /* Assets.xcassets in Resources */,
 				EA3EF4681E7E01D600706A98 /* PortfolioDataDemo.plist in Resources */,
 				EAE42E731C93AD580027DB84 /* Main.storyboard in Resources */,
+				EAF4011B1EE1A53000CC5EDA /* LICENSE.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,9 +474,11 @@
 				EAF5C4511CB4960300D3412F /* TickerProtocol.swift in Sources */,
 				EAE42EA51C953D140027DB84 /* UIAssetsScrollView.swift in Sources */,
 				EAF2C2871CAB5246009D3D9E /* ThirdViewController.swift in Sources */,
+				EAF4011C1EE1A53000CC5EDA /* TreemapView.m in Sources */,
 				EAF2C2981CAEDF22009D3D9E /* Asset.swift in Sources */,
 				EA70A3BA1D0D9E7100DE85EE /* BittrexTickerController.swift in Sources */,
 				EAF5C4461CB0AD3D00D3412F /* TickerController.swift in Sources */,
+				EAF4011D1EE1A53000CC5EDA /* TreemapViewCell.m in Sources */,
 				EAC233BC1EBD3E1E00E23FCB /* AssetDetailViewController.swift in Sources */,
 				EAF2C2851CAB495D009D3D9E /* AssetTableViewCell.swift in Sources */,
 				EAF5C45A1CB5A2A600D3412F /* PortfolioHeader.swift in Sources */,
