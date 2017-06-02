@@ -110,7 +110,7 @@
     for (NSInteger i = 0; i < values.count; i++) {
         NSNumber *value = [values objectAtIndex:i];
         NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithCapacity:2];
-        [dic setValue:[NSNumber numberWithInt:i] forKey:@"index"];
+        [dic setValue:[NSNumber numberWithInt:(int)i] forKey:@"index"];
         [dic setValue:value forKey:@"value"];
         [nodes addObject:dic];
     }
