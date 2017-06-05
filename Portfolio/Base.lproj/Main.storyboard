@@ -681,7 +681,7 @@
             </objects>
             <point key="canvasLocation" x="-25" y="-988"/>
         </scene>
-        <!--Treemap View Controller-->
+        <!--Data Source-->
         <scene sceneID="M28-yA-FAp">
             <objects>
                 <viewController id="Lgv-Vk-HUN" customClass="TreemapViewController" customModule="Portfolio" customModuleProvider="target" sceneMemberID="viewController">
@@ -689,7 +689,7 @@
                         <viewControllerLayoutGuide type="top" id="St7-4k-YUc"/>
                         <viewControllerLayoutGuide type="bottom" id="xg6-L5-oUE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Mdg-qe-VOc">
+                    <view key="view" contentMode="scaleToFill" id="Mdg-qe-VOc" customClass="TreemapView">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -713,7 +713,14 @@
                             <constraint firstItem="CdZ-aM-EUI" firstAttribute="top" secondItem="St7-4k-YUc" secondAttribute="bottom" id="ZbZ-01-tfX"/>
                             <constraint firstAttribute="trailing" secondItem="CdZ-aM-EUI" secondAttribute="trailing" id="dOK-kS-AbQ"/>
                         </constraints>
+                        <connections>
+                            <outlet property="dataSource" destination="Lgv-Vk-HUN" id="5ZF-Tz-yl0"/>
+                            <outlet property="delegate" destination="Lgv-Vk-HUN" id="Czr-AQ-b0T"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="view" destination="Mdg-qe-VOc" id="Laz-xY-uJt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0WS-R8-wOt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
