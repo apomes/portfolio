@@ -14,7 +14,7 @@
 @property (nonatomic, retain) IBOutlet id <TreemapViewDataSource> dataSource;
 @property (nonatomic, retain) IBOutlet id <TreemapViewDelegate> delegate;
 
-- (void)reloadData;
+- (void)reloadData:(CGSize)size;
 
 @end
 

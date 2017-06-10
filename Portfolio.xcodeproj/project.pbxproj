@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		EA09401F1CB9EA8700C4FBC7 /* KrakenTicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA09401E1CB9EA8700C4FBC7 /* KrakenTicker.swift */; };
-		EA113DE21EEB963C003E0930 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = EA113DDD1EEB963C003E0930 /* LICENSE.txt */; };
-		EA113DE31EEB963C003E0930 /* TreemapView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA113DDF1EEB963C003E0930 /* TreemapView.m */; };
-		EA113DE41EEB963C003E0930 /* TreemapViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EA113DE11EEB963C003E0930 /* TreemapViewCell.m */; };
+		EA113DEB1EEB9E56003E0930 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = EA113DE61EEB9E56003E0930 /* LICENSE.txt */; };
+		EA113DEC1EEB9E56003E0930 /* TreemapView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA113DE81EEB9E56003E0930 /* TreemapView.m */; };
+		EA113DED1EEB9E56003E0930 /* TreemapViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EA113DEA1EEB9E56003E0930 /* TreemapViewCell.m */; };
 		EA15A1381CD585960079722B /* PortfolioDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA15A1371CD585960079722B /* PortfolioDataController.swift */; };
 		EA15A13B1CD58C0A0079722B /* PortfolioData.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA15A13A1CD58C0A0079722B /* PortfolioData.plist */; };
 		EA37C15B1CC2CDEC00D3E86D /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA37C15A1CC2CDEC00D3E86D /* ApiKeys.swift */; };
@@ -71,11 +71,11 @@
 
 /* Begin PBXFileReference section */
 		EA09401E1CB9EA8700C4FBC7 /* KrakenTicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KrakenTicker.swift; sourceTree = "<group>"; };
-		EA113DDD1EEB963C003E0930 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
-		EA113DDE1EEB963C003E0930 /* TreemapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreemapView.h; sourceTree = "<group>"; };
-		EA113DDF1EEB963C003E0930 /* TreemapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreemapView.m; sourceTree = "<group>"; };
-		EA113DE01EEB963C003E0930 /* TreemapViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreemapViewCell.h; sourceTree = "<group>"; };
-		EA113DE11EEB963C003E0930 /* TreemapViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreemapViewCell.m; sourceTree = "<group>"; };
+		EA113DE61EEB9E56003E0930 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		EA113DE71EEB9E56003E0930 /* TreemapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreemapView.h; sourceTree = "<group>"; };
+		EA113DE81EEB9E56003E0930 /* TreemapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreemapView.m; sourceTree = "<group>"; };
+		EA113DE91EEB9E56003E0930 /* TreemapViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreemapViewCell.h; sourceTree = "<group>"; };
+		EA113DEA1EEB9E56003E0930 /* TreemapViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreemapViewCell.m; sourceTree = "<group>"; };
 		EA15A1371CD585960079722B /* PortfolioDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioDataController.swift; sourceTree = "<group>"; };
 		EA15A13A1CD58C0A0079722B /* PortfolioData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PortfolioData.plist; sourceTree = "<group>"; };
 		EA37C15A1CC2CDEC00D3E86D /* ApiKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKeys.swift; sourceTree = "<group>"; };
@@ -149,17 +149,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EA113DDC1EEB963C003E0930 /* TreemapKit */ = {
+		EA113DE51EEB9E56003E0930 /* TreemapKit */ = {
 			isa = PBXGroup;
 			children = (
-				EA113DDD1EEB963C003E0930 /* LICENSE.txt */,
-				EA113DDE1EEB963C003E0930 /* TreemapView.h */,
-				EA113DDF1EEB963C003E0930 /* TreemapView.m */,
-				EA113DE01EEB963C003E0930 /* TreemapViewCell.h */,
-				EA113DE11EEB963C003E0930 /* TreemapViewCell.m */,
+				EA113DE61EEB9E56003E0930 /* LICENSE.txt */,
+				EA113DE71EEB9E56003E0930 /* TreemapView.h */,
+				EA113DE81EEB9E56003E0930 /* TreemapView.m */,
+				EA113DE91EEB9E56003E0930 /* TreemapViewCell.h */,
+				EA113DEA1EEB9E56003E0930 /* TreemapViewCell.m */,
 			);
 			name = TreemapKit;
-			path = Library/TreemapKit;
+			path = Libraries/TreemapKit;
 			sourceTree = "<group>";
 		};
 		EA15A1361CD585660079722B /* Persistence */ = {
@@ -277,8 +277,8 @@
 		EAF401121EE1A3FA00CC5EDA /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				EA113DE51EEB9E56003E0930 /* TreemapKit */,
 				EAF401301EE1B0F800CC5EDA /* Portfolio-Bridging-Header.h */,
-				EA113DDC1EEB963C003E0930 /* TreemapKit */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -442,7 +442,7 @@
 				EAE42E751C93AD580027DB84 /* Assets.xcassets in Resources */,
 				EA3EF4681E7E01D600706A98 /* PortfolioDataDemo.plist in Resources */,
 				EAE42E731C93AD580027DB84 /* Main.storyboard in Resources */,
-				EA113DE21EEB963C003E0930 /* LICENSE.txt in Resources */,
+				EA113DEB1EEB9E56003E0930 /* LICENSE.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,11 +476,11 @@
 				EAF5C4511CB4960300D3412F /* TickerProtocol.swift in Sources */,
 				EAE42EA51C953D140027DB84 /* UIAssetsScrollView.swift in Sources */,
 				EAF2C2871CAB5246009D3D9E /* ThirdViewController.swift in Sources */,
-				EA113DE31EEB963C003E0930 /* TreemapView.m in Sources */,
+				EA113DEC1EEB9E56003E0930 /* TreemapView.m in Sources */,
 				EAF2C2981CAEDF22009D3D9E /* Asset.swift in Sources */,
 				EA70A3BA1D0D9E7100DE85EE /* BittrexTickerController.swift in Sources */,
 				EAF5C4461CB0AD3D00D3412F /* TickerController.swift in Sources */,
-				EA113DE41EEB963C003E0930 /* TreemapViewCell.m in Sources */,
+				EA113DED1EEB9E56003E0930 /* TreemapViewCell.m in Sources */,
 				EAC233BC1EBD3E1E00E23FCB /* AssetDetailViewController.swift in Sources */,
 				EAF2C2851CAB495D009D3D9E /* AssetTableViewCell.swift in Sources */,
 				EAF5C45A1CB5A2A600D3412F /* PortfolioHeader.swift in Sources */,

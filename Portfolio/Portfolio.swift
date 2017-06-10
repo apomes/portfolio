@@ -25,7 +25,7 @@ class Portfolio : NSObject, AssetDelegate {
     
     /** Sort method currently selected. */
     var sortMethod: SortMethod = SortMethod.Name
-    let _maxSortMethods = 4
+    let _maxSortMethods = SortMethod.count
     
     
     
@@ -307,4 +307,10 @@ enum SortMethod: Int {
     case Quantity = 2
     case Percent = 3
     case Value = 4
+    
+    static let count: Int = {
+        var max: Int = 0
+        while let _ = SortMethod(rawValue: max) { max += 1 }
+        return max
+    }()
 }

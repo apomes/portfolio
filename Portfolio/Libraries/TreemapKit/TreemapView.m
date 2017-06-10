@@ -129,13 +129,13 @@
     }
 }
 
-- (void)resizeNodes {
+- (void)resizeNodes:(CGSize)size {
     NSArray *nodes = [self getData];
     if (nodes && nodes.count > 0) {
-        [self calcNodePositions:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)
+        [self calcNodePositions:CGRectMake(0, 0, size.width, size.height)
                           nodes:nodes
-                          width:ceil(self.bounds.size.width)
-                         height:ceil(self.bounds.size.height)
+                          width:ceil(size.width)
+                         height:ceil(size.height)
                           depth:0
                      withCreate:NO];
     }
@@ -150,8 +150,8 @@
 #pragma mark -
 #pragma mark Public methods
 
-- (void)reloadData {
-    [self resizeNodes];
+- (void)reloadData:(CGSize)size {
+    [self resizeNodes:size];
 }
 
 #pragma mark -
