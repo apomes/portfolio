@@ -703,7 +703,7 @@
                             </view>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CdZ-aM-EUI">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <color key="backgroundColor" red="0.55352544784545898" green="0.69904625415802002" blue="0.91928082704544067" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <items>
                                     <navigationItem title="Treemap" id="AXE-9J-df2">
                                         <barButtonItem key="rightBarButtonItem" image="x" id="H8y-do-tyy">
@@ -727,6 +727,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="navigationBar" destination="CdZ-aM-EUI" id="eBd-Tz-dxI"/>
                         <outlet property="treemapView" destination="Vsb-PJ-XxW" id="s5J-6u-DQq"/>
                     </connections>
                 </viewController>

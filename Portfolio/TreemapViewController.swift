@@ -22,6 +22,7 @@ TreemapViewDelegate, TreemapViewDataSource {
     
     @IBOutlet weak var treemapView: TreemapView!
     
+    @IBOutlet weak var navigationBar: UINavigationBar!
     
     @IBAction func Close(_ sender: AnyObject) {
         self.dismiss(animated: true, completion: nil)
@@ -36,6 +37,11 @@ TreemapViewDelegate, TreemapViewDataSource {
 
         // Do any additional setup after loading the view.
         
+        // Set transparency for the navigation bar
+        navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationBar.shadowImage = UIImage()
+        navigationBar.isTranslucent = true
+        navigationBar.backgroundColor = UIColor.clear
     }
 
     override func didReceiveMemoryWarning() {
