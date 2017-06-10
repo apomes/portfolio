@@ -693,7 +693,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vsb-PJ-XxW" customClass="TreemapView">
+                            <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vsb-PJ-XxW" customClass="TreemapView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -719,11 +719,11 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="CdZ-aM-EUI" secondAttribute="trailing" id="0yz-tO-HFf"/>
                             <constraint firstItem="CdZ-aM-EUI" firstAttribute="top" secondItem="St7-4k-YUc" secondAttribute="bottom" id="1nX-0a-NaA"/>
-                            <constraint firstItem="CdZ-aM-EUI" firstAttribute="leading" secondItem="Vsb-PJ-XxW" secondAttribute="leading" id="7P4-55-Lfc"/>
-                            <constraint firstItem="Vsb-PJ-XxW" firstAttribute="bottom" secondItem="xg6-L5-oUE" secondAttribute="top" id="CcO-p6-OGV"/>
-                            <constraint firstItem="Vsb-PJ-XxW" firstAttribute="top" secondItem="Mdg-qe-VOc" secondAttribute="top" id="Tzy-PC-XDl"/>
+                            <constraint firstItem="Vsb-PJ-XxW" firstAttribute="leading" secondItem="CdZ-aM-EUI" secondAttribute="leading" id="6Al-z5-6Ar"/>
                             <constraint firstItem="CdZ-aM-EUI" firstAttribute="leading" secondItem="Mdg-qe-VOc" secondAttribute="leading" id="UHD-t4-zxg"/>
-                            <constraint firstItem="CdZ-aM-EUI" firstAttribute="trailing" secondItem="Vsb-PJ-XxW" secondAttribute="trailing" id="fMa-xK-LC7"/>
+                            <constraint firstItem="Vsb-PJ-XxW" firstAttribute="width" secondItem="Mdg-qe-VOc" secondAttribute="width" id="VdW-3i-2Ud"/>
+                            <constraint firstItem="Vsb-PJ-XxW" firstAttribute="height" secondItem="Mdg-qe-VOc" secondAttribute="height" id="moy-2t-WaV"/>
+                            <constraint firstItem="Vsb-PJ-XxW" firstAttribute="bottom" secondItem="xg6-L5-oUE" secondAttribute="top" id="nrJ-bG-6Rd"/>
                         </constraints>
                     </view>
                 </viewController>
