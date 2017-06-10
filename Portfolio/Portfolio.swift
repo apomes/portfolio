@@ -172,6 +172,10 @@ class Portfolio : NSObject, AssetDelegate {
         return NumberFormatter.sharedInstance.string(from: NSNumber(value: assetList[index].quantity))!
     }
     
+    func getValueForAsset(_ index: Int) -> Float {
+        return assetList[index].getValue()
+    }
+    
     func getValueForAssetFormatted(_ index: Int) -> String {
         return CurrencyFormatter.sharedInstance.string(from: NSNumber(value: assetList[index].getValue()))!
     }
@@ -205,6 +209,8 @@ class Portfolio : NSObject, AssetDelegate {
             sortByPrice()
         case SortMethod.Quantity:
             sortByQuantity()
+        case SortMethod.Value:
+            sortByValue()
         case SortMethod.Percent:
             sortByPercent()
         }
@@ -227,6 +233,10 @@ class Portfolio : NSObject, AssetDelegate {
     
     private func sortByQuantity() {
         assetList.sort(by: {$0.quantity > $1.quantity})
+    }
+    
+    private func sortByValue() {
+        assetList.sort(by: {$0.getValue() > $1.getValue()})
     }
     
     private func sortByPercent() {
@@ -296,5 +306,5 @@ enum SortMethod: Int {
     case Price = 1
     case Quantity = 2
     case Percent = 3
-    
+    case Value = 4
 }

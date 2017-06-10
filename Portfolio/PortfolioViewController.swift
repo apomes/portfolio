@@ -124,15 +124,23 @@ class PortfolioViewController: UIViewController, PortfolioTableViewControllerDel
     
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if (segue.identifier == "TreemapView") {
+            //if you need to pass data to the next controller do it here
+            // Get the new view controller using segue.destinationViewController.
+            let treemapViewController: TreemapViewController = segue.destination as! TreemapViewController
+            
+            // Pass the selected object to the new view controller.
+            treemapViewController.portfolio = portfolioTableViewController?.portfolio
+        }
     }
-    */
+ 
     
     
     /** Updates the label of the portfolio button. */
@@ -146,6 +154,8 @@ class PortfolioViewController: UIViewController, PortfolioTableViewControllerDel
             sortButtonSymbol = "$"
         case SortMethod.Quantity:
             sortButtonSymbol = "Q"
+        case SortMethod.Value:
+            sortButtonSymbol = "V"
         case SortMethod.Percent:
             sortButtonSymbol = "%"
         }

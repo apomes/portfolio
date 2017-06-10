@@ -553,7 +553,7 @@
                         <rightBarButtonItems>
                             <barButtonItem title="treemap" id="uYS-zf-UvY">
                                 <connections>
-                                    <segue destination="Lgv-Vk-HUN" kind="popoverPresentation" popoverAnchorBarButtonItem="uYS-zf-UvY" id="RMJ-Ke-3OG">
+                                    <segue destination="Lgv-Vk-HUN" kind="popoverPresentation" identifier="TreemapView" popoverAnchorBarButtonItem="uYS-zf-UvY" id="RMJ-Ke-3OG">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
                                 </connections>

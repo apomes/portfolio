@@ -44,7 +44,7 @@ class BittrexTicker {
                 // Convert string to json
                 let jsonData = self.convertStringToJSON(data)
                 
-                print(jsonData["result"]![0])
+//                print(jsonData["result"]![0])
                 
                 callback(jsonData, nil)
             }

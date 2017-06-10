@@ -14,7 +14,10 @@ TreemapViewDelegate, TreemapViewDataSource {
     
     
     // Our inventory of coins
-    var coins: NSMutableArray?
+    var treemapModel: NSMutableArray?
+    
+    // Model with the information of the assets
+    var portfolio: Portfolio? = nil
     
     
     
@@ -61,16 +64,25 @@ TreemapViewDelegate, TreemapViewDataSource {
     // MARK: - Treemap data source
     func values(for treemapView: TreemapView!) -> [Any]! {
         // TODO: implement this...
-        if (coins == nil) {
-            // Init coins
-            coins = NSMutableArray()
-            coins!.add(NSDictionary(object: 23, forKey: "Doge" as NSCopying))
-            coins!.add(NSDictionary(object: 54, forKey: "Augur" as NSCopying))
+        if (portfolio != nil) {
+            // Init model
+            treemapModel = NSMutableArray()
+            
+            // Sort assets by value size
+            portfolio?.sortByMethod(aSortMethod: SortMethod.Value)
+            
+            // Add assets to treemap model
+            let assetCount:Int = (portfolio?.numberOfAssets())!
+            for index in 0..<assetCount {
+                let value = portfolio?.getValueForAsset(index)
+                let assetName = portfolio?.getNameForAsset(index)
+                treemapModel!.add(NSDictionary(object: value! as Float, forKey: assetName! as NSCopying))
+            }
         }
         
         var values = [Any]()
-        for dict in coins! {
-            values.append((dict as! NSDictionary).allValues.first as! Int)
+        for dict in treemapModel! {
+            values.append((dict as! NSDictionary).allValues.first as! Float)
         }
         
         return values
@@ -100,21 +112,11 @@ TreemapViewDelegate, TreemapViewDataSource {
      - parameter index: the index of the cell we want to update.
      */
     func updateCellView(cell: TreemapViewCell, forindex index: NSInteger) {
-//        NSNumber *val = [[fruits objectAtIndex:index] valueForKey:@"value"];
-//        cell.textLabel.text = [[fruits objectAtIndex:index] valueForKey:@"name"];
-//        cell.valueLabel.text = [val stringValue];
-//        cell.backgroundColor = [UIColor colorWithHue:(float)index / (fruits.count + 3)
-//        saturation:1 brightness:0.75 alpha:1];
+        cell.textLabel.text = (treemapModel?.object(at: index) as! NSDictionary).allKeys.first as! String?
+        cell.valueLabel.text = portfolio?.getValueForAssetFormatted(index)
         
-        let val = (coins?.object(at: index) as! NSDictionary).allValues.first as! Int
-        cell.textLabel.text = (coins?.object(at: index) as! NSDictionary).allKeys.first as! String?
-        cell.valueLabel.text = String(val)
-        if (index == 0) {
-            cell.backgroundColor = UIColor.blue
-        }
-        if (index == 1) {
-            cell.backgroundColor = UIColor.orange
-        }
+        // Pick colors from blue color palette for now
+        cell.backgroundColor = UIColor(hue: 0.55, saturation: 1, brightness: CGFloat(1)/CGFloat(index + 1), alpha: 1)
         
     }
     
