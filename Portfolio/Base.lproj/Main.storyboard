@@ -726,6 +726,9 @@
                             <constraint firstItem="Vsb-PJ-XxW" firstAttribute="bottom" secondItem="xg6-L5-oUE" secondAttribute="top" id="nrJ-bG-6Rd"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="treemapView" destination="Vsb-PJ-XxW" id="s5J-6u-DQq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0WS-R8-wOt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

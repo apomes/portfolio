@@ -20,6 +20,8 @@ TreemapViewDelegate, TreemapViewDataSource {
     var portfolio: Portfolio? = nil
     
     
+    @IBOutlet weak var treemapView: TreemapView!
+    
     
     @IBAction func Close(_ sender: AnyObject) {
         self.dismiss(animated: true, completion: nil)
@@ -39,6 +41,16 @@ TreemapViewDelegate, TreemapViewDataSource {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+
+    
+    // Reload treemap when device is about to rotate
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        UIView.beginAnimations("reload", context: nil)
+        UIView.setAnimationDuration(0.25)
+        treemapView.reloadData(size)
+        UIView.commitAnimations()
     }
     
 
