@@ -14,7 +14,7 @@ class PortfolioDataController: NSObject {
     
     var portfolioData: NSMutableDictionary?
     
-    let portfolioFilename: String = "PortfolioData"
+    let portfolioFilename: String = "PortfolioDataDemo"
     
     
     override init () {
