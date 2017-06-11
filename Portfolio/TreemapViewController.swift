@@ -14,7 +14,7 @@ TreemapViewDelegate, TreemapViewDataSource {
     
     
     // Our inventory of coins
-    var treemapModel: NSMutableArray?
+    var treemapModel: [NSDictionary]?
     
     // Model with the information of the assets
     var portfolio: Portfolio? = nil
@@ -84,23 +84,29 @@ TreemapViewDelegate, TreemapViewDataSource {
         // TODO: implement this...
         if (portfolio != nil) {
             // Init model
-            treemapModel = NSMutableArray()
+            treemapModel = [NSDictionary]()
             
             // Sort assets by value size
-            portfolio?.sortByMethod(aSortMethod: SortMethod.Value)
+            //portfolio?.sortByMethod(aSortMethod: SortMethod.Value)
             
             // Add assets to treemap model
             let assetCount:Int = (portfolio?.numberOfAssets())!
             for index in 0..<assetCount {
-                let value = portfolio?.getValueForAsset(index)
+                let value: Float = portfolio!.getValueForAsset(index)
+                let valueFormatted = portfolio!.getValueForAssetFormatted(index)
                 let assetName = portfolio?.getNameForAsset(index)
-                treemapModel!.add(NSDictionary(object: value! as Float, forKey: assetName! as NSCopying))
+                
+                let assetInfo = NSDictionary(objects: [assetName!, value, valueFormatted], forKeys: (["name", "value", "valueFormatted"] as NSCopying) as! [NSCopying])
+                treemapModel!.append(assetInfo)
             }
+            
+            // Sort by value stored in every asset
+            treemapModel?.sort(by: {$0.value(forKey: "value") as! Float > $1.value(forKey: "value") as! Float})
         }
         
         var values = [Any]()
         for dict in treemapModel! {
-            values.append((dict as! NSDictionary).allValues.first as! Float)
+            values.append((dict).value(forKey: "value") as! Float)
         }
         
         return values
@@ -130,8 +136,8 @@ TreemapViewDelegate, TreemapViewDataSource {
      - parameter index: the index of the cell we want to update.
      */
     func updateCellView(cell: TreemapViewCell, forindex index: NSInteger) {
-        cell.textLabel.text = (treemapModel?.object(at: index) as! NSDictionary).allKeys.first as! String?
-        cell.valueLabel.text = portfolio?.getValueForAssetFormatted(index)
+        cell.textLabel.text = (treemapModel![index]).value(forKey: "name") as! String?
+        cell.valueLabel.text = (treemapModel![index]).value(forKey: "valueFormatted") as! String?
         
         // Pick colors from blue color palette for now
         cell.backgroundColor = UIColor(hue: 0.55, saturation: 1, brightness: CGFloat(1)/CGFloat(index + 1), alpha: 1)
