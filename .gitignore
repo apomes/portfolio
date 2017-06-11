@@ -33,6 +33,9 @@ xcuserdata
 ApiKeys.plist
 PortfolioData.plist
 
+## Project files we want to ignore
+Portfolio.xcodeproj/project.pbxproj
+
 ## Other
 *.xccheckout
 *.moved-aside
