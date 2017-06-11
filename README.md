@@ -13,5 +13,6 @@ Supported tickers:
 ## Screenshots
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/apomes/portfolio/Develop/Readme/Images/MainView.png" alt="Portfolio app sample image missing">
+    <img src="https://raw.githubusercontent.com/apomes/portfolio/Develop/Readme/Images/PortfolioView.png" alt="Portfolio app sample image missing">
+    <img src="https://raw.githubusercontent.com/apomes/portfolio/Develop/Readme/Images/TreemapView.png" alt="Portfolio app sample image missing">
 </p>
