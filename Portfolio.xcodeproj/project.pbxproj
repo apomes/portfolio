@@ -171,7 +171,8 @@
 			children = (
 				EA113DEF1EED96DE003E0930 /* Images */,
 			);
-			path = Readme;
+			name = Readme;
+			path = Portfolio/Readme;
 			sourceTree = "<group>";
 		};
 		EA113DEF1EED96DE003E0930 /* Images */ = {
@@ -204,6 +205,7 @@
 		EAE42E5F1C93AD580027DB84 = {
 			isa = PBXGroup;
 			children = (
+				EA113DEE1EED96DE003E0930 /* Readme */,
 				EAE42E6A1C93AD580027DB84 /* Portfolio */,
 				EAE42E811C93AD580027DB84 /* PortfolioTests */,
 				EAE42E8C1C93AD580027DB84 /* PortfolioUITests */,
@@ -224,7 +226,6 @@
 		EAE42E6A1C93AD580027DB84 /* Portfolio */ = {
 			isa = PBXGroup;
 			children = (
-				EA113DEE1EED96DE003E0930 /* Readme */,
 				EAE42E6B1C93AD580027DB84 /* AppDelegate.swift */,
 				EAF2C2951CAEDEA7009D3D9E /* Controllers */,
 				EAF2C2961CAEDEB4009D3D9E /* Views */,
