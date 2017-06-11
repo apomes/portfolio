@@ -11,8 +11,6 @@
 		EA113DEB1EEB9E56003E0930 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = EA113DE61EEB9E56003E0930 /* LICENSE.txt */; };
 		EA113DEC1EEB9E56003E0930 /* TreemapView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA113DE81EEB9E56003E0930 /* TreemapView.m */; };
 		EA113DED1EEB9E56003E0930 /* TreemapViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EA113DEA1EEB9E56003E0930 /* TreemapViewCell.m */; };
-		EA113DF21EED96DE003E0930 /* PortfolioView.png in Resources */ = {isa = PBXBuildFile; fileRef = EA113DF01EED96DE003E0930 /* PortfolioView.png */; };
-		EA113DF31EED96DE003E0930 /* TreemapView.png in Resources */ = {isa = PBXBuildFile; fileRef = EA113DF11EED96DE003E0930 /* TreemapView.png */; };
 		EA15A1381CD585960079722B /* PortfolioDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA15A1371CD585960079722B /* PortfolioDataController.swift */; };
 		EA15A13B1CD58C0A0079722B /* PortfolioData.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA15A13A1CD58C0A0079722B /* PortfolioData.plist */; };
 		EA37C15B1CC2CDEC00D3E86D /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA37C15A1CC2CDEC00D3E86D /* ApiKeys.swift */; };
@@ -78,8 +76,6 @@
 		EA113DE81EEB9E56003E0930 /* TreemapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreemapView.m; sourceTree = "<group>"; };
 		EA113DE91EEB9E56003E0930 /* TreemapViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreemapViewCell.h; sourceTree = "<group>"; };
 		EA113DEA1EEB9E56003E0930 /* TreemapViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreemapViewCell.m; sourceTree = "<group>"; };
-		EA113DF01EED96DE003E0930 /* PortfolioView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PortfolioView.png; sourceTree = "<group>"; };
-		EA113DF11EED96DE003E0930 /* TreemapView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TreemapView.png; sourceTree = "<group>"; };
 		EA15A1371CD585960079722B /* PortfolioDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioDataController.swift; sourceTree = "<group>"; };
 		EA15A13A1CD58C0A0079722B /* PortfolioData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PortfolioData.plist; sourceTree = "<group>"; };
 		EA37C15A1CC2CDEC00D3E86D /* ApiKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKeys.swift; sourceTree = "<group>"; };
@@ -166,24 +162,6 @@
 			path = Libraries/TreemapKit;
 			sourceTree = "<group>";
 		};
-		EA113DEE1EED96DE003E0930 /* Readme */ = {
-			isa = PBXGroup;
-			children = (
-				EA113DEF1EED96DE003E0930 /* Images */,
-			);
-			name = Readme;
-			path = Portfolio/Readme;
-			sourceTree = "<group>";
-		};
-		EA113DEF1EED96DE003E0930 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				EA113DF01EED96DE003E0930 /* PortfolioView.png */,
-				EA113DF11EED96DE003E0930 /* TreemapView.png */,
-			);
-			path = Images;
-			sourceTree = "<group>";
-		};
 		EA15A1361CD585660079722B /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,7 +183,6 @@
 		EAE42E5F1C93AD580027DB84 = {
 			isa = PBXGroup;
 			children = (
-				EA113DEE1EED96DE003E0930 /* Readme */,
 				EAE42E6A1C93AD580027DB84 /* Portfolio */,
 				EAE42E811C93AD580027DB84 /* PortfolioTests */,
 				EAE42E8C1C93AD580027DB84 /* PortfolioUITests */,
@@ -463,9 +440,7 @@
 				EA15A13B1CD58C0A0079722B /* PortfolioData.plist in Resources */,
 				EA37C15F1CC2DECD00D3E86D /* ApiKeys.plist in Resources */,
 				EAE42E751C93AD580027DB84 /* Assets.xcassets in Resources */,
-				EA113DF31EED96DE003E0930 /* TreemapView.png in Resources */,
 				EA3EF4681E7E01D600706A98 /* PortfolioDataDemo.plist in Resources */,
-				EA113DF21EED96DE003E0930 /* PortfolioView.png in Resources */,
 				EAE42E731C93AD580027DB84 /* Main.storyboard in Resources */,
 				EA113DEB1EEB9E56003E0930 /* LICENSE.txt in Resources */,
 			);
