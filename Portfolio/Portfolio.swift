@@ -124,8 +124,17 @@ class Portfolio : NSObject, AssetDelegate {
             
             // Get currency pair
             let currencyPairs = myTickerListController.getCurrencyPairsForAsset(asset.name)
-            asset.counterCurrency = currencyPairs.first?.first
-            asset.baseCurrency = currencyPairs.first?.last
+            
+            // TODO: Remove hardcoded base currency!
+            if (asset.name == "USD") {
+                asset.counterCurrency = CurrencySymbol.Dollar
+                asset.baseCurrency = CurrencySymbol.Dollar
+            }
+            else {
+                asset.counterCurrency = currencyPairs.first?.first
+                asset.baseCurrency = currencyPairs.first?.last
+            }
+            
         }
     }
 

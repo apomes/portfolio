@@ -63,6 +63,12 @@ class TickerListController: TickerControllerDelegate  {
         
         // Get price in all available tickers
         for aTickerController in tickerList {
+            // TODO: Fiat currency values should be read from a specific ticker.
+            // For now they are hardcoded
+            if (name == "USD") {
+                return ["USD" : 1];
+            }
+            
             let price = aTickerController.getPriceForAsset(name)
             
             // Check that we actually got a price from the ticker
@@ -78,6 +84,12 @@ class TickerListController: TickerControllerDelegate  {
     
     func getPercentChangesForAsset(_ name: String) -> [String: Float] {
         var percentChanges = [String: Float]()
+        
+        // TODO: Fiat currency values should be read from a specific ticker.
+        // For now they are hardcoded
+        if (name == "USD") {
+            return ["USD" : 0];
+        }
         
         // Get price in all available tickers
         for aTickerController in tickerList {
