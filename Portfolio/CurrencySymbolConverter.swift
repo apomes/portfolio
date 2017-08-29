@@ -52,6 +52,8 @@ class CurrencySymbolConverter {
             currencySymbol = CurrencySymbol.EthereumClassic
         case "Monero":
             currencySymbol = CurrencySymbol.Monero
+        case "Bitcoin Cash":
+            currencySymbol = CurrencySymbol.BitcoinCash
             
         default:
             currencySymbol = CurrencySymbol.Bitcoin
@@ -91,5 +93,6 @@ enum CurrencySymbol: String {
     case Augur = "REP"
     case EthereumClassic = "ETC"
     case Monero = "XMR"
+    case BitcoinCash = "BCH"
     
 }

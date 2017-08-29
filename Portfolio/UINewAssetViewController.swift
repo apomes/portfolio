@@ -22,7 +22,7 @@ UIPickerViewDelegate, UITextFieldDelegate {
                                  "StorjcoinX", "Lisk", "Dash", "Voxel", "Gemz",
                                  "LTBCoin", "USD", "Lumen", "Factom", "Zcash",
                                  "Augur", "Counterparty", "Ethereum Classic",
-                                 "Monero"]
+                                 "Monero", "Bitcoin Cash"]
     
     @IBOutlet weak var pickerView: UIPickerView!
     
