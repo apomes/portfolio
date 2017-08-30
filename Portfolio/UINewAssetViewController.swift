@@ -37,7 +37,7 @@ UIPickerViewDelegate, UITextFieldDelegate {
         // Get asset data
         let selectedRow = pickerView.selectedRow(inComponent: 0)
         assetName = pickerView(pickerView, titleForRow: selectedRow, forComponent: 0)!
-        assetQuantity = NumberFormatter.sharedInstance.number(from: assetQuantityField.text!) as Float? ?? 0
+        assetQuantity = NumberFormatter.sharedInstance.number(from: assetQuantityField.text!) as! Float? ?? 0
         
         if assetName != "" {
             // Pass new asset to parent view controller
