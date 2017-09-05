@@ -29,10 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let myStoryboard:UIStoryboard = portfolioRootViewController.storyboard!
         lockScreenViewController = (myStoryboard.instantiateViewController(withIdentifier: "LockScreenID") as! LockScreenViewController)
-        
-        lockScreen()
-//        lockScreenViewController.requestLocalAuthentication()
-        
+        //lockScreenViewController.modalPresentationStyle = .overFullScreen
+
         return true
     }
 
@@ -68,11 +66,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
+    
     func lockScreen() {
         if (!lockScreenViewController.isLocked) {
-                portfolioRootViewController.present(lockScreenViewController, animated: true, completion: nil)
-                lockScreenViewController.isLocked = true
+            let currentTopVC: UIViewController? = self.getTopViewController()
+            
+            currentTopVC?.present(lockScreenViewController, animated: true, completion: nil)
+            lockScreenViewController.isLocked = true
         }
+    }
+    
+    
+    
+    func getTopViewController() -> UIViewController {
+        var topViewController = UIApplication.shared.delegate!.window!!.rootViewController!
+        while (topViewController.presentedViewController != nil) {
+            topViewController = topViewController.presentedViewController!
+        }
+        return topViewController
     }
 
 }

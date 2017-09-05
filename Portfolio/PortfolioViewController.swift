@@ -85,6 +85,13 @@ class PortfolioViewController: UIViewController, PortfolioTableViewControllerDel
         // Init portfolio
         portfolioTableViewController?.initPortfolio()
         portfolioTableViewController?.sortByMethod(aSortMethod: SortMethod.Percent)
+        
+        // Present privacy screen and request authentication
+        let lockScreenViewController = (myStoryboard.instantiateViewController(withIdentifier: "LockScreenID") as! LockScreenViewController)
+        lockScreenViewController.modalPresentationStyle = .overFullScreen
+        self.present(lockScreenViewController, animated: true, completion: nil)
+        lockScreenViewController.isLocked = true
+        lockScreenViewController.requestLocalAuthentication()
     }
     
     
