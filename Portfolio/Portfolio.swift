@@ -130,6 +130,14 @@ class Portfolio : NSObject, AssetDelegate {
                 asset.counterCurrency = CurrencySymbol.Dollar
                 asset.baseCurrency = CurrencySymbol.Dollar
             }
+            else if (asset.name == "EUR") {
+                asset.counterCurrency = CurrencySymbol.Dollar
+                asset.baseCurrency = CurrencySymbol.Dollar
+            }
+            else if (asset.name == "GBP") {
+                asset.counterCurrency = CurrencySymbol.Dollar
+                asset.baseCurrency = CurrencySymbol.Dollar
+            }
             else {
                 asset.counterCurrency = currencyPairs.first?.first
                 asset.baseCurrency = currencyPairs.first?.last

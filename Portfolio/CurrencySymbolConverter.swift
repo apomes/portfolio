@@ -38,8 +38,6 @@ class CurrencySymbolConverter {
             currencySymbol = CurrencySymbol.Gemz
         case "LTBCoin":
             currencySymbol = CurrencySymbol.LTBCoin
-        case "USD", "USDT":
-            currencySymbol = CurrencySymbol.Dollar
         case "Lumen":
             currencySymbol = CurrencySymbol.Lumen
         case "StorjcoinX":
@@ -54,6 +52,13 @@ class CurrencySymbolConverter {
             currencySymbol = CurrencySymbol.Monero
         case "Bitcoin Cash":
             currencySymbol = CurrencySymbol.BitcoinCash
+            
+        case "USD", "USDT":
+            currencySymbol = CurrencySymbol.Dollar
+        case "EUR":
+            currencySymbol = CurrencySymbol.Euro
+        case "GBP":
+            currencySymbol = CurrencySymbol.Pound
             
         default:
             currencySymbol = CurrencySymbol.Bitcoin

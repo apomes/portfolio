@@ -64,9 +64,16 @@ class TickerListController: TickerControllerDelegate  {
         // Get price in all available tickers
         for aTickerController in tickerList {
             // TODO: Fiat currency values should be read from a specific ticker.
+            // Prices hardcoded on Sep 6th 2017
             // For now they are hardcoded
             if (name == "USD") {
                 return ["USD" : 1];
+            }
+            if (name == "EUR") {
+                return ["USD" : 1.19];
+            }
+            if (name == "GBP") {
+                return ["USD" : 1.3];
             }
             
             let price = aTickerController.getPriceForAsset(name)
@@ -89,6 +96,12 @@ class TickerListController: TickerControllerDelegate  {
         // For now they are hardcoded
         if (name == "USD") {
             return ["USD" : 0];
+        }
+        if (name == "EUR") {
+            return ["EUR" : 0];
+        }
+        if (name == "GBP") {
+            return ["GBP" : 0];
         }
         
         // Get price in all available tickers

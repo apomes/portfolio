@@ -20,9 +20,9 @@ UIPickerViewDelegate, UITextFieldDelegate {
     // TODO: This list should be generated dynamically from ticker information
     var currencyList:[String] = ["", "Bitcoin", "Litecoin", "Ether", "Dogecoin",
                                  "StorjcoinX", "Lisk", "Dash", "Voxel", "Gemz",
-                                 "LTBCoin", "USD", "Lumen", "Factom", "Zcash",
+                                 "LTBCoin", "Lumen", "Factom", "Zcash",
                                  "Augur", "Counterparty", "Ethereum Classic",
-                                 "Monero", "Bitcoin Cash"]
+                                 "Monero", "Bitcoin Cash", " - ", "USD", "EUR", "GBP"]
     
     @IBOutlet weak var pickerView: UIPickerView!
     
@@ -39,7 +39,7 @@ UIPickerViewDelegate, UITextFieldDelegate {
         assetName = pickerView(pickerView, titleForRow: selectedRow, forComponent: 0)!
         assetQuantity = NumberFormatter.sharedInstance.number(from: assetQuantityField.text!) as! Float? ?? 0
         
-        if assetName != "" {
+        if assetName != "" && assetName != " - " {
             // Pass new asset to parent view controller
             (delegate as! UINewAssetViewControllerDelegate)
                 .newAssetViewController(self,
