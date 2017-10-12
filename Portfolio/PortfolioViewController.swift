@@ -82,14 +82,15 @@ class PortfolioViewController: UIViewController, PortfolioTableViewControllerDel
         // Add self as delegate for the portfolio table view controller
         portfolioTableViewController?.delegate = self
         
-        // Init portfolio
-        portfolioTableViewController?.initPortfolio()
-        portfolioTableViewController?.sortByMethod(aSortMethod: SortMethod.Percent)
-        
         // Present privacy screen and request authentication
         let lockScreenViewController = (myStoryboard.instantiateViewController(withIdentifier: "LockScreenID") as! LockScreenViewController)
         lockScreenViewController.modalPresentationStyle = .overFullScreen
-        self.present(lockScreenViewController, animated: true, completion: nil)
+        self.present(lockScreenViewController, animated: true, completion:
+            {() -> Void in
+                // Init portfolio once the privace screen finished appearing
+                self.portfolioTableViewController?.initPortfolio()
+                self.portfolioTableViewController?.sortByMethod(aSortMethod: SortMethod.Percent)
+        })
         lockScreenViewController.isLocked = true
         lockScreenViewController.requestLocalAuthentication()
     }
