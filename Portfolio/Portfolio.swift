@@ -69,7 +69,7 @@ class Portfolio : NSObject, AssetDelegate {
     
     
     /** Pulls latest data from the tickers and tells controller to reload table. */
-    func update() {
+    @objc func update() {
         // Updates assets with fresh data from the tickers
         updateAssets()
         
