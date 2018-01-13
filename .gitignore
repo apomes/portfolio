@@ -29,7 +29,8 @@ DerivedData
 !default.perspectivev3
 xcuserdata
 
-## Plist files with sensitive data like API keys and secrets
+## These are your plist files with sensitive data like API keys and secrets
+## You do not want to share this with the rest of the community!
 ApiKeys.plist
 
 ## Other

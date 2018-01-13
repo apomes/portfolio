@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA07F4B4200A6D5400B1CEB5 /* ApiKeysSample.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA07F4B3200A6D5400B1CEB5 /* ApiKeysSample.plist */; };
 		EA09401F1CB9EA8700C4FBC7 /* KrakenTicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA09401E1CB9EA8700C4FBC7 /* KrakenTicker.swift */; };
 		EA113DEB1EEB9E56003E0930 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = EA113DE61EEB9E56003E0930 /* LICENSE.txt */; };
 		EA113DEC1EEB9E56003E0930 /* TreemapView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA113DE81EEB9E56003E0930 /* TreemapView.m */; };
@@ -66,6 +67,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EA07F4B3200A6D5400B1CEB5 /* ApiKeysSample.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ApiKeysSample.plist; sourceTree = "<group>"; };
 		EA09401E1CB9EA8700C4FBC7 /* KrakenTicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KrakenTicker.swift; sourceTree = "<group>"; };
 		EA113DE61EEB9E56003E0930 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		EA113DE71EEB9E56003E0930 /* TreemapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreemapView.h; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 		EA15A1391CD58BD80079722B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EA07F4B3200A6D5400B1CEB5 /* ApiKeysSample.plist */,
 				EA37C15E1CC2DECD00D3E86D /* ApiKeys.plist */,
 				EA15A13A1CD58C0A0079722B /* PortfolioData.plist */,
 			);
@@ -421,6 +424,7 @@
 				EA37C15F1CC2DECD00D3E86D /* ApiKeys.plist in Resources */,
 				EAE42E751C93AD580027DB84 /* Assets.xcassets in Resources */,
 				EAE42E731C93AD580027DB84 /* Main.storyboard in Resources */,
+				EA07F4B4200A6D5400B1CEB5 /* ApiKeysSample.plist in Resources */,
 				EA113DEB1EEB9E56003E0930 /* LICENSE.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

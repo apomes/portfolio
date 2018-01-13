@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Poloniex</key>
+	<dict>
+		<key>API_KEY</key>
+		<string>YOUR-API-KEY</string>
+		<key>API_SECRET</key>
+		<string>your_api_secret</string>
+	</dict>
+	<key>Kraken</key>
+	<dict>
+		<key>API_KEY</key>
+		<string>YOUR-API-KEY</string>
+		<key>API_SECRET</key>
+		<string>your_api_secret</string>
+	</dict>
+	<key>Bittrex</key>
+	<dict>
+		<key>API_KEY</key>
+		<string>YOUR-API-KEY</string>
+		<key>API_SECRET</key>
+		<string>your_api_secret</string>
+	</dict>
+</dict>
+</plist>
