@@ -31,7 +31,6 @@ xcuserdata
 
 ## Plist files with sensitive data like API keys and secrets
 ApiKeys.plist
-PortfolioData.plist
 
 ## Other
 *.xccheckout
