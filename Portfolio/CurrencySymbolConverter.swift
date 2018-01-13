@@ -40,8 +40,8 @@ class CurrencySymbolConverter {
             currencySymbol = CurrencySymbol.LTBCoin
         case "Lumen":
             currencySymbol = CurrencySymbol.Lumen
-        case "StorjcoinX":
-            currencySymbol = CurrencySymbol.StorjcoinX
+        case "Storj":
+            currencySymbol = CurrencySymbol.Storj
         case "Zcash":
             currencySymbol = CurrencySymbol.Zcash
         case "Augur":
@@ -93,7 +93,7 @@ enum CurrencySymbol: String {
     case Voxel = "VOX"
     case Lisk = "LSK"
     case Lumen = "STR"
-    case StorjcoinX = "SJCX"
+    case Storj = "STORJ"
     case Zcash = "ZEC"
     case Augur = "REP"
     case EthereumClassic = "ETC"
