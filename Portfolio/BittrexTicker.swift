@@ -81,7 +81,7 @@ class BittrexTicker {
     
     fileprivate func executeHttpRequest(_ request: String, callback: @escaping (String, String?) -> Void) {
         let request = NSMutableURLRequest(url: URL(string: request)!)
-        httpGet(request as URLRequest!) {
+        httpGet(request as URLRequest) {
             (data, error) -> Void in
             if error != nil {
                 callback("", error)

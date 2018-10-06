@@ -53,7 +53,7 @@ class CurrencySymbolConverter {
         case "Bitcoin Cash":
             currencySymbol = CurrencySymbol.BitcoinCash
             
-        case "USD", "USDT":
+        case "USD", "USDT", "USDC":
             currencySymbol = CurrencySymbol.Dollar
         case "EUR":
             currencySymbol = CurrencySymbol.Euro
@@ -61,7 +61,7 @@ class CurrencySymbolConverter {
             currencySymbol = CurrencySymbol.Pound
             
         default:
-            currencySymbol = CurrencySymbol.Bitcoin
+            currencySymbol = CurrencySymbol.Dollar
         }
         
         return currencySymbol

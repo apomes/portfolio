@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // The root view controller is the main navigation view controller. 
         // Its first child is the portfolio view controller
-        portfolioRootViewController = self.window?.rootViewController?.childViewControllers[0] as! PortfolioViewController
+        portfolioRootViewController = self.window?.rootViewController?.childViewControllers[0] as? PortfolioViewController
         
         let myStoryboard:UIStoryboard = portfolioRootViewController.storyboard!
         lockScreenViewController = (myStoryboard.instantiateViewController(withIdentifier: "LockScreenID") as! LockScreenViewController)
