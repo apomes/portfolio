@@ -39,8 +39,8 @@ class Portfolio : NSObject, AssetDelegate {
         // Instantiate tickers
         // FIXME: tickers should only be instantiated if needed for the current portfolio of the user
         myTickerListController.addTicker(TickerType.Poloniex)
-        myTickerListController.addTicker(TickerType.Kraken)
-        myTickerListController.addTicker(TickerType.Bittrex)
+//        myTickerListController.addTicker(TickerType.Kraken)
+//        myTickerListController.addTicker(TickerType.Bittrex)
         
         // Add self as observer to track changes in the tickers
         myTickerListController.attachObserver(self)
