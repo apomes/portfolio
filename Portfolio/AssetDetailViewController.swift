@@ -16,7 +16,8 @@ class AssetDetailViewController: UIViewController {
     
     @IBOutlet weak var assetQuantity: UITextField!
     @IBAction func assetQuantity(_ sender: Any) {
-        asset?.quantity = NumberFormatter.sharedInstance.number(from: assetQuantity.text!) as! Float? ?? 0
+        let num:NSNumber? = NumberFormatter.sharedInstance.number(from: assetQuantity.text!)
+        asset?.quantity = (num?.floatValue)!
     }
     
     
