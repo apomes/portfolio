@@ -54,6 +54,8 @@ class CurrencySymbolConverter {
             currencySymbol = CurrencySymbol.BitcoinCash
         case "Bitcoin Cash SV":
             currencySymbol = CurrencySymbol.BitcoinSatoshiVision
+        case "Decentraland":
+            currencySymbol = CurrencySymbol.Decentraland
             
         case "USD", "USDT", "USDC":
             currencySymbol = CurrencySymbol.Dollar
@@ -102,5 +104,6 @@ enum CurrencySymbol: String {
     case Monero = "XMR"
     case BitcoinCash = "BCHABC"
     case BitcoinSatoshiVision = "BCHSV"
+    case Decentraland = "MANA"
     
 }
