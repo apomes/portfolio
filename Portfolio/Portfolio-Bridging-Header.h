@@ -2,8 +2,8 @@
 //  Portfolio-Bridging-Header.h
 //  Portfolio
 //
-//  Created by Ausias on 02/06/17.
-//  Copyright © 2017 kobiuter. All rights reserved.
+//  Created by Ausias on 28/09/2019.
+//  Copyright © 2019 kobiuter. All rights reserved.
 //
 
 #ifndef Portfolio_Bridging_Header_h

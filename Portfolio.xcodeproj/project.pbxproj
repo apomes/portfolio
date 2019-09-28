@@ -77,6 +77,7 @@
 		EA113E031EFDA049003E0930 /* LockScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LockScreenViewController.swift; sourceTree = "<group>"; };
 		EA15A1371CD585960079722B /* PortfolioDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioDataController.swift; sourceTree = "<group>"; };
 		EA15A13A1CD58C0A0079722B /* PortfolioData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PortfolioData.plist; sourceTree = "<group>"; };
+		EA1F4EB9233EEFDF002031F3 /* Portfolio-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Portfolio-Bridging-Header.h"; sourceTree = "<group>"; };
 		EA37C15A1CC2CDEC00D3E86D /* ApiKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKeys.swift; sourceTree = "<group>"; };
 		EA37C15E1CC2DECD00D3E86D /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
 		EA70A3B71D0D9E5900DE85EE /* BittrexTicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BittrexTicker.swift; sourceTree = "<group>"; };
@@ -104,7 +105,6 @@
 		EAF2C2971CAEDF22009D3D9E /* Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
 		EAF2C29B1CAF65FA009D3D9E /* PortfolioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioViewController.swift; sourceTree = "<group>"; };
 		EAF2C29D1CAF66BA009D3D9E /* PortfolioTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioTableViewController.swift; sourceTree = "<group>"; };
-		EAF401301EE1B0F800CC5EDA /* Portfolio-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Portfolio-Bridging-Header.h"; sourceTree = "<group>"; };
 		EAF5C4431CB0ABDC00D3412F /* PoloniexTickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoloniexTickerController.swift; sourceTree = "<group>"; };
 		EAF5C4451CB0AD3D00D3412F /* TickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TickerController.swift; sourceTree = "<group>"; };
 		EAF5C4481CB16A7D00D3412F /* TickerListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TickerListController.swift; sourceTree = "<group>"; };
@@ -271,8 +271,8 @@
 		EAF401121EE1A3FA00CC5EDA /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				EAF401301EE1B0F800CC5EDA /* Portfolio-Bridging-Header.h */,
 				EA113DE51EEB9E56003E0930 /* TreemapKit */,
+				EA1F4EB9233EEFDF002031F3 /* Portfolio-Bridging-Header.h */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -651,7 +651,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = kobiuter.Portfolio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Portfolio/Portfolio-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/ausias/Projects/ios_dev/Portfolio/Portfolio/Portfolio-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
 			};
@@ -669,7 +669,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = kobiuter.Portfolio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Portfolio/Portfolio-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/ausias/Projects/ios_dev/Portfolio/Portfolio/Portfolio-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
 			};
@@ -683,6 +683,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kobiuter.PortfolioTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/ausias/Projects/ios_dev/Portfolio/Portfolio/Portfolio-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Portfolio.app/Portfolio";
@@ -697,6 +698,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kobiuter.PortfolioTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/ausias/Projects/ios_dev/Portfolio/Portfolio/Portfolio-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Portfolio.app/Portfolio";
