@@ -107,13 +107,13 @@ class PortfolioViewController: UIViewController, PortfolioTableViewControllerDel
     func addNewChildViewController(_ viewController:UIViewController, parentView:UIView) {
         // Add controller to the controllers hierarchy
         // This also calls willMoveToParentViewController
-        self.addChildViewController(viewController)
+        self.addChild(viewController)
         
         // Add controller's view to parent's view hierarchy
         parentView.addSubview(viewController.view)
         
         // Notify controller it was added to parent controller hierarchy
-        viewController.didMove(toParentViewController: self)
+        viewController.didMove(toParent: self)
         
     }
     

@@ -20,12 +20,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         // The root view controller is the main navigation view controller. 
         // Its first child is the portfolio view controller
-        portfolioRootViewController = self.window?.rootViewController?.childViewControllers[0] as? PortfolioViewController
+        portfolioRootViewController = self.window?.rootViewController?.children[0] as? PortfolioViewController
         
         let myStoryboard:UIStoryboard = portfolioRootViewController.storyboard!
         lockScreenViewController = (myStoryboard.instantiateViewController(withIdentifier: "LockScreenID") as! LockScreenViewController)

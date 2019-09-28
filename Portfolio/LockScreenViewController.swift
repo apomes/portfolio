@@ -53,7 +53,9 @@ class LockScreenViewController: UIViewController {
                 myContext.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: myLocalizedReasonString) { (success, evaluateError) in
                     if (success) {
                         // User authenticated successfully, dismiss lock screen controller
-                        self.dismiss(animated: true, completion: nil)
+                        DispatchQueue.main.async { // Can't call UI API directly from background thread
+                           self.dismiss(animated: true, completion: nil)
+                        }
                         self.isLocked = false
                         
                     } else {
@@ -63,8 +65,8 @@ class LockScreenViewController: UIViewController {
                 }
             } else {
                 // Could not evaluate policy; look at authError and present an appropriate message to user
-                let alertController = UIAlertController(title: "Error", message: authError?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
-                let alertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+                let alertController = UIAlertController(title: "Error", message: authError?.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+                let alertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
                 alertController.addAction(alertAction)
                 self.present(alertController, animated: true, completion: nil)
             }

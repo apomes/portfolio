@@ -163,7 +163,7 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate, UI
 
     
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Update portfolio model to delete row from the data source
             portfolio.removeAsset(index: indexPath.row)

@@ -271,8 +271,8 @@
 		EAF401121EE1A3FA00CC5EDA /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				EA113DE51EEB9E56003E0930 /* TreemapKit */,
 				EAF401301EE1B0F800CC5EDA /* Portfolio-Bridging-Header.h */,
+				EA113DE51EEB9E56003E0930 /* TreemapKit */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -380,26 +380,25 @@
 					EAE42E671C93AD580027DB84 = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = 62B4Y6V447;
-						LastSwiftMigration = 0920;
+						LastSwiftMigration = 1100;
 					};
 					EAE42E7D1C93AD580027DB84 = {
 						CreatedOnToolsVersion = 7.2.1;
-						LastSwiftMigration = 0920;
+						LastSwiftMigration = 1100;
 						TestTargetID = EAE42E671C93AD580027DB84;
 					};
 					EAE42E881C93AD580027DB84 = {
 						CreatedOnToolsVersion = 7.2.1;
-						LastSwiftMigration = 0920;
+						LastSwiftMigration = 1100;
 						TestTargetID = EAE42E671C93AD580027DB84;
 					};
 				};
 			};
 			buildConfigurationList = EAE42E631C93AD580027DB84 /* Build configuration list for PBXProject "Portfolio" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
@@ -652,9 +651,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = kobiuter.Portfolio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/ausias/Projects/ios_dev/Portfolio/Portfolio/Portfolio-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Portfolio/Portfolio-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -670,9 +669,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = kobiuter.Portfolio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/ausias/Projects/ios_dev/Portfolio/Portfolio/Portfolio-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Portfolio/Portfolio-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -684,8 +683,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kobiuter.PortfolioTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Portfolio.app/Portfolio";
 			};
 			name = Debug;
@@ -698,8 +697,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kobiuter.PortfolioTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Portfolio.app/Portfolio";
 			};
 			name = Release;
@@ -711,8 +710,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kobiuter.PortfolioUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = Portfolio;
 				USES_XCTRUNNER = YES;
 			};
@@ -725,8 +724,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kobiuter.PortfolioUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = Portfolio;
 				USES_XCTRUNNER = YES;
 			};
