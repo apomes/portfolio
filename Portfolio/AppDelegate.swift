@@ -13,11 +13,9 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
     var portfolioRootViewController: PortfolioViewController!
-    
     var lockScreenViewController: LockScreenViewController!
-
+    
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -44,11 +42,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         
         // Hide info for privacy by presenting another view controller on top
-        lockScreen()
+        self.lockScreen()
         
         // Save portfolio data!
-        portfolioRootViewController.savePortfolioData()
+        self.portfolioRootViewController.savePortfolioData()
     }
+    
+    
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.

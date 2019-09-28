@@ -85,7 +85,8 @@ class PortfolioViewController: UIViewController, PortfolioTableViewControllerDel
         // Present privacy screen and request authentication
         let lockScreenViewController = (myStoryboard.instantiateViewController(withIdentifier: "LockScreenID") as! LockScreenViewController)
         lockScreenViewController.modalPresentationStyle = .overFullScreen
-        self.present(lockScreenViewController, animated: true, completion:
+        
+        self.parent?.present(lockScreenViewController, animated: true, completion:
             {() -> Void in
                 // Init portfolio once the privace screen finished appearing
                 self.portfolioTableViewController?.initPortfolio()
