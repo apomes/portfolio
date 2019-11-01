@@ -13,8 +13,9 @@ import LocalAuthentication
 
 class LockScreenViewController: UIViewController {
 
-    
+    /** True if the lock screen is active. False otherwise. */
     var isLocked = false
+    
     
     
     override func viewDidLoad() {
@@ -53,16 +54,15 @@ class LockScreenViewController: UIViewController {
                 myContext.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: myLocalizedReasonString) { (success, evaluateError) in
                     if (success) {
                         // User authenticated successfully, dismiss lock screen controller
+                        self.isLocked = false
                         DispatchQueue.main.async { // Can't call UI API directly from background thread
-                           self.dismiss(animated: true, completion:
-                            {() -> Void in
-                                self.isLocked = false
-                           })
+                           self.dismiss(animated: true, completion: nil)
                         }
-                        
-                        
                     } else {
-                        // User did not authenticate successfully, look at error and take appropriate action
+                        // User did not authenticate successfully, or the app
+                        // is not active at this moment.
+                        // Look at error and take appropriate action
+                        // ...
                         
                     }
                 }
