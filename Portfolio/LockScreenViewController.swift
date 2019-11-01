@@ -16,7 +16,7 @@ class LockScreenViewController: UIViewController {
     /** True if the lock screen is active. False otherwise. */
     var isLocked = false
     
-    
+    var authenticationCorrect = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +55,7 @@ class LockScreenViewController: UIViewController {
                     if (success) {
                         // User authenticated successfully, dismiss lock screen controller
                         self.isLocked = false
+                        self.authenticationCorrect = true
                         DispatchQueue.main.async { // Can't call UI API directly from background thread
                            self.dismiss(animated: true, completion: nil)
                         }

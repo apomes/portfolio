@@ -42,6 +42,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Hide info for privacy by presenting another view controller on top
         self.lockScreen()
+        portfolioRootViewController.lockScreenViewController!
+            .authenticationCorrect = false
         
         // Save portfolio data!
         self.portfolioRootViewController.savePortfolioData()
@@ -56,8 +58,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         
-        unlockScreen()
-        
+        if (portfolioRootViewController.lockScreenViewController!.authenticationCorrect) {
+            unlockScreen()
+        }
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
