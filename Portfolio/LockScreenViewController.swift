@@ -54,9 +54,12 @@ class LockScreenViewController: UIViewController {
                     if (success) {
                         // User authenticated successfully, dismiss lock screen controller
                         DispatchQueue.main.async { // Can't call UI API directly from background thread
-                           self.dismiss(animated: true, completion: nil)
+                           self.dismiss(animated: true, completion:
+                            {() -> Void in
+                                self.isLocked = false
+                           })
                         }
-                        self.isLocked = false
+                        
                         
                     } else {
                         // User did not authenticate successfully, look at error and take appropriate action

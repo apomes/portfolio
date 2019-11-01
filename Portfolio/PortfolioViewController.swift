@@ -10,12 +10,13 @@ import UIKit
 
 class PortfolioViewController: UIViewController, PortfolioTableViewControllerDelegate {
 
-    
-    
     // OTHER CONTROLLERS
+    
+    /** Controller that contains the table view with all the assets */
     var portfolioTableViewController: PortfolioTableViewController?
     
-    
+    /** Controller for the lock screen for privacy reasons. */
+    var lockScreenViewController: LockScreenViewController?
     
     // MODEL
     
@@ -83,17 +84,17 @@ class PortfolioViewController: UIViewController, PortfolioTableViewControllerDel
         portfolioTableViewController?.delegate = self
         
         // Present privacy screen and request authentication
-        let lockScreenViewController = (myStoryboard.instantiateViewController(withIdentifier: "LockScreenID") as! LockScreenViewController)
-        lockScreenViewController.modalPresentationStyle = .overFullScreen
+        lockScreenViewController = (myStoryboard.instantiateViewController(withIdentifier: "LockScreenID") as! LockScreenViewController)
+        lockScreenViewController!.modalPresentationStyle = .overFullScreen
         
-        self.parent?.present(lockScreenViewController, animated: true, completion:
+        self.parent?.present(lockScreenViewController!, animated: true, completion:
             {() -> Void in
                 // Init portfolio once the privace screen finished appearing
                 self.portfolioTableViewController?.initPortfolio()
                 self.portfolioTableViewController?.sortByMethod(aSortMethod: SortMethod.Percent)
         })
-        lockScreenViewController.isLocked = true
-        lockScreenViewController.requestLocalAuthentication()
+        lockScreenViewController!.isLocked = true
+        lockScreenViewController!.requestLocalAuthentication()
     }
     
     
