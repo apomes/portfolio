@@ -56,6 +56,8 @@ class CurrencySymbolConverter {
             currencySymbol = CurrencySymbol.BitcoinSatoshiVision
         case "Decentraland":
             currencySymbol = CurrencySymbol.Decentraland
+        case "Ripple":
+            currencySymbol = CurrencySymbol.Ripple
             
         case "USD", "USDT", "USDC":
             currencySymbol = CurrencySymbol.Dollar
@@ -105,5 +107,6 @@ enum CurrencySymbol: String {
     case BitcoinCash = "BCHABC"
     case BitcoinSatoshiVision = "BCHSV"
     case Decentraland = "MANA"
+    case Ripple = "XRP"
     
 }

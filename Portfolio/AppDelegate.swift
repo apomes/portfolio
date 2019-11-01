@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var portfolioRootViewController: PortfolioViewController!
     var lockScreenViewController: LockScreenViewController!
+    var backgroundTaskID: UIBackgroundTaskIdentifier!
     
     
     
@@ -41,11 +42,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         
-        // Hide info for privacy by presenting another view controller on top
-        self.lockScreen()
+        DispatchQueue.main.async() {
+           // Request the task assertion and save the ID.
+           self.backgroundTaskID = UIApplication.shared.beginBackgroundTask (withName: "Finish Network Tasks") {
+              // End the task if time expires.
+              UIApplication.shared.endBackgroundTask(self.backgroundTaskID!)
+            self.backgroundTaskID = UIBackgroundTaskIdentifier.invalid
+           }
+                 
+           // Hide info for privacy by presenting another view controller on top
+           self.lockScreen()
+
+           // Save portfolio data!
+           self.portfolioRootViewController.savePortfolioData()
+                 
+           // End the task assertion.
+           UIApplication.shared.endBackgroundTask(self.backgroundTaskID!)
+            self.backgroundTaskID = UIBackgroundTaskIdentifier.invalid
+        }
+
         
-        // Save portfolio data!
-        self.portfolioRootViewController.savePortfolioData()
+        
     }
     
     
