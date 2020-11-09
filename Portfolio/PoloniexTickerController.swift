@@ -135,7 +135,7 @@ class PoloniexTickerController: TickerController {
             let baseCurrency = currencyList.last!
             
             // Check if base currency symbol is contained in currency pair
-            if baseCurrency.contains(baseCurrencySymbol.rawValue) {
+            if baseCurrency == baseCurrencySymbol.rawValue {
                 currencyPairs.append(currencyPair)
             }
         }
