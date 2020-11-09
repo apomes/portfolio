@@ -379,11 +379,13 @@
 				TargetAttributes = {
 					EAE42E671C93AD580027DB84 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = 62B4Y6V447;
+						DevelopmentTeam = BAB37UV7Q9;
 						LastSwiftMigration = 1100;
+						ProvisioningStyle = Automatic;
 					};
 					EAE42E7D1C93AD580027DB84 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = BAB37UV7Q9;
 						LastSwiftMigration = 1100;
 						TestTargetID = EAE42E671C93AD580027DB84;
 					};
@@ -643,14 +645,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 62B4Y6V447;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = BAB37UV7Q9;
 				INFOPLIST_FILE = Portfolio/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = kobiuter.Portfolio;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kobiuter.Portfolio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/ausias/Projects/ios_dev/Portfolio/Portfolio/Portfolio-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
@@ -661,14 +666,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 62B4Y6V447;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = BAB37UV7Q9;
 				INFOPLIST_FILE = Portfolio/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = kobiuter.Portfolio;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kobiuter.Portfolio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/ausias/Projects/ios_dev/Portfolio/Portfolio/Portfolio-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
@@ -679,6 +687,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = BAB37UV7Q9;
 				INFOPLIST_FILE = PortfolioTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kobiuter.PortfolioTests;
@@ -694,6 +703,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = BAB37UV7Q9;
 				INFOPLIST_FILE = PortfolioTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kobiuter.PortfolioTests;
