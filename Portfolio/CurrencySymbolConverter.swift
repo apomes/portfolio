@@ -80,7 +80,7 @@ class CurrencySymbolConverter {
 enum CurrencySymbol: String {
     
     // Fiat currencies
-    case Dollar = "USD"
+    case Dollar = "USDT"
     case Euro = "EUR"
     case Pound = "GBP"
     case CanadianDollar = "CAD"
