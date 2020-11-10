@@ -58,6 +58,16 @@ class CurrencySymbolConverter {
             currencySymbol = CurrencySymbol.Decentraland
         case "Ripple":
             currencySymbol = CurrencySymbol.Ripple
+        case "Tezos":
+            currencySymbol = CurrencySymbol.Tezos
+        case "Polkadot":
+            currencySymbol = CurrencySymbol.Polkadot
+        case "Basic Attention Token":
+            currencySymbol = CurrencySymbol.Bat
+        case "BitTorrent":
+            currencySymbol = CurrencySymbol.BitTorrent
+        case "Tron":
+            currencySymbol = CurrencySymbol.Tron
             
         case "USD", "USDT", "USDC":
             currencySymbol = CurrencySymbol.Dollar
@@ -108,5 +118,10 @@ enum CurrencySymbol: String {
     case BitcoinSatoshiVision = "BCHSV"
     case Decentraland = "MANA"
     case Ripple = "XRP"
+    case Tezos = "XTZ"
+    case Polkadot = "DOT"
+    case Bat = "BAT"
+    case BitTorrent = "BTT"
+    case Tron = "TRX"
     
 }
