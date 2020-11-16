@@ -22,7 +22,7 @@ UIPickerViewDelegate, UITextFieldDelegate {
                                  "Storj", "Lisk", "Dash", "Voxel", "Gemz",
                                  "LTBCoin", "Lumen", "Factom", "Zcash",
                                  "Augur", "Counterparty", "Ethereum Classic",
-                                 "Monero", "Bitcoin Cash", "Bitcoin Cash SV", "Decentraland", "Ripple", "Tezos", "Polkadot", "Basic Attention Token", "BitTorrent", "Tron", " - ", "USD", "EUR", "GBP"]
+                                 "Monero", "Bitcoin Cash", "Bitcoin Cash ABC", "Bitcoin Cash SV", "Decentraland", "Ripple", "Tezos", "Polkadot", "Basic Attention Token", "BitTorrent", "Tron", " - ", "USD", "EUR", "GBP"]
     
     @IBOutlet weak var pickerView: UIPickerView!
     
