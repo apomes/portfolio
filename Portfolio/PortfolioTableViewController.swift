@@ -252,7 +252,9 @@ class PortfolioTableViewController: UITableViewController, PortfolioDelegate, UI
     }
     
     func portfolioDidChangeSortMethod(_ portfolio: Portfolio, sortMethod aSortMethod: SortMethod) {
-        self.delegate?.portfolioTableDidChangeSortMethod(self, sortMethod: aSortMethod)
+        DispatchQueue.main.async(execute: {
+            self.delegate?.portfolioTableDidChangeSortMethod(self, sortMethod: aSortMethod)
+        })
     }
     
     
