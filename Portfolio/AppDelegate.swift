@@ -73,11 +73,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func lockScreen() {
         if (!portfolioRootViewController.lockScreenViewController!.isLocked) {
-            let currentTopVC: UIViewController? = self.getTopViewController()
+            var currentTopVC: UIViewController? = self.getTopViewController()
+            
+            if (currentTopVC!.isBeingDismissed) {
+                currentTopVC = portfolioRootViewController
+            }
             
             currentTopVC?.present(
                 portfolioRootViewController.lockScreenViewController!,
-                animated: true, completion: nil)
+                animated: false, completion: nil)
             portfolioRootViewController.lockScreenViewController?.isLocked = true
         }
     }
@@ -85,7 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func unlockScreen() {
         portfolioRootViewController.lockScreenViewController!
-        .dismiss(animated: true, completion: nil)
+        .dismiss(animated: false, completion: nil)
         portfolioRootViewController.lockScreenViewController?.isLocked = false
     }
     

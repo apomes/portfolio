@@ -87,7 +87,7 @@ class PortfolioViewController: UIViewController, PortfolioTableViewControllerDel
         lockScreenViewController = (myStoryboard.instantiateViewController(withIdentifier: "LockScreenID") as! LockScreenViewController)
         lockScreenViewController!.modalPresentationStyle = .overFullScreen
         
-        self.parent?.present(lockScreenViewController!, animated: true, completion:
+        self.parent?.present(lockScreenViewController!, animated: false, completion:
             {() -> Void in
                 // Init portfolio once the privace screen finished appearing
                 self.portfolioTableViewController?.initPortfolio()
