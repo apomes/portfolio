@@ -70,6 +70,8 @@ class CurrencySymbolConverter {
             currencySymbol = CurrencySymbol.BitTorrent
         case "Tron":
             currencySymbol = CurrencySymbol.Tron
+        case "Filecoin":
+            currencySymbol = CurrencySymbol.Filecoin
             
         case "USD", "USDT", "USDC":
             currencySymbol = CurrencySymbol.Dollar
@@ -126,5 +128,6 @@ enum CurrencySymbol: String {
     case Bat = "BAT"
     case BitTorrent = "BTT"
     case Tron = "TRX"
+    case Filecoin = "XFIL"
     
 }
