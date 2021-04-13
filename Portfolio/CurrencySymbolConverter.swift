@@ -128,6 +128,6 @@ enum CurrencySymbol: String {
     case Bat = "BAT"
     case BitTorrent = "BTT"
     case Tron = "TRX"
-    case Filecoin = "XFIL"
+    case Filecoin = "FIL"
     
 }
