@@ -25,7 +25,7 @@ UIPickerViewDelegate, UITextFieldDelegate {
                                  "Monero", "Bitcoin Cash", "Bitcoin Cash ABC",
                                  "Bitcoin Cash SV", "Decentraland", "Ripple",
                                  "Tezos", "Polkadot", "Basic Attention Token",
-                                 "BitTorrent", "Tron", "Filecoin", " - ",
+                                 "BitTorrent", "Tron", "Filecoin", "Cardano", " - ",
                                  "USD", "EUR", "GBP"]
     
     @IBOutlet weak var pickerView: UIPickerView!
