@@ -302,7 +302,7 @@
                             <constraint firstItem="CdZ-aM-EUI" firstAttribute="leading" secondItem="Mdg-qe-VOc" secondAttribute="leading" id="UHD-t4-zxg"/>
                             <constraint firstItem="Vsb-PJ-XxW" firstAttribute="width" secondItem="Mdg-qe-VOc" secondAttribute="width" id="VdW-3i-2Ud"/>
                             <constraint firstItem="Vsb-PJ-XxW" firstAttribute="height" secondItem="Mdg-qe-VOc" secondAttribute="height" id="moy-2t-WaV"/>
-                            <constraint firstItem="Vsb-PJ-XxW" firstAttribute="bottom" secondItem="xg6-L5-oUE" secondAttribute="top" id="nrJ-bG-6Rd"/>
+                            <constraint firstItem="Vsb-PJ-XxW" firstAttribute="bottom" secondItem="Mdg-qe-VOc" secondAttribute="bottom" id="nrJ-bG-6Rd"/>
                         </constraints>
                     </view>
                     <connections>
@@ -497,7 +497,6 @@
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="glB-P6-UEu">
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </toolbar>
                     <connections>
                         <segue destination="tUh-5T-OiW" kind="relationship" relationship="rootViewController" id="zms-OR-r0L"/>
