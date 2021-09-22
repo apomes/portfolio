@@ -19,8 +19,9 @@ int hSafeMargin = 2;
 
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
-        self.layer.borderWidth = 1.0;
-        self.layer.borderColor = [[UIColor whiteColor] CGColor];
+        // Show white lines to separate cells
+//        self.layer.borderWidth = 0.5;
+//        self.layer.borderColor = [[UIColor whiteColor] CGColor];
 
         self.textLabel = [[UILabel alloc] initWithFrame:CGRectMake(hSafeMargin, 0, frame.size.width - hSafeMargin * 2, labelFrameHeight)];
         textLabel.font = [UIFont systemFontOfSize:18];
@@ -47,17 +48,21 @@ int hSafeMargin = 2;
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+    // Adjust label to the size of the text, and keep centered
+    textLabel.frame = CGRectMake(hSafeMargin, self.frame.size.height / 3 - (labelFrameHeight / 2), self.frame.size.width - 4, textLabel.frame.size.height);
+    valueLabel.frame = CGRectMake(hSafeMargin, self.frame.size.height / 3 + (labelFrameHeight / 2), self.frame.size.width - 4, valueLabel.frame.size.height);
     
-    if (textLabel.frame.size.height > self.frame.size.height) {
-        // Text label too big to fit in the treemap view cell. We remove labels
-        [textLabel removeFromSuperview];
-        [valueLabel removeFromSuperview];
-    }
-    else {
-        // Adjust label to the size of the text, and keep centered
-        textLabel.frame = CGRectMake(hSafeMargin, self.frame.size.height / 3 - (labelFrameHeight / 2), self.frame.size.width - 4, textLabel.frame.size.height);
-        valueLabel.frame = CGRectMake(hSafeMargin, self.frame.size.height / 3 + (labelFrameHeight / 2), self.frame.size.width - 4, valueLabel.frame.size.height);
-    }
+    // Use this code to hide labels when cell is too small for them
+//    if (textLabel.frame.size.height > self.frame.size.height) {
+//        // Text label too big to fit in the treemap view cell. We remove labels
+//        [textLabel removeFromSuperview];
+//        [valueLabel removeFromSuperview];
+//    }
+//    else {
+//        // Adjust label to the size of the text, and keep centered
+//        textLabel.frame = CGRectMake(hSafeMargin, self.frame.size.height / 3 - (labelFrameHeight / 2), self.frame.size.width - 4, textLabel.frame.size.height);
+//        valueLabel.frame = CGRectMake(hSafeMargin, self.frame.size.height / 3 + (labelFrameHeight / 2), self.frame.size.width - 4, valueLabel.frame.size.height);
+//    }
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
