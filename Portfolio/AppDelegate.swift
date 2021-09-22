@@ -25,10 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // The root view controller is the main navigation view controller. 
         // Its first child is the portfolio view controller
         portfolioRootViewController = self.window?.rootViewController?.children[0] as? PortfolioViewController
-        if let window = (UIApplication.shared.delegate?.window)!! as UIWindow? {
-            window.backgroundColor = UIColor.systemBackground
-        }
-
         
         return true
     }
