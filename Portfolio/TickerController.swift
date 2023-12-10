@@ -20,7 +20,7 @@ class TickerController : TickerProtocol {
     
     /** Nested array containing the ticker data. Stores a JSON
      structure coming from a data transfer object (DTO). */
-    var tickerData: [String: AnyObject] {
+    var tickerData: [[String: Any]] {
         didSet {
             // Notify delegate that we got new data!
             delegate?.tickerControllerDidUpdateData(self)
@@ -32,7 +32,7 @@ class TickerController : TickerProtocol {
     /** Initializes the ticker. */
     required init () {
         ticker = 0 as AnyObject
-        tickerData = [:]
+        tickerData = [[:]]
     }
 
     

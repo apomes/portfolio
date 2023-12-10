@@ -19,7 +19,7 @@ protocol TickerProtocol {
     
     /** Nested array containing the ticker data. This corresponds to a JSON
      structure coming from a data transfer object (DTO). */
-    var tickerData: [String: AnyObject] {get set}
+    var tickerData: [[String: Any]] {get set}
     
     
     

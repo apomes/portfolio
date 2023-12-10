@@ -33,7 +33,7 @@ class KrakenTickerController: TickerController {
             if error != nil {
                 print(error!)
             } else {
-                self.tickerData = data
+//                self.tickerData = data
             }
         }
     }
@@ -45,21 +45,21 @@ class KrakenTickerController: TickerController {
         var lastPrice: Float = -1
         
         // Get currency pair for the asset
-        let currencyPair =
-            getKrakenCurrencyPairForCurrency(name)
+        let currencyPair = getKrakenCurrencyPairForCurrency(name)
         
         // Check that the currency pair exists in the ticker data
         // to make sure it hasn't been delisted or something
-        if (currencyPair != "") {
-            // Get the specific ticker for the asset
-            let assetTicker = self.tickerData[currencyPair]!
-            
-            // Get price
-            lastPrice = Float((assetTicker["last"]!)! as! String)!
-        }
+//        if let assetTicker = self.tickerData[currencyPair] as? [String: Any] {
+//            // Get price
+//            if let lastPriceString = assetTicker["last"] as? String,
+//               let lastPriceFloat = Float(lastPriceString) {
+//                lastPrice = lastPriceFloat
+//            }
+//        }
         
         return ["Kraken" : lastPrice]
     }
+
     
     
     
@@ -90,19 +90,19 @@ class KrakenTickerController: TickerController {
         let baseCurrencySymbol = CurrencySymbolConverter.sharedInstance.getSymbolForName(name)
         
         // Search currency pairs that contain the base currency in ticker data
-        for item in self.tickerData {
-            let currencyPair = item.0
-            
-            // Get currencies in pair
-            let currencyList = currencyPair.components(separatedBy: "_")
-            // Poloniex puts the base currency in last place
-            let baseCurrency = currencyList.last!
-            
-            // Check if base currency symbol is contained in currency pair
-            if baseCurrency == baseCurrencySymbol.rawValue {
-                currencyPairs.append(currencyPair)
-            }
-        }
+//        for item in self.tickerData {
+//            let currencyPair = item.0
+//            
+//            // Get currencies in pair
+//            let currencyList = currencyPair.components(separatedBy: "_")
+//            // Poloniex puts the base currency in last place
+//            let baseCurrency = currencyList.last!
+//            
+//            // Check if base currency symbol is contained in currency pair
+//            if baseCurrency == baseCurrencySymbol.rawValue {
+//                currencyPairs.append(currencyPair)
+//            }
+//        }
         
         return currencyPairs
     }

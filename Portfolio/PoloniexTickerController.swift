@@ -25,18 +25,31 @@ class PoloniexTickerController: TickerController {
     }
     
     
+//
+//    internal override func getTickerData() {
+//        // Get ticker
+//        (self.ticker as! PoloniexTicker).returnTicker() {
+//            (data, error) -> Void in
+//            if error != nil {
+//                print(error!)
+//            } else {
+//                self.tickerData = data
+//            }
+//        }
+//    }
     
     internal override func getTickerData() {
         // Get ticker
-        (self.ticker as! PoloniexTicker).returnTicker() {
-            (data, error) -> Void in
-            if error != nil {
-                print(error!)
+        (self.ticker as! PoloniexTicker).returnTicker() { (data, error) -> Void in
+            if let error = error {
+                print(error)
             } else {
+                // Assuming self.tickerData is of type [String: Any]
                 self.tickerData = data
             }
         }
     }
+
     
     
     
@@ -49,16 +62,17 @@ class PoloniexTickerController: TickerController {
         
         // Check that the currency pair exists in the ticker data
         // to make sure it hasn't been delisted or something
-        if (currencyPair != "") {
-            // Get the specific ticker for the asset
-            let assetTicker = self.tickerData[currencyPair]!
-            
+        if let assetTicker = self.tickerData[[currencyPair]] as? [String: Any] {
             // Get price
-            lastPrice = Float((assetTicker["last"]!)! as! String)!
+            if let lastPriceString = assetTicker["last"] as? String,
+               let lastPriceFloat = Float(lastPriceString) {
+                lastPrice = lastPriceFloat
+            }
         }
         
-        return ["Poloniex" : lastPrice]
+        return ["Poloniex": lastPrice]
     }
+
     
     
     
@@ -71,16 +85,17 @@ class PoloniexTickerController: TickerController {
         
         // Check that the currency pair exists in the ticker data
         // to make sure it hasn't been delisted or something
-        if (currencyPair != "") {
-            // Get the specific ticker for the asset
-            let assetTicker = self.tickerData[currencyPair]!
-            
-            // Get percent change in value for the asset
-            percentChange = Float(assetTicker["percentChange"] as! String)! * 100
-        }
+//        if let assetTicker = self.tickerData[[currencyPair]] as? [String: Any] {
+//            // Get percent change in value for the asset
+//            if let percentChangeString = assetTicker["percentChange"] as? String,
+//               let percentChangeFloat = Float(percentChangeString) {
+//                percentChange = percentChangeFloat * 100
+//            }
+//        }
         
         return ["Poloniex" : percentChange]
     }
+
     
     
     
@@ -126,17 +141,20 @@ class PoloniexTickerController: TickerController {
         let baseCurrencySymbol = CurrencySymbolConverter.sharedInstance.getSymbolForName(name)
         
         // Search currency pairs that contain the base currency in ticker data
-        for item in self.tickerData {
-            let currencyPair = item.0
-            
-            // Get currencies in pair
-            let currencyList = currencyPair.components(separatedBy: "_")
-            // Poloniex puts the base currency in last place
-            let baseCurrency = currencyList.last!
-            
-            // Check if base currency symbol is contained in currency pair
-            if baseCurrency == baseCurrencySymbol.rawValue {
-                currencyPairs.append(currencyPair)
+        if self.tickerData.first!.count != 0 {
+            for item in self.tickerData {
+                // Get the currency pair. E.g. BTC_USDT
+                let currencyPair: String = item["symbol"] as! String
+                // Get currencies in pair
+                let currencyList = currencyPair.components(separatedBy: "_")
+                // Poloniex puts the base currency in last place
+                let baseCurrency = currencyList.last!
+                print("baseCurrency is ", baseCurrency)
+                
+                // Check if base currency symbol is contained in currency pair
+                if baseCurrency == baseCurrencySymbol.rawValue {
+                    currencyPairs.append(currencyPair)
+                }
             }
         }
         

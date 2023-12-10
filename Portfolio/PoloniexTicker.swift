@@ -13,7 +13,7 @@ class PoloniexTicker {
     var APIKey: String
     var Secret: String
     
-    let base_url: String = "https://poloniex.com/public?command="
+    let base_url: String = "https://api.poloniex.com/"
     
     
     
@@ -33,24 +33,30 @@ class PoloniexTicker {
     
     
     
-    func returnTicker(_ callback: @escaping ([String: AnyObject], String?) -> Void) {
-        self.api_query("returnTicker", req: nil) {
-            (data, error) -> Void in
-            if error != nil {
-                callback([:], error)
+    func returnTicker(_ callback: @escaping ([[String: Any]], String?) -> Void) {
+        self.api_query("markets", req: nil) { (data, error) -> Void in
+            if let error = error {
+                callback([[:]], error)
             } else {
-                // Convert string to json
-                let jsonData = self.convertStringToJSON(data)
-                
-                callback(jsonData, nil)
+                do {
+                    // Convert string to json
+                    let jsonData = try self.convertStringToJSON(data)
+                    
+//                    print(String(data: jsonData, encoding: .utf8) ?? "Invalid JSON Data")
+                    print(data)
+                    callback(jsonData, nil)
+                } catch {
+                    callback([[:]], error.localizedDescription)
+                }
             }
         }
     }
+
     
     
     
     fileprivate func api_query(_ command: String, req: [String: String]?, callback: @escaping (String, String?) -> Void) {
-        if command == "returnTicker" || command == "return24hVolume" {
+        if command == "markets" || command == "return24hVolume" {
             executeHttpRequest(base_url + command) {
                 (data, error) -> Void in
                 if error != nil {
@@ -105,16 +111,37 @@ class PoloniexTicker {
     }
     
     
-    
-    fileprivate func convertStringToJSON (_ jsonString: String) -> [String: AnyObject] {
-        let jsondata: Data = jsonString.data(using: String.Encoding.utf8)!
-        var json: [String: AnyObject] = [:]
-        do {
-            json = try JSONSerialization.jsonObject(with: jsondata, options: JSONSerialization.ReadingOptions()) as! [String: AnyObject]
-        } catch {
-            print(error)
+    fileprivate func convertStringToJSON(_ jsonString: String) throws -> [[String: Any]] {
+        
+        guard let jsonData = jsonString.data(using: .utf8) else {
+            throw NSError(domain: "JSONConvertErrorDomain", code: 1, userInfo: ["message": "Failed to convert string to data"])
         }
-        return json
+        
+        do {
+//            print(String(data: jsonData, encoding: .utf8) ?? "Invalid JSON Data")
+
+            if let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [[String: Any]] {
+                return jsonObject
+            } else {
+                throw NSError(domain: "JSONConvertErrorDomain", code: 2, userInfo: ["message": "Failed to convert data to JSON dictionary"])
+            }
+            
+        } catch {
+            throw error
+        }
     }
+
+
+    
+//    fileprivate func convertStringToJSON (_ jsonString: String) -> [String: AnyObject] {
+//        let jsondata: Data = jsonString.data(using: String.Encoding.utf8)!
+//        var json: [String: AnyObject] = [:]
+//        do {
+//            json = try JSONSerialization.jsonObject(with: jsondata, options: JSONSerialization.ReadingOptions()) as! [String: AnyObject]
+//        } catch {
+//            print(error)
+//        }
+//        return json
+//    }
     
 }
