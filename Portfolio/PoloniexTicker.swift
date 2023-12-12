@@ -43,7 +43,7 @@ class PoloniexTicker {
                     let jsonData = try self.convertStringToJSON(data)
                     
 //                    print(String(data: jsonData, encoding: .utf8) ?? "Invalid JSON Data")
-                    print(data)
+//                    print(data)
                     callback(jsonData, nil)
                 } catch {
                     callback([[:]], error.localizedDescription)
@@ -51,6 +51,46 @@ class PoloniexTicker {
             }
         }
     }
+    
+    
+    func returnPrice(forSymbol symbol: String, callback: @escaping ([String: Any], String?) -> Void) {
+        let endpoint = "markets/\(symbol)/price"
+        print("getting price for: ", symbol)
+        self.api_query(endpoint, req: nil) { (data, error) -> Void in
+            if let error = error {
+                callback([:], error)
+            } else {
+                do {
+                    // Convert string to JSON
+                    print("in model")
+                    print(data)
+//                    let jsonData = try self.convertStringToJSON(data)
+                    //callback(jsonData, nil)
+                } catch {
+                    callback([:], error.localizedDescription)
+                }
+            }
+        }
+    }
+
+    
+//    func returnPrice(_ callback: @escaping ([String: Any], String?) -> Void) {
+//        self.api_query("price", req: nil) { (data, error) -> Void in
+//            if let error = error {
+//                callback([:], error)
+//            }
+//            else {
+//                do {
+//                    // Convert string to json
+//                    let jsonData = try self.convertStringToJSON(data)
+//                    print(data)
+//                    //callback(jsonData, nil)
+//                } catch {
+//                    callback([:], error.localizedDescription)
+//                }
+//            }
+//        }
+//    }
 
     
     
@@ -69,6 +109,16 @@ class PoloniexTicker {
         else if command == "returnOrderBook" {
             executeHttpRequest(base_url + command +
                 "&currencyPair=" + req!["currencyPair"]!) {
+                (data, error) -> Void in
+                    if error != nil {
+                        callback("", error)
+                    } else {
+                        callback(data, nil)
+                    }
+            }
+        }
+        else {
+            executeHttpRequest(base_url + command) {
                 (data, error) -> Void in
                     if error != nil {
                         callback("", error)

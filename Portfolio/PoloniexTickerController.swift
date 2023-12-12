@@ -62,12 +62,29 @@ class PoloniexTickerController: TickerController {
         
         // Check that the currency pair exists in the ticker data
         // to make sure it hasn't been delisted or something
-        if let assetTicker = self.tickerData[[currencyPair]] as? [String: Any] {
-            // Get price
-            if let lastPriceString = assetTicker["last"] as? String,
-               let lastPriceFloat = Float(lastPriceString) {
-                lastPrice = lastPriceFloat
-            }
+//        if let assetTicker = self.tickerData[[currencyPair]] as? [String: Any] {
+//            // Get price
+//            if let lastPriceString = assetTicker["last"] as? String,
+//               let lastPriceFloat = Float(lastPriceString) {
+//                lastPrice = lastPriceFloat
+//            }
+//        }
+        
+        // Get the price for the currency pair
+        if currencyPair != "" {
+            (self.ticker as! PoloniexTicker).returnPrice(
+                forSymbol: currencyPair,
+                callback: { (data, error) -> Void in
+                    if let error = error {
+                        print(error)
+                    } else {
+                        // Assuming self.tickerData is of type [String: Any]
+                        print("in controller")
+                        print(data)
+                    }
+                }
+            )
+            
         }
         
         return ["Poloniex": lastPrice]
@@ -149,7 +166,6 @@ class PoloniexTickerController: TickerController {
                 let currencyList = currencyPair.components(separatedBy: "_")
                 // Poloniex puts the base currency in last place
                 let baseCurrency = currencyList.last!
-                print("baseCurrency is ", baseCurrency)
                 
                 // Check if base currency symbol is contained in currency pair
                 if baseCurrency == baseCurrencySymbol.rawValue {
