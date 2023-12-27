@@ -59,28 +59,6 @@ class PoloniexTicker {
     
     
     
-//    func returnPrice( forSymbol symbol: String, callback: @escaping (Float, String?) -> Void)
-//    {
-//        let endpoint = "markets/\(symbol)/price"
-//        self.api_query(endpoint, req: nil) { (data, error) -> Void in
-//            if let error = error {
-//                callback(-1, error)
-//            } else {
-//                do {
-//                    // Convert string to JSON
-//                    let jsonData = data.data(using: .utf8)!
-//                    let coinData = try JSONDecoder().decode(CoinData.self, from: jsonData)
-//                    print(coinData)
-//                    callback(Float(coinData.price)!, nil)
-//                } catch {
-//                    callback(-1, error.localizedDescription)
-//                }
-//            }
-//        }
-//    }
-    
-    
-    
     fileprivate func api_query(_ command: String, req: [String: String]?, callback: @escaping (String, String?) -> Void) {
         if command == "markets/price" {
             executeHttpRequest(base_url + command) {

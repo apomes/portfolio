@@ -60,7 +60,7 @@ class PoloniexTickerController: TickerController {
         
         // Get currency pair for the asset
         let currencyPair = getPoloniexCurrencyPairForCurrency(name)
-        print("currencyPair is \(currencyPair)")
+        //print("currencyPair is \(currencyPair)")
         
         // Get the price for the currency pair from tickerData
         if currencyPair != "" {
@@ -69,8 +69,8 @@ class PoloniexTickerController: TickerController {
         return ["Poloniex": lastPrice]
     }
 
-    
-    
+
+    // From GPT
     func getPriceForSymbol(_ symbol: String) -> Float? {
         if let symbolData = self.tickerData.first(where: { $0["symbol"] as? String == symbol }),
            let priceString = symbolData["price"] as? String,
@@ -89,20 +89,24 @@ class PoloniexTickerController: TickerController {
         // Get currency pair for the asset
         let currencyPair = getPoloniexCurrencyPairForCurrency(name)
         
-        // Check that the currency pair exists in the ticker data
-        // to make sure it hasn't been delisted or something
-//        if let assetTicker = self.tickerData[[currencyPair]] as? [String: Any] {
-//            // Get percent change in value for the asset
-//            if let percentChangeString = assetTicker["percentChange"] as? String,
-//               let percentChangeFloat = Float(percentChangeString) {
-//                percentChange = percentChangeFloat * 100
-//            }
-//        }
-        
+        // Get percent change for the currency pair from the tickerData
+        if currencyPair != "" {
+            percentChange = getPercentChangeForSymbol(currencyPair)!
+        }
         return ["Poloniex" : percentChange]
     }
 
     
+    
+    func getPercentChangeForSymbol(_ symbol: String) -> Float? {
+        if let symbolData = self.tickerData.first(where: { $0["symbol"] as? String == symbol }),
+           let dailyChangeString = symbolData["dailyChange"] as? String,
+           let dailyChange = Float(dailyChangeString) {
+            let percentChange = dailyChange * 100;
+            return percentChange
+        }
+        return -1
+    }
     
     
     /** Returns a list representing a currency pair. */
