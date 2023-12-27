@@ -70,7 +70,7 @@ class TickerListController: TickerControllerDelegate  {
                 return ["USD" : 1];
             }
             if (name == "EUR") {
-                return ["USD" : 1.19];
+                return ["USD" : 1.1];
             }
             if (name == "GBP") {
                 return ["USD" : 1.3];

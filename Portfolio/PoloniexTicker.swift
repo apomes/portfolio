@@ -15,7 +15,14 @@ class PoloniexTicker {
     
     let base_url: String = "https://api.poloniex.com/"
     
-    
+    // Structure to store decoded json data for coin price request
+    struct CoinData: Codable {
+        let symbol: String
+        let price: String
+        let time: Int
+        let dailyChange: String
+        let ts: Int
+    }
     
     /**
      Inits the Poloniex class with authentication parameters.
@@ -33,17 +40,15 @@ class PoloniexTicker {
     
     
     
-    func returnTicker(_ callback: @escaping ([[String: Any]], String?) -> Void) {
-        self.api_query("markets", req: nil) { (data, error) -> Void in
+    func returnTicker(_ callback: @escaping ([[String: Any]], String?) -> Void) 
+    {
+        self.api_query("markets/price", req: nil) { (data, error) -> Void in
             if let error = error {
                 callback([[:]], error)
             } else {
                 do {
                     // Convert string to json
                     let jsonData = try self.convertStringToJSON(data)
-                    
-//                    print(String(data: jsonData, encoding: .utf8) ?? "Invalid JSON Data")
-//                    print(data)
                     callback(jsonData, nil)
                 } catch {
                     callback([[:]], error.localizedDescription)
@@ -53,50 +58,31 @@ class PoloniexTicker {
     }
     
     
-    func returnPrice(forSymbol symbol: String, callback: @escaping ([String: Any], String?) -> Void) {
-        let endpoint = "markets/\(symbol)/price"
-        print("getting price for: ", symbol)
-        self.api_query(endpoint, req: nil) { (data, error) -> Void in
-            if let error = error {
-                callback([:], error)
-            } else {
-                do {
-                    // Convert string to JSON
-                    print("in model")
-                    print(data)
-//                    let jsonData = try self.convertStringToJSON(data)
-                    //callback(jsonData, nil)
-                } catch {
-                    callback([:], error.localizedDescription)
-                }
-            }
-        }
-    }
-
     
-//    func returnPrice(_ callback: @escaping ([String: Any], String?) -> Void) {
-//        self.api_query("price", req: nil) { (data, error) -> Void in
+//    func returnPrice( forSymbol symbol: String, callback: @escaping (Float, String?) -> Void)
+//    {
+//        let endpoint = "markets/\(symbol)/price"
+//        self.api_query(endpoint, req: nil) { (data, error) -> Void in
 //            if let error = error {
-//                callback([:], error)
-//            }
-//            else {
+//                callback(-1, error)
+//            } else {
 //                do {
-//                    // Convert string to json
-//                    let jsonData = try self.convertStringToJSON(data)
-//                    print(data)
-//                    //callback(jsonData, nil)
+//                    // Convert string to JSON
+//                    let jsonData = data.data(using: .utf8)!
+//                    let coinData = try JSONDecoder().decode(CoinData.self, from: jsonData)
+//                    print(coinData)
+//                    callback(Float(coinData.price)!, nil)
 //                } catch {
-//                    callback([:], error.localizedDescription)
+//                    callback(-1, error.localizedDescription)
 //                }
 //            }
 //        }
 //    }
-
     
     
     
     fileprivate func api_query(_ command: String, req: [String: String]?, callback: @escaping (String, String?) -> Void) {
-        if command == "markets" || command == "return24hVolume" {
+        if command == "markets/price" {
             executeHttpRequest(base_url + command) {
                 (data, error) -> Void in
                 if error != nil {
@@ -106,25 +92,14 @@ class PoloniexTicker {
                 }
             }
         }
-        else if command == "returnOrderBook" {
-            executeHttpRequest(base_url + command +
-                "&currencyPair=" + req!["currencyPair"]!) {
-                (data, error) -> Void in
-                    if error != nil {
-                        callback("", error)
-                    } else {
-                        callback(data, nil)
-                    }
-            }
-        }
         else {
             executeHttpRequest(base_url + command) {
                 (data, error) -> Void in
-                    if error != nil {
-                        callback("", error)
-                    } else {
-                        callback(data, nil)
-                    }
+                if error != nil {
+                    callback("", error)
+                } else {
+                    callback(data, nil)
+                }
             }
         }
     }

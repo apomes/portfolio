@@ -45,6 +45,7 @@ class PoloniexTickerController: TickerController {
                 print(error)
             } else {
                 // Assuming self.tickerData is of type [String: Any]
+                print("__Got the ticker data")
                 self.tickerData = data
             }
         }
@@ -59,37 +60,25 @@ class PoloniexTickerController: TickerController {
         
         // Get currency pair for the asset
         let currencyPair = getPoloniexCurrencyPairForCurrency(name)
+        print("currencyPair is \(currencyPair)")
         
-        // Check that the currency pair exists in the ticker data
-        // to make sure it hasn't been delisted or something
-//        if let assetTicker = self.tickerData[[currencyPair]] as? [String: Any] {
-//            // Get price
-//            if let lastPriceString = assetTicker["last"] as? String,
-//               let lastPriceFloat = Float(lastPriceString) {
-//                lastPrice = lastPriceFloat
-//            }
-//        }
-        
-        // Get the price for the currency pair
+        // Get the price for the currency pair from tickerData
         if currencyPair != "" {
-            (self.ticker as! PoloniexTicker).returnPrice(
-                forSymbol: currencyPair,
-                callback: { (data, error) -> Void in
-                    if let error = error {
-                        print(error)
-                    } else {
-                        // Assuming self.tickerData is of type [String: Any]
-                        print("in controller")
-                        print(data)
-                    }
-                }
-            )
-            
+            lastPrice = getPriceForSymbol(currencyPair)!
         }
-        
         return ["Poloniex": lastPrice]
     }
 
+    
+    
+    func getPriceForSymbol(_ symbol: String) -> Float? {
+        if let symbolData = self.tickerData.first(where: { $0["symbol"] as? String == symbol }),
+           let priceString = symbolData["price"] as? String,
+           let price = Float(priceString) {
+            return price
+        }
+        return -1
+    }
     
     
     
