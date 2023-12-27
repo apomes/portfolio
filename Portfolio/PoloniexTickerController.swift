@@ -140,6 +140,7 @@ class PoloniexTickerController: TickerController {
     
     
     /** Returns the a list of currency pairs for a specific base currency */
+    /** BaseCurrency_CounterCurrency = BaseCurrency_QuoteCurrency */
     fileprivate func getCurrencyPairsForCurrency(_ name: String) -> [String] {
         var currencyPairs = [String]()
         
@@ -153,8 +154,8 @@ class PoloniexTickerController: TickerController {
                 let currencyPair: String = item["symbol"] as! String
                 // Get currencies in pair
                 let currencyList = currencyPair.components(separatedBy: "_")
-                // Poloniex puts the base currency in last place
-                let baseCurrency = currencyList.last!
+                // Poloniex puts the base currency in first place
+                let baseCurrency = currencyList.first!
                 
                 // Check if base currency symbol is contained in currency pair
                 if baseCurrency == baseCurrencySymbol.rawValue {
@@ -170,7 +171,7 @@ class PoloniexTickerController: TickerController {
     
     fileprivate func getCurrencyPairForCounterCurrency(_ aCounterCurrency: CurrencySymbol, currencyPairs: [String]) -> String {
         for aCurrencyPair in currencyPairs {
-            let counterCurrency = aCurrencyPair.components(separatedBy: "_").first!
+            let counterCurrency = aCurrencyPair.components(separatedBy: "_").last!
             if counterCurrency.contains(aCounterCurrency.rawValue) {
                 return aCurrencyPair
             }

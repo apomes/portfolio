@@ -140,8 +140,8 @@ class Portfolio : NSObject, AssetDelegate {
                 asset.baseCurrency = CurrencySymbol.Dollar
             }
             else {
-                asset.counterCurrency = currencyPairs.first?.first
-                asset.baseCurrency = currencyPairs.first?.last
+                asset.counterCurrency = currencyPairs.first?.last
+                asset.baseCurrency = currencyPairs.first?.first
             }
             
         }
