@@ -96,8 +96,7 @@ class Portfolio : NSObject, AssetDelegate {
         assetList.append(anAsset)
         
         // Trigger portfolio data update and table of assets
-        // TODO: temporarily disable update upon adding new asset to avoid triggering updates when building table for first time. But adding new asset will not trigger updates now. 
-        //update()
+        update()
     }
     
     func removeAsset(_ name: String) {
