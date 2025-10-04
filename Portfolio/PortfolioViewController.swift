@@ -98,6 +98,10 @@ class PortfolioViewController: UIViewController, PortfolioTableViewControllerDel
         // Setup privacy toggle button
         setupPrivacyToggleButton()
         
+        // Add observers for app lifecycle events
+        NotificationCenter.default.addObserver(self, selector: #selector(appWillEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(appDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
+        
         // Present privacy screen and request authentication
         lockScreenViewController = (myStoryboard.instantiateViewController(withIdentifier: "LockScreenID") as! LockScreenViewController)
         lockScreenViewController!.modalPresentationStyle = .overFullScreen
@@ -117,6 +121,38 @@ class PortfolioViewController: UIViewController, PortfolioTableViewControllerDel
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Restore blur state if it was hidden when returning to view
+        if _isValueHidden {
+            refreshBlurEffect()
+        }
+    }
+    
+    @objc func appWillEnterForeground() {
+        // Refresh blur early when app is about to enter foreground (before Face ID)
+        if _isValueHidden {
+            refreshBlurEffect()
+        }
+    }
+    
+    @objc func appDidBecomeActive() {
+        // Refresh blur when app becomes active (after Face ID)
+        if _isValueHidden {
+            // Add a small delay to ensure Face ID UI is dismissed
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
+                self?.refreshBlurEffect()
+            }
+        }
+    }
+    
+    deinit {
+        // Remove observers when view controller is deallocated
+        NotificationCenter.default.removeObserver(self, name: UIApplication.willEnterForegroundNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIApplication.didBecomeActiveNotification, object: nil)
     }
     
     
@@ -330,6 +366,18 @@ class PortfolioViewController: UIViewController, PortfolioTableViewControllerDel
         blurAnimator = nil
         blurEffectView?.removeFromSuperview()
         blurEffectView = nil
+    }
+    
+    /** Refreshes the blur effect (useful when returning from background or other views). */
+    func refreshBlurEffect() {
+        // Remove existing blur
+        blurAnimator?.stopAnimation(true)
+        blurAnimator = nil
+        blurEffectView?.removeFromSuperview()
+        blurEffectView = nil
+        
+        // Reapply blur
+        applyBlurEffect()
     }
 
 }
