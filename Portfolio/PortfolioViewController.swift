@@ -35,6 +35,18 @@ class PortfolioViewController: UIViewController, PortfolioTableViewControllerDel
     // VIEW
     
     @IBOutlet weak var TotalValue: UILabel!
+    
+    /** Button to toggle privacy mode for the total value. */
+    var privacyToggleButton: UIButton!
+    
+    /** Visual effect view for blurring the total value. */
+    var blurEffectView: UIVisualEffectView?
+    
+    /** Animator to control blur intensity. */
+    var blurAnimator: UIViewPropertyAnimator?
+    
+    /** True if the total value should be hidden for privacy. */
+    var _isValueHidden: Bool = false
     @IBAction func tapOnTotalValue(_ sender: UITapGestureRecognizer) {
         _shouldUseLocalCurrency = !_shouldUseLocalCurrency
         
@@ -82,6 +94,9 @@ class PortfolioViewController: UIViewController, PortfolioTableViewControllerDel
         
         // Add self as delegate for the portfolio table view controller
         portfolioTableViewController?.delegate = self
+        
+        // Setup privacy toggle button
+        setupPrivacyToggleButton()
         
         // Present privacy screen and request authentication
         lockScreenViewController = (myStoryboard.instantiateViewController(withIdentifier: "LockScreenID") as! LockScreenViewController)
@@ -201,6 +216,7 @@ class PortfolioViewController: UIViewController, PortfolioTableViewControllerDel
     
     func portfolioTableDidUpdate(_ portfolioTableViewController: PortfolioTableViewController) {
         TotalValue.text = CurrencyFormatter.sharedInstance.string(from: NSNumber(value: portfolioTableViewController.getPortfolioTotalValue()))
+        updatePrivacyState()
     }
     
     func portfolioTableShouldUseLocalCurrency(_ portfolioTableViewController: PortfolioTableViewController) -> Bool {
@@ -209,6 +225,111 @@ class PortfolioViewController: UIViewController, PortfolioTableViewControllerDel
     
     func portfolioTableDidChangeSortMethod(_ portfolioTableViewController: PortfolioTableViewController, sortMethod aSortMethod: SortMethod) {
         ChangeSortButtonLabelToMethod(aSortMethod: aSortMethod)
+    }
+    
+    
+    
+    // MARK: - Privacy Toggle Methods
+    
+    /** Sets up the privacy toggle button next to the total value label. */
+    func setupPrivacyToggleButton() {
+        // Create the button
+        privacyToggleButton = UIButton(type: .system)
+        privacyToggleButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Configure button appearance
+        let eyeImage = UIImage(systemName: "eye.fill")
+        privacyToggleButton.setImage(eyeImage, for: .normal)
+        privacyToggleButton.tintColor = .lightGray
+        
+        // Add action
+        privacyToggleButton.addTarget(self, action: #selector(togglePrivacyMode), for: .touchUpInside)
+        
+        // Add button to the view
+        self.view.addSubview(privacyToggleButton)
+        
+        // Setup constraints to position button to the right of TotalValue label
+        NSLayoutConstraint.activate([
+            privacyToggleButton.centerYAnchor.constraint(equalTo: TotalValue.centerYAnchor),
+            privacyToggleButton.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            privacyToggleButton.widthAnchor.constraint(equalToConstant: 30),
+            privacyToggleButton.heightAnchor.constraint(equalToConstant: 30)
+        ])
+    }
+    
+    /** Toggles the privacy mode for the total value display. */
+    @objc func togglePrivacyMode() {
+        _isValueHidden = !_isValueHidden
+        updatePrivacyState()
+    }
+    
+    /** Updates the UI based on the current privacy state. */
+    func updatePrivacyState() {
+        if _isValueHidden {
+            // Show eye.slash icon when value is hidden
+            let eyeSlashImage = UIImage(systemName: "eye.slash.fill")
+            privacyToggleButton.setImage(eyeSlashImage, for: .normal)
+            
+            // Apply blur effect
+            applyBlurEffect()
+        } else {
+            // Show eye icon when value is visible
+            let eyeImage = UIImage(systemName: "eye.fill")
+            privacyToggleButton.setImage(eyeImage, for: .normal)
+            
+            // Remove blur effect
+            removeBlurEffect()
+        }
+    }
+    
+    /** Applies a blur effect to the total value label with adjustable intensity. */
+    func applyBlurEffect() {
+        // Remove existing blur if present
+        if blurEffectView != nil {
+            return
+        }
+        
+        // Calculate the actual text size
+        guard let text = TotalValue.text, let font = TotalValue.font else { return }
+        let textSize = (text as NSString).size(withAttributes: [.font: font])
+        
+        // Create blur effect view (initially without effect)
+        blurEffectView = UIVisualEffectView(effect: nil)
+        blurEffectView?.translatesAutoresizingMaskIntoConstraints = false
+        blurEffectView?.isUserInteractionEnabled = false
+        blurEffectView?.layer.cornerRadius = 4
+        blurEffectView?.clipsToBounds = true
+        
+        // Add to view hierarchy
+        self.view.addSubview(blurEffectView!)
+        
+        // Position blur view centered on label with text-only dimensions
+        // Add extra padding to prevent blur from being cropped at edges
+        NSLayoutConstraint.activate([
+            blurEffectView!.centerXAnchor.constraint(equalTo: TotalValue.centerXAnchor),
+            blurEffectView!.centerYAnchor.constraint(equalTo: TotalValue.centerYAnchor),
+            blurEffectView!.widthAnchor.constraint(equalToConstant: textSize.width + 18),
+            blurEffectView!.heightAnchor.constraint(equalToConstant: textSize.height + 14)
+        ])
+        
+        // Use UIViewPropertyAnimator to control blur intensity
+        // fractionComplete controls the blur strength (0.0 = no blur, 1.0 = full blur)
+        let blurEffect = UIBlurEffect(style: .regular)
+        blurAnimator = UIViewPropertyAnimator(duration: 1, curve: .linear) { [weak self] in
+            self?.blurEffectView?.effect = blurEffect
+        }
+        
+        // Set blur intensity: 0.0 (no blur) to 1.0 (full blur)
+        // Adjust this value to control blur strength (e.g., 0.7 for 70% blur)
+        blurAnimator?.fractionComplete = 0.2
+    }
+    
+    /** Removes the blur effect from the total value label. */
+    func removeBlurEffect() {
+        blurAnimator?.stopAnimation(true)
+        blurAnimator = nil
+        blurEffectView?.removeFromSuperview()
+        blurEffectView = nil
     }
 
 }
